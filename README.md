@@ -1,8 +1,8 @@
 # 🇮🇪 Ireland Work Permits — Interactive County Map
 
-I built this project to explore a question I kept wondering about: *where exactly in Ireland are international workers going, and has that changed over time?*
+I built this project to answer the question of *where international workers are being hired over time in Ireland and which sectors are hiring*, to effectively target my job search efforts. This map helps you navigate hiring trends by county and sector over time.
 
-Using ten years of official government data (2015–2025), I built a full data pipeline — from messy Excel files to a self-contained interactive map you can open in any browser. No server required, no login, just open the HTML file and explore.
+Using ten years of official government data (2015–2025), I built a full data pipeline from messy Excel files to a simple self-contained interactive map you can open in any browser. No server required, no login, just open the HTML file and explore.
 
 ---
 
