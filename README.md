@@ -1,4 +1,4 @@
-# 🇮🇪 Ireland Work Permits — Interactive County Map
+# Interactive County Map for Work Permits in Ireland
 
 I built this project to answer the question of *where international workers are being hired over time in Ireland and which sectors are hiring*, to effectively target my job search efforts. This map helps you navigate hiring trends by county and sector over time.
 
