@@ -1,6 +1,6 @@
 # Interactive County Map for Work Permits in Ireland
 
-🌍 **[Live demo → ireland-employment-map-adarsh-kodali.s3-website-eu-west-1.amazonaws.com](http://ireland-employment-map-adarsh-kodali.s3-website-eu-west-1.amazonaws.com)**
+**[Live demo → ireland-employment-map-adarsh-kodali.s3-website-eu-west-1.amazonaws.com](http://ireland-employment-map-adarsh-kodali.s3-website-eu-west-1.amazonaws.com)**
 
 I built this project to answer the question of where international workers are being hired over time in Ireland and which sectors are hiring, to effectively target my job search efforts. This map helps you navigate hiring trends by county and sector over time.
 
