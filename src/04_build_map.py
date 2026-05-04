@@ -635,7 +635,7 @@ infoBox.addTo(map);
 // They are declared at the top level (outside functions) so every function
 // in the page can read the current selection without being passed arguments.
 let currentFromYear = YEARS[0];   // left handle — default = first year
-let currentToYear   = YEARS.includes('2024') ? '2024' : YEARS[YEARS.length - 1];
+let currentToYear   = YEARS.includes('2025') ? '2025' : YEARS[YEARS.length - 1];
 
 // ── getGrowth: calculate % change for a county between two years ───────
 // Returns an object {fromIssued, toIssued, pct} or null if no data.
@@ -1051,7 +1051,7 @@ function setupRangeSlider() {
   const ticks = document.getElementById('slider-ticks');
 
   const defaultFromIdx = 0;
-  const defaultToIdx   = YEARS.includes('2024') ? YEARS.indexOf('2024') : YEARS.length - 1;
+  const defaultToIdx   = YEARS.includes('2025') ? YEARS.indexOf('2025') : YEARS.length - 1;
 
   // Create the two-handle slider
   noUiSlider.create(el, {

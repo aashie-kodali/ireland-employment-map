@@ -726,9 +726,9 @@ if __name__ == "__main__":
     print("\n── 2. County share")
     county_df = analysis_county_share(conn)
     county_df.to_csv(TABLES_DIR / "county_share.csv", index=False)
-    top5 = county_df[county_df["year"] == 2024].head(5)
+    top5 = county_df[county_df["year"] == 2025].head(5)
     print(top5[["county", "issued", "pct_share"]].to_string(index=False))
-    save_chart(chart_county_top10(county_df, year=2024), "02_county_top10_2024.html")
+    save_chart(chart_county_top10(county_df, year=2025), "02_county_top10_2025.html")
     save_chart(chart_county_trends(county_df, top_n=6),  "03_county_trends.html")
 
     # ── 3. County growth ──────────────────────────────────────────────────────
@@ -743,9 +743,9 @@ if __name__ == "__main__":
     print("\n── 4. Sectors (2020–2025)")
     sector_df = analysis_sector(conn)
     sector_df.to_csv(TABLES_DIR / "sector_permits.csv", index=False)
-    top5_sectors = sector_df[sector_df["year"] == 2024].head(5)
+    top5_sectors = sector_df[sector_df["year"] == 2025].head(5)
     print(top5_sectors[["sector", "issued"]].to_string(index=False))
-    save_chart(chart_sector_top10(sector_df, year=2024), "05_sector_top10_2024.html")
+    save_chart(chart_sector_top10(sector_df, year=2025), "05_sector_top10_2025.html")
     save_chart(chart_sector_trends(sector_df, top_n=6),  "06_sector_trends.html")
 
     # ── 5. Nationality breakdown ──────────────────────────────────────────────
@@ -765,18 +765,18 @@ if __name__ == "__main__":
                           "grant_rate_pct"]].to_string(index=False))
     save_chart(chart_visa_trend(visa_trend_df), "08_visa_trend.html")
 
-    visa_rates_df = analysis_visa_approval_rates(conn, year=2024)
-    visa_rates_df.to_csv(TABLES_DIR / "visa_approval_rates_2024.csv", index=False)
-    print(f"\n  Top 5 by applications (2024):")
+    visa_rates_df = analysis_visa_approval_rates(conn, year=2025)
+    visa_rates_df.to_csv(TABLES_DIR / "visa_approval_rates_2025.csv", index=False)
+    print(f"\n  Top 5 by applications (2025):")
     print(visa_rates_df[["nationality", "received", "granted",
                           "grant_rate_pct"]].head(5).to_string(index=False))
-    save_chart(chart_visa_approval_rates(visa_rates_df, year=2024),
-               "09_visa_approval_rates_2024.html")
+    save_chart(chart_visa_approval_rates(visa_rates_df, year=2025),
+               "09_visa_approval_rates_2025.html")
 
-    visa_top_df = analysis_visa_top_nationalities(conn, year=2024)
-    visa_top_df.to_csv(TABLES_DIR / "visa_top15_granted_2024.csv", index=False)
-    save_chart(chart_visa_top15_granted(visa_top_df, year=2024),
-               "10_visa_top15_granted_2024.html")
+    visa_top_df = analysis_visa_top_nationalities(conn, year=2025)
+    visa_top_df.to_csv(TABLES_DIR / "visa_top15_granted_2025.csv", index=False)
+    save_chart(chart_visa_top15_granted(visa_top_df, year=2025),
+               "10_visa_top15_granted_2025.html")
 
     conn.close()   # release the in-memory database
 
