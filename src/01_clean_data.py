@@ -346,19 +346,45 @@ def parse_sector_old(path: Path, year: int) -> pd.DataFrame:
 def parse_sector_new(path: Path, year: int) -> pd.DataFrame:
     """
     Parse sector files for 2020–2025.
-    Uses the Grand Total column (col 1) as the annual 'issued' count.
     Returns: year | sector | issued
+
+    Layout difference (discovered when 2025 totals looked wrong):
+      2020–2024: Col 0 = sector name, Col 1 = annual Grand Total, Cols 2–13 = months
+      2025:      Col 0 = sector name, Cols 1–12 = months (Jan–Dec), Col 13 = Grand Total
+
+    We detect which layout applies by checking whether row 0 of col 1 contains
+    'Grand Total' (2020–2024) or a month name like 'January' (2025).
     """
     df = pd.read_excel(path, header=None)
 
-    # Data begins at row 2 (rows 0 and 1 are a double header)
-    # Col 0 = sector name, Col 1 = Grand Total for the year
-    data = df.iloc[2:, [0, 1]].copy()
+    # Detect layout by scanning the first two header rows for "Grand Total" in col 1.
+    #
+    # 2020–2024 layout:
+    #   Row 0:  NaN          | NaN         | Jan | Feb | ...
+    #   Row 1:  EconomicSect | Grand Total | Issued | ...
+    #   → Grand Total is in col 1 (rows 0–1, col 1 contains "grand total")
+    #
+    # 2025 layout:
+    #   Row 0:  NaN          | January | February | ... | Grand Total
+    #   Row 1:  No Sect...   | NaN     | NaN      | ... | 186
+    #   → Grand Total is in the last column (col 13)
+    #
+    # Strategy: check rows 0 and 1 of col 1 — if either contains "grand total",
+    # use col 1; otherwise the Grand Total is in the last column.
+    header_candidates = [str(df.iloc[r, 1]).strip().lower() for r in range(2)]
+    if any("grand" in v for v in header_candidates):
+        grand_total_col = 1      # standard 2020–2024 layout
+    else:
+        grand_total_col = df.shape[1] - 1  # 2025+ layout: Grand Total is last col
+
+    # Data begins at row 2 (rows 0 and 1 are a double header in all years).
+    # We only need sector name (col 0) and the annual total.
+    data = df.iloc[2:, [0, grand_total_col]].copy()
     data.columns = ["sector", "issued"]
 
     data = data[data["sector"].notna()].copy()
     data["sector"] = data["sector"].astype(str).str.strip()
-    # Drop the Grand Total summary row
+    # Drop the Grand Total summary row (we want per-sector rows only)
     data = data[~data["sector"].str.contains("Grand Total", case=False, na=False)]
 
     data["issued"] = pd.to_numeric(data["issued"], errors="coerce")

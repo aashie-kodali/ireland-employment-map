@@ -1,6 +1,6 @@
 # Interactive County Map for Work Permits in Ireland
 
-I built this project to answer the question of *where international workers are being hired over time in Ireland and which sectors are hiring*, to effectively target my job search efforts. This map helps you navigate hiring trends by county and sector over time.
+I built this project to answer the question of where international workers are being hired over time in Ireland and which sectors are hiring, to effectively target my job search efforts. This map helps you navigate hiring trends by county and sector over time.
 
 Using ten years of official government data (2015–2025), I built a full data pipeline from messy Excel files to a simple self-contained interactive map you can open in any browser. No server required, no login, just open the HTML file and explore.
 
@@ -8,16 +8,19 @@ Using ten years of official government data (2015–2025), I built a full data p
 
 ## What it shows
 
-The map lets you pick any year range with a two-handle slider and see:
-- Which counties issued the most work permits (and how much they've grown)
-- Which sectors are driving international hiring nationally
-- How the picture changed before, during, and after COVID
+The map lets you pick any year range with a two-handle slider and see which counties issued the most work permits, which sectors are driving international hiring nationally, and how the picture shifted over time.
 
 A few things that surprised me in the data:
-- **Dublin takes ~40% of all permits every year** — but Kildare and Cork have grown the fastest since 2015, suggesting the tech sector is spreading out
-- **IT and Communication** is by far the largest sector, followed by Healthcare
-- **India and Brazil** are consistently the top two source nationalities
-- **2020 saw a sharp drop** (COVID), but by 2022 permits had not just recovered — they surpassed pre-pandemic levels
+
+**Healthcare has overtaken tech.** By 2024, Health and Social Work issued nearly twice as many work permits (~12,500) as IT (~6,800). The leading sectors driving employment permits have quietly shifted.
+
+**COVID barely registered.** Permits in 2019, 2020, and 2021 were virtually identical, they were within 1% of each other. The real shock came in 2022, when national totals more than doubled in a single year, going from around 16,000 to nearly 40,000. Whatever the pandemic froze, it unfroze all at once.
+
+**Agriculture more than doubled from 2023 to 2024**, rebounding strongly after an unusual dip the year before. The sector had been growing steadily since 2015, collapsed in 2023 for reasons that are not obvious from the data alone, then came back sharply. Points to growing demand for rural and agricultural hires.
+
+**Meath and Monaghan stand out** as counties with meaningful absolute growth that rarely make the headlines. Meath went from 72 permits in 2015 to over 1,500 in 2024. Monaghan went from 20 to over 500 in the same period. Neither is a tech hub, which makes the growth more interesting.
+
+**2025 shows a broad cooldown across almost every county and sector.** National permits fell from around 39,000 in 2024 to 31,000 in 2025, which is almost exactly back to 2023 levels, suggesting 2024 was the outlier peak rather than the new normal. Only five counties grew: Kilkenny (+34%), Laois (+19%), Donegal (+14%), Wicklow (+5%), and Leitrim (+48% but on a very small base). The sharpest falls were in Kildare (-49%) and Waterford (-46%), both heavily weighted towards sectors that have pulled back on international hiring.
 
 ---
 
@@ -60,13 +63,13 @@ open output/map/ireland_employment_map.html
 - **ISD** (Irish Immigration Service Delivery) — long-term visa decisions by nationality, 2017–2026
 - **simplemaps.com** — Ireland county boundary GeoJSON
 
-A few things worth knowing about the data: sector names changed around 2020 so pre-2020 sector trends aren't directly comparable; 2025 is a partial year; and small visa counts are suppressed with `*` in the source data (treated as missing, not zero).
+A few things worth knowing about the data: sector names changed around 2020 so pre-2020 sector trends aren't directly comparable; the sector breakdown shown in the map is national — DETE does not publish a county-level sector breakdown; and small visa counts are suppressed with `*` in the source data (treated as missing, not zero).
 
 ---
 
 ## Author
 
-**Aashie Kodali** — built in 2026 as a portfolio project while learning Python and data analysis.
+**Aashie Kodali** — built as a portfolio project while learning Python and data analysis.
 
 ---
 
