@@ -14,7 +14,7 @@ The map lets you pick any year range with a two-handle slider and see which coun
 
 A few things that surprised me in the data:
 
-**Healthcare has overtaken tech.** By 2024, Health and Social Work issued nearly twice as many work permits (~12,500) as IT (~6,800). The leading sectors driving employment permits have quietly shifted.
+**Healthcare has consistently led, with one exception where IT overtook the board.** Health & Social Work has been the top sector for work permits every year since 2020 except for 2022, when a surge in tech hiring briefly pushed Information & Communication to the top (10,800 vs 9,800). By 2023, the pattern had reasserted itself, and by 2024 the gap had widened again. Healthcare issued nearly twice as many permits as IT (~12,500 vs ~6,800).
 
 **COVID barely registered.** Permits in 2019, 2020, and 2021 were virtually identical, they were within 1% of each other. The real shock came in 2022, when national totals more than doubled in a single year, going from around 16,000 to nearly 40,000. Whatever the pandemic froze, it unfroze all at once.
 
