@@ -452,7 +452,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
     <!-- Top counties -->
     <div class="sidebar-section">
-      <h3>Top Counties — Permits Issued</h3>
+      <h3 id="county-section-header">Top Counties — Permits Issued</h3>
       <table id="county-table">
         <thead>
           <tr>
@@ -815,6 +815,10 @@ legend.addTo(map);
 function updateCountyTable(fromYear, toYear) {
   const sector   = document.getElementById('sector-select').value;
   const sameYear = fromYear === toYear;
+
+  // Update section header to reflect current mode
+  document.getElementById('county-section-header').textContent =
+    sector === 'all' ? 'Top Counties — Permits Issued' : 'Top Sectors — Permits Issued';
 
   if (sector === 'all') {
     // ── County ranking mode (default) ──────────────────────────────────
