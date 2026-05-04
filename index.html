@@ -3,278 +3,178 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ireland Employment Permits — Data Project</title>
+  <title>Ireland Employment Permits — Interactive Map</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
-      background: #f4f6f9;
-      color: #2c3e50;
-    }
-
-    header {
-      background: linear-gradient(135deg, #1a5276, #2980b9);
-      color: white;
-      padding: 48px 32px 40px;
-      text-align: center;
-    }
-
-    header h1 { font-size: 2.2em; margin-bottom: 10px; }
-    header p  { font-size: 1.1em; opacity: 0.9; max-width: 640px; margin: 0 auto 20px; line-height: 1.6; }
-
-    .badges { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 16px; }
-    .badge {
-      background: rgba(255,255,255,0.18);
-      border: 1px solid rgba(255,255,255,0.35);
-      border-radius: 20px;
-      padding: 4px 14px;
-      font-size: 0.85em;
-      color: white;
-    }
-
-    .hero-btn {
-      display: inline-block;
-      margin-top: 24px;
-      background: white;
-      color: #1a5276;
-      font-weight: 700;
-      padding: 12px 28px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 1em;
-      transition: opacity 0.2s;
-    }
-    .hero-btn:hover { opacity: 0.85; }
-
-    main { max-width: 1000px; margin: 0 auto; padding: 40px 24px 60px; }
-
-    h2 { font-size: 1.4em; margin-bottom: 20px; color: #1a5276; border-left: 4px solid #2980b9; padding-left: 12px; }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-      margin-bottom: 48px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
       overflow: hidden;
-      transition: transform 0.15s, box-shadow 0.15s;
+      background: #111;
     }
-    .card:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
 
-    .card-header {
-      background: #eaf3fb;
-      padding: 14px 16px;
+    /* ── Top navigation bar ── */
+    #navbar {
+      background: #169B62;
+      color: white;
       display: flex;
       align-items: center;
-      gap: 10px;
+      justify-content: space-between;
+      padding: 0 20px;
+      height: 46px;
+      flex-shrink: 0;
+      z-index: 100;
+      gap: 16px;
     }
-    .card-icon { font-size: 1.4em; }
-    .card-title { font-weight: 600; font-size: 0.95em; color: #1a5276; }
 
-    .card-body { padding: 14px 16px; }
-    .card-body p { font-size: 0.88em; color: #555; line-height: 1.5; margin-bottom: 14px; }
-
-    .card-link {
-      display: inline-block;
-      background: #2980b9;
-      color: white;
-      padding: 7px 16px;
-      border-radius: 4px;
-      text-decoration: none;
-      font-size: 0.85em;
+    #navbar h1 {
+      font-size: 0.95rem;
       font-weight: 600;
-      transition: background 0.2s;
+      white-space: nowrap;
+      letter-spacing: 0.01em;
     }
-    .card-link:hover { background: #1a5276; }
 
-    .stack-row {
+    /* ── Charts dropdown ── */
+    .dropdown { position: relative; }
+
+    .dropdown-btn {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: white;
+      padding: 5px 14px;
+      border-radius: 4px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
       display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 48px;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.15s;
     }
-    .stack-pill {
+    .dropdown-btn:hover { background: rgba(255,255,255,0.25); }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: calc(100% + 6px);
       background: white;
-      border: 1px solid #d0dce8;
-      border-radius: 20px;
-      padding: 6px 18px;
-      font-size: 0.9em;
-      color: #2c3e50;
+      border-radius: 6px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+      min-width: 260px;
+      overflow: hidden;
+      z-index: 999;
+    }
+    .dropdown-menu.open { display: block; }
+
+    .dropdown-section {
+      padding: 6px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .dropdown-section:last-child { border-bottom: none; }
+
+    .dropdown-section-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #169B62;
+      padding: 6px 14px 4px;
     }
 
-    footer {
-      text-align: center;
-      color: #888;
-      font-size: 0.82em;
-      padding: 24px;
-      border-top: 1px solid #dde4ed;
-      background: white;
+    .dropdown-menu a {
+      display: block;
+      padding: 7px 14px;
+      font-size: 0.82rem;
+      color: #2c3e50;
+      text-decoration: none;
+      transition: background 0.1s;
     }
-    footer a { color: #2980b9; text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
+    .dropdown-menu a:hover {
+      background: #edfaf3;
+      color: #169B62;
+    }
+
+    /* ── Source link ── */
+    #source-link {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    #source-link:hover { color: white; }
+
+    /* ── Map iframe ── */
+    #map-frame {
+      flex: 1;
+      width: 100%;
+      border: none;
+    }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>🗺️ Ireland Employment Permits</h1>
-  <p>An interactive data project exploring employment permit trends across Ireland by county, sector, and nationality — built with Python, SQLite, and Plotly using open government data.</p>
-  <div class="badges">
-    <span class="badge">Python</span>
-    <span class="badge">pandas</span>
-    <span class="badge">SQLite</span>
-    <span class="badge">Plotly</span>
-    <span class="badge">GeoPandas</span>
-    <span class="badge">AWS S3</span>
-  </div>
-  <a href="output/map/ireland_employment_map.html" class="hero-btn">📍 Open Interactive Map</a>
-</header>
+<nav id="navbar">
+  <h1>🇮🇪 Ireland Employment Permits</h1>
 
-<main>
+  <div class="dropdown">
+    <button class="dropdown-btn" id="charts-btn">
+      📊 Charts ▾
+    </button>
+    <div class="dropdown-menu" id="charts-menu">
 
-  <h2>County Analysis</h2>
-  <div class="grid">
-    <div class="card">
-      <div class="card-header">
-        <span class="card-icon">📈</span>
-        <span class="card-title">National Permit Trend</span>
+      <div class="dropdown-section">
+        <div class="dropdown-section-label">County</div>
+        <a href="output/charts/01_national_trend.html" target="_blank">National Permit Trend</a>
+        <a href="output/charts/02_county_top10_2025.html" target="_blank">Top 10 Counties (2025)</a>
+        <a href="output/charts/03_county_trends.html" target="_blank">County Trends Over Time</a>
+        <a href="output/charts/04_county_growth.html" target="_blank">County Growth Rates</a>
       </div>
-      <div class="card-body">
-        <p>Total employment permits issued nationally each year, showing the overall trend from 2015 to 2025.</p>
-        <a href="output/charts/01_national_trend.html" class="card-link">View Chart</a>
-      </div>
-    </div>
 
-    <div class="card">
-      <div class="card-header">
-        <span class="card-icon">🏆</span>
-        <span class="card-title">Top 10 Counties (2025)</span>
+      <div class="dropdown-section">
+        <div class="dropdown-section-label">Sector</div>
+        <a href="output/charts/05_sector_top10_2025.html" target="_blank">Top 10 Sectors (2025)</a>
+        <a href="output/charts/06_sector_trends.html" target="_blank">Sector Trends Over Time</a>
       </div>
-      <div class="card-body">
-        <p>Which counties received the most employment permits in 2025? A ranked bar chart of the top 10.</p>
-        <a href="output/charts/02_county_top10_2025.html" class="card-link">View Chart</a>
-      </div>
-    </div>
 
-    <div class="card">
-      <div class="card-header">
-        <span class="card-icon">📊</span>
-        <span class="card-title">County Permit Trends</span>
+      <div class="dropdown-section">
+        <div class="dropdown-section-label">Nationality &amp; Visa</div>
+        <a href="output/charts/07_nationality_top15.html" target="_blank">Top 15 Nationalities</a>
+        <a href="output/charts/08_visa_trend.html" target="_blank">Visa Application Trend</a>
+        <a href="output/charts/09_visa_approval_rates_2025.html" target="_blank">Visa Approval Rates (2025)</a>
+        <a href="output/charts/10_visa_top15_granted_2025.html" target="_blank">Top 15 Nationalities Granted (2025)</a>
       </div>
-      <div class="card-body">
-        <p>Multi-year trends for each county, allowing comparison of how permit volumes changed over time.</p>
-        <a href="output/charts/03_county_trends.html" class="card-link">View Chart</a>
-      </div>
-    </div>
 
-    <div class="card">
-      <div class="card-header">
-        <span class="card-icon">📉</span>
-        <span class="card-title">County Growth Rates</span>
-      </div>
-      <div class="card-body">
-        <p>Year-on-year growth rates by county — which areas are growing fastest and which are declining?</p>
-        <a href="output/charts/04_county_growth.html" class="card-link">View Chart</a>
-      </div>
     </div>
   </div>
 
-  <h2>Sector Analysis</h2>
-  <div class="grid">
-    <div class="card">
-      <div class="card-header">
-        <span class="card-icon">🏭</span>
-        <span class="card-title">Top 10 Sectors (2025)</span>
-      </div>
-      <div class="card-body">
-        <p>Breakdown of employment permits by industry sector in 2025 — which sectors dominate?</p>
-        <a href="output/charts/05_sector_top10_2025.html" class="card-link">View Chart</a>
-      </div>
-    </div>
+  <a id="source-link"
+     href="https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/employment-permit-statistics/"
+     target="_blank">
+    Source: DETE Ireland
+  </a>
+</nav>
 
-    <div class="card">
-      <div class="card-header">
-        <span class="card-icon">🔄</span>
-        <span class="card-title">Sector Trends Over Time</span>
-      </div>
-      <div class="card-body">
-        <p>How has the sector mix of employment permits changed year on year from 2015 to 2025?</p>
-        <a href="output/charts/06_sector_trends.html" class="card-link">View Chart</a>
-      </div>
-    </div>
-  </div>
+<!-- The map loads here, filling the rest of the viewport -->
+<iframe id="map-frame" src="output/map/ireland_employment_map.html"></iframe>
 
-  <h2>Nationality &amp; Visa Analysis</h2>
-  <div class="grid">
-    <div class="card">
-      <div class="card-header">
-        <span class="card-icon">🌍</span>
-        <span class="card-title">Top 15 Nationalities</span>
-      </div>
-      <div class="card-body">
-        <p>The top 15 nationalities receiving employment permits, showing Ireland's diverse workforce origins.</p>
-        <a href="output/charts/07_nationality_top15.html" class="card-link">View Chart</a>
-      </div>
-    </div>
+<script>
+  // Toggle the charts dropdown open/closed
+  const btn  = document.getElementById('charts-btn');
+  const menu = document.getElementById('charts-menu');
 
-    <div class="card">
-      <div class="card-header">
-        <span class="card-icon">✈️</span>
-        <span class="card-title">Visa Application Trend</span>
-      </div>
-      <div class="card-body">
-        <p>Total visa applications and decisions over time — tracking volume changes year on year.</p>
-        <a href="output/charts/08_visa_trend.html" class="card-link">View Chart</a>
-      </div>
-    </div>
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    menu.classList.toggle('open');
+  });
 
-    <div class="card">
-      <div class="card-header">
-        <span class="card-icon">✅</span>
-        <span class="card-title">Visa Approval Rates (2025)</span>
-      </div>
-      <div class="card-body">
-        <p>Approval rates by nationality in 2025 — which nationalities have the highest grant rates?</p>
-        <a href="output/charts/09_visa_approval_rates_2025.html" class="card-link">View Chart</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <span class="card-icon">🎫</span>
-        <span class="card-title">Top 15 Nationalities Granted (2025)</span>
-      </div>
-      <div class="card-body">
-        <p>Top 15 nationalities by number of visas granted in 2025 — raw counts rather than rates.</p>
-        <a href="output/charts/10_visa_top15_granted_2025.html" class="card-link">View Chart</a>
-      </div>
-    </div>
-  </div>
-
-  <h2>Tech Stack</h2>
-  <div class="stack-row">
-    <span class="stack-pill">🐍 Python 3</span>
-    <span class="stack-pill">🐼 pandas</span>
-    <span class="stack-pill">🗄️ SQLite</span>
-    <span class="stack-pill">📊 Plotly</span>
-    <span class="stack-pill">🗺️ GeoPandas</span>
-    <span class="stack-pill">☁️ AWS S3</span>
-    <span class="stack-pill">🔧 Jupyter</span>
-  </div>
-
-</main>
-
-<footer>
-  Data source: <a href="https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/employment-permit-statistics/" target="_blank">Department of Enterprise, Trade and Employment (DETE), Ireland</a>
-  &nbsp;|&nbsp;
-  Built by Aashie Kodali
-</footer>
+  // Close dropdown when clicking anywhere else on the page
+  document.addEventListener('click', () => menu.classList.remove('open'));
+</script>
 
 </body>
 </html>
