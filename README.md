@@ -61,17 +61,17 @@ open output/map/ireland_employment_map.html
 
 ## Data sources
 
-- **DETE** (Dept. of Enterprise, Trade and Employment) — work permit statistics by county, sector, and nationality, 2015–2025
-- **ISD** (Irish Immigration Service Delivery) — long-term visa decisions by nationality, 2017–2026
+- **DETE** (Dept. of Enterprise, Trade and Employment) — Work permit statistics by county, sector, and nationality, 2015–2025
+- **ISD** (Irish Immigration Service Delivery) — Long-term visa decisions by nationality, 2017–2026
 - **simplemaps.com** — Ireland county boundary GeoJSON
 
-A few things worth knowing about the data: sector names changed around 2020 so pre-2020 sector trends aren't directly comparable; the sector breakdown shown in the map is national — DETE does not publish a county-level sector breakdown; and small visa counts are suppressed with `*` in the source data (treated as missing, not zero).
+A few things worth knowing about the data: sector names changed around 2020 so pre-2020 sector trends aren't directly comparable. The sector breakdown shown in the map is national. The DETE does not publish a county-level sector breakdown, and small visa counts are suppressed with `*` in the source data (treated as missing, not zero).
 
 ---
 
 ## Author
 
-**Aashie Kodali** — built as a portfolio project while learning Python and data analysis.
+**Aashie Kodali** — Built as a portfolio project while learning Python and data analysis.
 
 ---
 
