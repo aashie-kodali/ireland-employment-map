@@ -28,7 +28,6 @@ data/cleaned/*.csv
 output/charts/*.png
 output/charts/*.html
 output/tables/*.csv
-output/map/*.html
 *.db
 *.sqlite
 *.sqlite3
