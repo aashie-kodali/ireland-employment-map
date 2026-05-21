@@ -17,6 +17,8 @@ Tables created:
   visa_decisions      — year, nationality, received, granted, refused
                         (long-term visa applications only — student, employment,
                         graduate visas; short-term/tourist excluded by allow list)
+  company_permits     — year, company_name_raw, company_name_clean, issued
+                        (produced by 05_clean_companies.py)
 
 Run from project root:
   Terminal : python src/02_build_sqlite.py
@@ -90,6 +92,10 @@ def add_indexes(conn: sqlite3.Connection) -> None:
         # visa_decisions — filtered by year; nationality used for lookups
         "CREATE INDEX IF NOT EXISTS idx_visa_year   ON visa_decisions(year)",
         "CREATE INDEX IF NOT EXISTS idx_visa_nat    ON visa_decisions(nationality)",
+
+        # company_permits — filtered by year; company name used for search/ranking
+        "CREATE INDEX IF NOT EXISTS idx_company_year ON company_permits(year)",
+        "CREATE INDEX IF NOT EXISTS idx_company_name ON company_permits(company_name_clean)",
     ]
     for sql in statements:
         conn.execute(sql)
@@ -107,9 +113,7 @@ def run_checks(conn: sqlite3.Connection) -> None:
     checks = [
 
         # ── How many rows did each table get? ─────────────────────────────────
-        # UNION ALL stacks multiple SELECT results into one table.
-        # This is just a quick count to confirm all four tables loaded.
-        ("Row counts — all four tables",
+        ("Row counts — all five tables",
          """
          SELECT 'county_permits'      AS tbl, COUNT(*) AS rows FROM county_permits
          UNION ALL
@@ -118,6 +122,8 @@ def run_checks(conn: sqlite3.Connection) -> None:
          SELECT 'nationality_permits',         COUNT(*)         FROM nationality_permits
          UNION ALL
          SELECT 'visa_decisions',              COUNT(*)         FROM visa_decisions
+         UNION ALL
+         SELECT 'company_permits',             COUNT(*)         FROM company_permits
          """),
 
         # ── What years are in the county table? ───────────────────────────────
@@ -158,9 +164,6 @@ def run_checks(conn: sqlite3.Connection) -> None:
          """),
 
         # ── Top 5 nationalities by long-term visas granted (2024) ─────────────
-        # NULLIF(received, 0) prevents a divide-by-zero error.
-        # NULLIF returns NULL when received = 0, and NULL / anything = NULL in SQL
-        # (rather than crashing with an error).
         ("Top 5 nationalities by long-term visas granted (2024)",
          """
          SELECT nationality, received, granted, refused,
@@ -169,6 +172,17 @@ def run_checks(conn: sqlite3.Connection) -> None:
          WHERE  year = 2024
          ORDER  BY granted DESC
          LIMIT  5
+         """),
+
+        # ── Top 10 employers overall (2020–2025) ──────────────────────────────
+        ("Top 10 employers by total permits (2020–2025)",
+         """
+         SELECT company_name_clean, SUM(issued) AS total_issued
+         FROM   company_permits
+         WHERE  year >= 2020
+         GROUP  BY company_name_clean
+         ORDER  BY total_issued DESC
+         LIMIT  10
          """),
     ]
 
@@ -203,6 +217,7 @@ if __name__ == "__main__":
         ("sector_permits.csv",      "sector_permits"),
         ("nationality_permits.csv", "nationality_permits"),
         ("visa_decisions.csv",      "visa_decisions"),
+        ("company_permits.csv",     "company_permits"),
     ]
 
     for fname, tname in tables:
@@ -215,7 +230,7 @@ if __name__ == "__main__":
     # ── Add indexes for faster queries ────────────────────────────────────────
     print("\n  Adding indexes...")
     add_indexes(conn)
-    print("  ✓ Indexes created on year, county, sector, nationality")
+    print("  ✓ Indexes created on year, county, sector, nationality, company")
 
     # ── Run validation queries ────────────────────────────────────────────────
     print("\n── Validation queries ──────────────────────────────────────")
