@@ -11,12 +11,14 @@ Features:
   • Sidebar: year summary, top counties ranked by permits, % growth vs 2015
   • Sector breakdown bar chart in sidebar
   • Sector filter dropdown — filters the sidebar sector chart
+  • Employer intelligence panel: top 20, fastest-growing, new entrants per year
   • No server required — opens directly in any browser
 
 Requirements:
   data/geo/ireland_counties.geojson   ← YOU MUST DOWNLOAD THIS FIRST (see below)
   data/cleaned/county_permits.csv
   data/cleaned/sector_permits.csv
+  data/cleaned/company_permits.csv    ← optional; employer panel hidden if absent
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  GEOJSON
@@ -223,6 +225,79 @@ def load_sector_data() -> dict:
     return sector_by_year
 
 
+def load_company_data() -> dict:
+    """
+    Reads company_permits.csv and returns three employer intelligence signals
+    for injection into the map's JavaScript:
+
+      top_by_year  : {year_str: [{company, issued}, ...]}
+          Top 20 employers per year by permits issued.
+
+      top_growers  : [{company, issued_2019, issued_2024, pct_change}, ...]
+          Top 20 companies present in both 2019 and 2024, ranked by % growth.
+          Uses 2019→2024 as the reference window (avoids pandemic distortion).
+
+      new_entrants : {year_str: [company, ...]}
+          Up to 20 companies first appearing in that year, ranked by permits
+          issued in their debut year.
+
+    Graceful degradation: returns {} and prints a warning if the CSV is absent.
+    The employer panel in the map checks for an empty COMPANY_DATA and hides itself.
+    """
+    csv_path = CLEANED_DIR / "company_permits.csv"
+    if not csv_path.exists():
+        print("  [WARNING] company_permits.csv not found — employer panel will be hidden.")
+        return {}
+
+    df = pd.read_csv(csv_path)
+
+    # ── Top 20 employers per year ──────────────────────────────────────────────
+    top_by_year = {}
+    for year, grp in df.groupby("year"):
+        top20 = grp.nlargest(20, "issued")[["company_name_clean", "issued"]]
+        top_by_year[str(year)] = [
+            {"company": row["company_name_clean"], "issued": int(row["issued"])}
+            for _, row in top20.iterrows()
+        ]
+
+    # ── Fastest growers: 2019→2024 ────────────────────────────────────────────
+    # 2019 and 2024 are both full years sitting outside the pandemic distortion
+    # window, making them the most honest baseline/endpoint pair in the dataset.
+    base   = df[df["year"] == 2019].set_index("company_name_clean")["issued"]
+    latest = df[df["year"] == 2024].set_index("company_name_clean")["issued"]
+    common = base.index.intersection(latest.index)
+    growers = []
+    for company in common:
+        b, l = int(base[company]), int(latest[company])
+        if b > 0:
+            pct = round(100 * (l - b) / b, 1)
+            growers.append({
+                "company":     company,
+                "issued_2019": b,
+                "issued_2024": l,
+                "pct_change":  pct,
+            })
+    growers = sorted(growers, key=lambda x: x["pct_change"], reverse=True)[:20]
+
+    # ── New entrants: first year each company appears ─────────────────────────
+    # first_year[company] = the earliest year that company has a row in the data.
+    first_year = df.groupby("company_name_clean")["year"].min()
+    new_entrants = {}
+    for year, grp in df.groupby("year"):
+        # Companies whose very first row in any year is this year
+        debutants = first_year[first_year == year].index
+        year_data = grp[grp["company_name_clean"].isin(debutants)]
+        if not year_data.empty:
+            top_new = year_data.nlargest(20, "issued")["company_name_clean"].tolist()
+            new_entrants[str(year)] = top_new
+
+    return {
+        "top_by_year":  top_by_year,
+        "top_growers":  growers,
+        "new_entrants": new_entrants,
+    }
+
+
 # ── GeoJSON loading + county name injection ───────────────────────────────────
 
 def prepare_geojson(county_growth: dict) -> dict:
@@ -425,6 +500,33 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     font-size: 0.7rem; color: #aaa; text-align: center;
     padding: 8px 0; display: none;
   }
+
+  /* ── Employer panel ── */
+  #employer-tabs { display: flex; gap: 4px; margin-bottom: 8px; }
+  .emp-tab {
+    flex: 1; padding: 4px 0; border: 1px solid #d0d6de; border-radius: 5px;
+    background: #fff; font-size: 0.68rem; font-weight: 600; color: #555;
+    cursor: pointer; text-align: center; transition: all 0.15s;
+  }
+  .emp-tab.active { background: #169B62; color: #fff; border-color: #169B62; }
+  .emp-tab:hover:not(.active) { border-color: #169B62; color: #169B62; }
+  #employer-search {
+    width: 100%; padding: 5px 7px; border: 1px solid #d0d6de;
+    border-radius: 5px; font-size: 0.78rem; color: #333;
+    background: #fff; margin-bottom: 6px;
+  }
+  #employer-search:focus { outline: 2px solid #169B62; border-color: #169B62; }
+  #employer-list { max-height: 200px; overflow-y: auto; }
+  .emp-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 4px 2px; border-bottom: 1px solid #f0f0f0; font-size: 0.75rem;
+  }
+  .emp-row:last-child { border-bottom: none; }
+  .emp-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+              flex: 1; margin-right: 6px; }
+  .emp-val  { font-weight: 600; color: #333; white-space: nowrap; }
+  .emp-sub  { font-size: 0.65rem; color: #aaa; font-weight: 400; }
+  #employer-empty { font-size: 0.72rem; color: #aaa; text-align: center; padding: 12px 0; display: none; }
 </style>
 </head>
 <body>
@@ -481,6 +583,19 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       </div>
     </div>
 
+    <!-- Employer intelligence panel (hidden when company data is absent) -->
+    <div class="sidebar-section" id="employer-section" style="display:none;">
+      <h3>Top Employers</h3>
+      <div id="employer-tabs">
+        <button class="emp-tab active" data-tab="top">Top 20</button>
+        <button class="emp-tab" data-tab="growers">Fastest Growing</button>
+        <button class="emp-tab" data-tab="entrants">New Entrants</button>
+      </div>
+      <input type="text" id="employer-search" placeholder="Search employer…">
+      <div id="employer-list"></div>
+      <div id="employer-empty">No results</div>
+    </div>
+
   </div><!-- /sidebar -->
 
   <!-- Map -->
@@ -516,12 +631,14 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 //  COUNTY_BY_YEAR  — {year: {county: {issued, refused, pct_share}}}
 //  COUNTY_GROWTH   — {county: {issued_2015, issued_latest, pct_change}}
 //  SECTOR_BY_YEAR  — {year: [{sector_short, sector_full, issued}]}
+//  COMPANY_DATA    — {top_by_year, top_growers, new_entrants}  (empty {} if absent)
 //  GEOJSON         — the county boundary shapes (GeoJSON format)
 //  YEARS           — sorted list of years, e.g. ["2015","2016",...,"2025"]
 // ═══════════════════════════════════════════════════════════════════════
 const COUNTY_BY_YEAR  = {COUNTY_BY_YEAR_JSON};
 const COUNTY_GROWTH   = {COUNTY_GROWTH_JSON};
 const SECTOR_BY_YEAR  = {SECTOR_BY_YEAR_JSON};
+const COMPANY_DATA    = {COMPANY_DATA_JSON};
 const GEOJSON         = {GEOJSON_JSON};
 const YEARS           = {YEARS_JSON};
 
@@ -810,6 +927,71 @@ legend.onAdd = function() {
 legend.addTo(map);
 
 // ═══════════════════════════════════════════════════════════════════════
+//  EMPLOYER PANEL  (three tabs: Top 20 / Fastest Growing / New Entrants)
+// ═══════════════════════════════════════════════════════════════════════
+
+// Which tab is currently active in the employer panel.
+let currentEmployerTab = 'top';   // 'top' | 'growers' | 'entrants'
+
+function updateEmployerPanel(toYear) {
+  // Guard: panel is hidden when COMPANY_DATA is empty (CSV absent at build time).
+  if (!COMPANY_DATA || !COMPANY_DATA.top_by_year) return;
+
+  const query  = (document.getElementById('employer-search').value || '').toLowerCase();
+  const list   = document.getElementById('employer-list');
+  const empty  = document.getElementById('employer-empty');
+  let rows = [];
+
+  if (currentEmployerTab === 'top') {
+    // Top 20 employers for the selected "to" year, filterable by name.
+    const yearData = COMPANY_DATA.top_by_year[toYear] || [];
+    rows = yearData
+      .filter(r => r.company.toLowerCase().includes(query))
+      .map((r, i) => `
+        <div class="emp-row">
+          <span class="emp-name" title="${r.company}">${i+1}. ${r.company}</span>
+          <span class="emp-val">${r.issued.toLocaleString()}</span>
+        </div>`);
+
+  } else if (currentEmployerTab === 'growers') {
+    // Fastest-growing companies 2019→2024, ranked by % change.
+    // 2019/2024 are the reference years baked in at build time.
+    rows = (COMPANY_DATA.top_growers || [])
+      .filter(r => r.company.toLowerCase().includes(query))
+      .map((r, i) => {
+        const sign = r.pct_change >= 0 ? '+' : '';
+        const cls  = r.pct_change >= 0 ? 'growth-pos' : 'growth-neg';
+        return `
+          <div class="emp-row">
+            <span class="emp-name" title="${r.company}">${i+1}. ${r.company}</span>
+            <span class="emp-val">
+              <span class="${cls}">${sign}${r.pct_change}%</span>
+              <span class="emp-sub"> (${r.issued_2019}→${r.issued_2024})</span>
+            </span>
+          </div>`;
+      });
+
+  } else {
+    // New entrants: companies appearing for the first time in the "to" year.
+    const entrants = (COMPANY_DATA.new_entrants[toYear] || [])
+      .filter(c => c.toLowerCase().includes(query));
+    rows = entrants.map((company, i) => `
+      <div class="emp-row">
+        <span class="emp-name" title="${company}">${i+1}. ${company}</span>
+        <span class="emp-val emp-sub">new ${toYear}</span>
+      </div>`);
+  }
+
+  if (rows.length === 0) {
+    list.innerHTML = '';
+    empty.style.display = 'block';
+  } else {
+    list.innerHTML = rows.join('');
+    empty.style.display = 'none';
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════
 //  SIDEBAR — COUNTY TABLE  (two modes: county ranking / sector breakdown)
 // ═══════════════════════════════════════════════════════════════════════
 function updateCountyTable(fromYear, toYear) {
@@ -1089,6 +1271,7 @@ function setupRangeSlider() {
     refreshGeojsonColors(toYear);       // map colours based on the "to" year
     updateCountyTable(fromYear, toYear);
     updateSectorChart(toYear);          // sector chart shows the "to" year
+    updateEmployerPanel(toYear);        // employer panel follows the "to" year
   });
 }
 
@@ -1111,6 +1294,28 @@ function setupRangeSlider() {
     updateSectorChart(currentToYear);
     updateCountyTable(currentFromYear, currentToYear);
   });
+
+  // ── Employer panel ──────────────────────────────────────────────────────
+  // Only wire up the panel if company data was included at build time.
+  if (COMPANY_DATA && COMPANY_DATA.top_by_year) {
+    document.getElementById('employer-section').style.display = 'block';
+    updateEmployerPanel(currentToYear);
+
+    // Tab switching — mark the clicked button active, update the list
+    document.querySelectorAll('.emp-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.emp-tab').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentEmployerTab = btn.dataset.tab;
+        updateEmployerPanel(currentToYear);
+      });
+    });
+
+    // Live search — filter the current tab's list as the user types
+    document.getElementById('employer-search').addEventListener('input', () => {
+      updateEmployerPanel(currentToYear);
+    });
+  }
 })();
 </script>
 </body>
@@ -1121,7 +1326,8 @@ function setupRangeSlider() {
 # ── HTML generation ───────────────────────────────────────────────────────────
 
 def build_html(county_by_year: dict, county_growth: dict,
-               sector_by_year: dict, geojson: dict, years: list) -> str:
+               sector_by_year: dict, company_data: dict,
+               geojson: dict, years: list) -> str:
     """Fill the HTML template with embedded JSON data blobs."""
     return HTML_TEMPLATE.replace(
         "{COUNTY_BY_YEAR_JSON}", json.dumps(county_by_year)
@@ -1129,6 +1335,8 @@ def build_html(county_by_year: dict, county_growth: dict,
         "{COUNTY_GROWTH_JSON}",  json.dumps(county_growth)
     ).replace(
         "{SECTOR_BY_YEAR_JSON}", json.dumps(sector_by_year)
+    ).replace(
+        "{COMPANY_DATA_JSON}",   json.dumps(company_data)
     ).replace(
         "{GEOJSON_JSON}",        json.dumps(geojson)
     ).replace(
@@ -1154,13 +1362,22 @@ if __name__ == "__main__":
     sector_by_year = load_sector_data()
     print(f"  Sector data : years {sorted(sector_by_year.keys())}")
 
+    print("\n── Loading company data")
+    company_data = load_company_data()
+    if company_data:
+        print(f"  Company data: {len(company_data['top_by_year'])} years, "
+              f"{len(company_data['top_growers'])} fastest-growing employers")
+    else:
+        print("  Company data: not available — employer panel will be hidden")
+
     # ── Load GeoJSON ──────────────────────────────────────────────────
     print(f"\n── Loading GeoJSON from {GEOJSON_PATH}")
     geojson = prepare_geojson(county_growth)
 
     # ── Build and write HTML ──────────────────────────────────────────
     print(f"\n── Generating HTML")
-    html = build_html(county_by_year, county_growth, sector_by_year, geojson, years)
+    html = build_html(county_by_year, county_growth, sector_by_year,
+                      company_data, geojson, years)
 
     OUTPUT_PATH.write_text(html, encoding="utf-8")
     size_kb = OUTPUT_PATH.stat().st_size / 1024
