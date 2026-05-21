@@ -1,9 +1,11 @@
 """
 src/03_analyze.py
 =================
-Queries the cleaned CSVs (loaded into an in-memory SQLite database) and produces:
+Queries data/employment.db and produces:
   output/tables/  — CSV summary tables for use in the map and further analysis
   output/charts/  — Interactive Plotly HTML charts (open in any browser)
+
+Run 02_build_sqlite.py first to create the database.
 
 Think of this script as the "number crunching" step.  It takes the clean data
 from step 1, asks SQL questions about it, and saves the answers as tables and charts.
@@ -685,24 +687,14 @@ if __name__ == "__main__":
     print("  03_analyze.py  —  Ireland Work Permit Analysis")
     print("=" * 60)
 
-    # ── Load data into an in-memory SQLite database ───────────────────────────
-    # WHY in-memory? Our workspace folder restricts file operations that SQLite needs.
-    # An in-memory database (":memory:") lives entirely in RAM — no files created.
-    # It is fast, disposable, and lets us write all the same SQL queries we would
-    # use against a real database file.
-    # Think of it as a temporary spreadsheet that disappears when the script ends.
-    conn = sqlite3.connect(":memory:")
-    for csv_file, table_name in [
-        (CLEANED_DIR / "county_permits.csv",      "county_permits"),
-        (CLEANED_DIR / "sector_permits.csv",      "sector_permits"),
-        (CLEANED_DIR / "nationality_permits.csv", "nationality_permits"),
-        (CLEANED_DIR / "visa_decisions.csv",      "visa_decisions"),
-    ]:
-        # read_csv → to_sql: reads the CSV into a DataFrame, then writes it into
-        # the in-memory database as a table.  if_exists="replace" clears any
-        # previous version of the table first.
-        pd.read_csv(csv_file).to_sql(table_name, conn, if_exists="replace", index=False)
-    print("  Loaded 4 tables into in-memory SQLite database.")
+    # ── Connect to the file-based SQLite database ─────────────────────────────
+    if not DB_PATH.exists():
+        raise FileNotFoundError(
+            f"Database not found: {DB_PATH}\n"
+            "Run 'python src/02_build_sqlite.py' first to create it."
+        )
+    conn = sqlite3.connect(DB_PATH)
+    print(f"  Connected to {DB_PATH}")
 
     def save_chart(fig, filename: str) -> None:
         """Write a Plotly figure to output/charts/.  Skip gracefully if Plotly is missing."""
@@ -778,7 +770,7 @@ if __name__ == "__main__":
     save_chart(chart_visa_top15_granted(visa_top_df, year=2025),
                "10_visa_top15_granted_2025.html")
 
-    conn.close()   # release the in-memory database
+    conn.close()
 
     # ── Summary ───────────────────────────────────────────────────────────────
     print("\n── Output files")
