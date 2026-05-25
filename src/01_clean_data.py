@@ -43,7 +43,7 @@ Run from project root:
 import re             # regular expressions — used to find/match text patterns
 from pathlib import Path  # modern way to work with file paths in Python
 
-import pandas as pd   # the core data manipulation library (like Excel in code)
+import pandas as pd   # the core data manipulation library
 
 # ── Paths ─────────────────────────────────────────────────────────────────────
 # Path() is smarter than plain strings for file paths — it handles
@@ -330,9 +330,8 @@ def parse_sector_old(path: Path, year: int) -> pd.DataFrame:
     sector_rows["sector"] = sector_rows["sector"].astype(str).str.strip()
     sector_rows["issued"] = pd.to_numeric(sector_rows["issued"], errors="coerce")
 
-    # groupby("sector").sum() adds up all the monthly rows for each sector.
-    # Think of it like a SUMIF in Excel: for each unique sector name,
-    # add up all the "issued" values from every month of the year.
+    # groupby("sector").sum() adds up all the monthly rows for each sector,
+    # producing one annual total per sector name.
     # as_index=False keeps "sector" as a regular column rather than the index.
     annual = (
         sector_rows
@@ -454,7 +453,7 @@ def normalise_sector_names(df: pd.DataFrame) -> pd.DataFrame:
 
     # After normalisation, two rows that were previously different spellings of the
     # same sector now have the same name.  We sum them so there's only one row per
-    # (year, sector) pair.  This is like a pivot table in Excel: GROUP BY year, sector.
+    # (year, sector) pair.
     df = (
         df.groupby(["year", "sector"], as_index=False)["issued"]
         .sum()
@@ -710,9 +709,9 @@ def clean_visa_decisions() -> pd.DataFrame:
     # We need it in long format — one row per (nationality, status, year):
     #   Nationality | Status | year | count
     #
-    # .melt() does this transformation.  Think of it like unpivoting in Excel:
-    #   id_vars   = columns that stay as-is (they identify the row)
-    #   var_name  = what to call the new "year" column
+    # .melt() reshapes wide → long: each year column becomes a row.
+    #   id_vars    = columns that stay as-is (they identify the row)
+    #   var_name   = what to call the new "year" column
     #   value_name = what to call the new "count" column
     id_cols = ["Nationality", "Status"]
     year_cols_present = [c for c in VISA_YEAR_COLS if c in df.columns]

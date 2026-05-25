@@ -6,10 +6,6 @@ data/employment.db.  Creates one table per dataset, adds indexes for the
 columns we query most often, then runs row-count and spot-check queries to
 confirm everything loaded correctly.
 
-Think of SQLite as a mini spreadsheet program that lives inside a single file
-and understands SQL.  We use it so that 03_analyze.py can run proper SQL
-queries instead of complicated pandas code.
-
 Tables created:
   county_permits      — year, county, issued, refused, withdrawn
   sector_permits      — year, sector, issued
@@ -50,8 +46,6 @@ def load_table(conn: sqlite3.Connection, csv_path: Path, table_name: str) -> int
     """
     Read one CSV file into a pandas DataFrame, then write it to a SQLite table.
 
-    Think of this like importing a spreadsheet sheet into a database table.
-
     'if_exists=replace' means: if the table already exists from a previous run,
     wipe it and start fresh.  This way re-running the script always gives clean data.
 
@@ -69,9 +63,8 @@ def add_indexes(conn: sqlite3.Connection) -> None:
     """
     Create indexes on the columns we filter and group by most often.
 
-    What is an index?  Think of it like the index at the back of a book.
-    Without it, a query like WHERE year = 2024 has to read every single row.
-    With an index on 'year', SQLite jumps straight to the right rows — much faster.
+    Without an index, a query like WHERE year = 2024 scans every row.
+    With an index on 'year', SQLite jumps straight to the matching rows.
 
     'CREATE INDEX IF NOT EXISTS' is safe to re-run: SQLite ignores the command
     if the index already exists, so no duplicates are created.
