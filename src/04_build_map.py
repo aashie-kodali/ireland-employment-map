@@ -35,6 +35,7 @@ Run from project root:
 """
 
 import json
+import re
 import sqlite3
 from pathlib import Path
 
@@ -202,7 +203,6 @@ def load_sector_data() -> dict:
     ALL sectors are included (not just top 10) so the dropdown has the full list.
     Only 2020–2025 — pre-2020 sector names changed and can't be compared reliably.
     """
-    import re as _re
     df = pd.read_csv(CLEANED_DIR / "sector_permits.csv")
     df = df[df["year"] >= 2020]
 
@@ -211,7 +211,7 @@ def load_sector_data() -> dict:
         # Sort all sectors by issued descending — JS decides how many to display
         all_sectors = grp.sort_values("issued", ascending=False).copy()
         all_sectors["sector_short"] = all_sectors["sector"].apply(
-            lambda s: _re.sub(r"^[A-Z]\s*-\s*", "", str(s)).strip()
+            lambda s: re.sub(r"^[A-Z]\s*-\s*", "", str(s)).strip()
         )
         sector_by_year[str(year)] = [
             {
@@ -251,15 +251,30 @@ def load_company_data() -> dict:
 
     df = pd.read_csv(csv_path)
 
+    # Ensure sector column exists even if company_sector_map.csv was absent at build time
+    if "sector" not in df.columns:
+        df["sector"] = None
+
     # ── Top 50 employers per year ──────────────────────────────────────────────
     # We store 50 (not 20) so the JavaScript dynamic-growth calculation has enough
     # coverage — a company that grew from rank 40 to rank 2 would be invisible if
     # we only stored the top 20 for each year.
+    #
+    # sector_short strips the leading NACE letter code (e.g. "J - ") so it matches
+    # the sector_short values already used in the sector-select dropdown — enabling
+    # a direct string equality comparison in JavaScript.
     top_by_year = {}
     for year, grp in df.groupby("year"):
-        top50 = grp.nlargest(50, "issued")[["company_name_clean", "issued"]]
+        top50 = grp.nlargest(50, "issued")[["company_name_clean", "issued", "sector"]]
         top_by_year[str(year)] = [
-            {"company": row["company_name_clean"], "issued": int(row["issued"])}
+            {
+                "company": row["company_name_clean"],
+                "issued":  int(row["issued"]),
+                "sector":  (
+                    re.sub(r"^[A-Z]\s*-\s*", "", str(row["sector"])).strip()
+                    if pd.notna(row["sector"]) else None
+                ),
+            }
             for _, row in top50.iterrows()
         ]
 

@@ -86,9 +86,10 @@ def add_indexes(conn: sqlite3.Connection) -> None:
         "CREATE INDEX IF NOT EXISTS idx_visa_year   ON visa_decisions(year)",
         "CREATE INDEX IF NOT EXISTS idx_visa_nat    ON visa_decisions(nationality)",
 
-        # company_permits — filtered by year; company name used for search/ranking
-        "CREATE INDEX IF NOT EXISTS idx_company_year ON company_permits(year)",
-        "CREATE INDEX IF NOT EXISTS idx_company_name ON company_permits(company_name_clean)",
+        # company_permits — filtered by year; company name and sector used for filtering
+        "CREATE INDEX IF NOT EXISTS idx_company_year   ON company_permits(year)",
+        "CREATE INDEX IF NOT EXISTS idx_company_name   ON company_permits(company_name_clean)",
+        "CREATE INDEX IF NOT EXISTS idx_company_sector ON company_permits(sector)",
     ]
     for sql in statements:
         conn.execute(sql)
@@ -176,6 +177,18 @@ def run_checks(conn: sqlite3.Connection) -> None:
          GROUP  BY company_name_clean
          ORDER  BY total_issued DESC
          LIMIT  10
+         """),
+
+        # ── Sector coverage — companies tagged vs. untagged ───────────────────
+        ("Sector tagging coverage (company_permits)",
+         """
+         SELECT
+           sector,
+           COUNT(DISTINCT company_name_clean) AS unique_companies,
+           SUM(issued)                        AS total_permits
+         FROM   company_permits
+         GROUP  BY sector
+         ORDER  BY total_permits DESC
          """),
     ]
 

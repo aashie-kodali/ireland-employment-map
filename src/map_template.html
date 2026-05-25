@@ -248,19 +248,6 @@
     <div class="sidebar-section" id="employer-section" style="display:none;">
       <h3>Top Employers</h3>
 
-      <!-- Shown when a sector filter is active — swaps in place of the controls -->
-      <div id="employer-sector-note" style="display:none;text-align:center;padding:16px 8px;">
-        <div style="font-size:1.3rem;margin-bottom:6px;">🚧</div>
-        <div style="font-size:0.75rem;font-weight:600;color:#555;margin-bottom:5px;">
-          Sector-level employer breakdown coming soon
-        </div>
-        <div style="font-size:0.68rem;color:#aaa;line-height:1.5;">
-          DETE doesn't publish a combined employer + sector dataset.
-          Select <em>All sectors</em> above to browse employers.
-        </div>
-      </div>
-
-      <!-- Shown when no sector filter is active -->
       <div id="employer-controls">
         <div id="employer-tabs">
           <button class="emp-tab active" data-tab="top">Top 20</button>
@@ -630,9 +617,40 @@ function updateEmployerPanel(fromYear, toYear) {
         totals[r.company] = (totals[r.company] || 0) + r.issued;
       }
     }
-    rows = Object.entries(totals)
+
+    // Build sorted candidate list
+    let candidates = Object.entries(totals)
       .map(([company, issued]) => ({ company, issued }))
-      .sort((a, b) => b.issued - a.issued)
+      .sort((a, b) => b.issued - a.issued);
+
+    // Sector filtering — when a sector is selected, show only companies tagged
+    // with that sector.  Each top_by_year entry carries a 'sector' field (the
+    // sector_short string, i.e. the NACE name with its letter prefix stripped).
+    // Fastest Growing and New Entrants tabs show cross-sector data by design.
+    const selectedSector = document.getElementById('sector-select').value;
+    if (selectedSector !== 'all') {
+      const taggedSet = new Set();
+      for (const yr of rangeYears) {
+        for (const r of (COMPANY_DATA.top_by_year[yr] || [])) {
+          if (r.sector === selectedSector) taggedSet.add(r.company);
+        }
+      }
+      candidates = candidates.filter(r => taggedSet.has(r.company));
+
+      if (candidates.length === 0) {
+        list.innerHTML = `
+          <div style="text-align:center;padding:14px 8px;font-size:0.72rem;color:#aaa;">
+            No tagged employers for this sector.<br>
+            <span style="font-size:0.65rem;">
+              Only the top 150 employers (by total permits) are sector-tagged.
+            </span>
+          </div>`;
+        empty.style.display = 'none';
+        return;
+      }
+    }
+
+    rows = candidates
       .slice(0, 20)
       .filter(r => r.company.toLowerCase().includes(query))
       .map((r, i) => `
@@ -1013,14 +1031,10 @@ function setupRangeSlider() {
     updateSectorChart(currentToYear);
     updateCountyTable(currentFromYear, currentToYear);
 
-    // Employer panel: swap between the "coming soon" note and the live controls.
-    // When a sector is active we can't filter employers (DETE doesn't publish
-    // a combined employer + sector file), so we show a clear explanation instead.
+    // Employer panel now supports sector filtering — re-render it.
+    // The Top 20 tab will filter to companies tagged with the selected sector.
     if (COMPANY_DATA && COMPANY_DATA.top_by_year) {
-      document.getElementById('employer-sector-note').style.display =
-        sectorActive ? 'block' : 'none';
-      document.getElementById('employer-controls').style.display =
-        sectorActive ? 'none' : 'block';
+      updateEmployerPanel(currentFromYear, currentToYear);
     }
   });
 

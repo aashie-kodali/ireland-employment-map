@@ -17,7 +17,37 @@ from pathlib import Path
 import pandas as pd
 import pytest
 
-CSV_PATH = Path("data/cleaned/company_permits.csv")
+CSV_PATH        = Path("data/cleaned/company_permits.csv")
+SECTOR_MAP_PATH = Path("data/raw/company_sector_map.csv")
+
+# The 24 canonical NACE sector names used in sector_permits.csv (2020+ rows).
+# sector values in company_permits.csv must be a subset of this set (or null).
+CANONICAL_NACE_SECTORS = {
+    "A - Agriculture, Forestry & Fishing",
+    "B - Mining & Quarrying",
+    "C - All Other Manufacturing",
+    "C - Manufacture of Chemicals & Pharmaceuticals",
+    "C - Manufacture of Computers, Electronics & Optical Equipment",
+    "C - Manufacture of Food, Drink & Tobacco",
+    "C - Manufacture of Medical Devices",
+    "D - Electricity & Gas & Air Conditioning Supply",
+    "E - Water Supply, Sewerage, Waste Management & Remedial Activities",
+    "F - Construction",
+    "G - Wholesale & Retail Trade",
+    "H - Transport & Storage",
+    "I - Accommodation & Food Services Activities",
+    "J - Information & Communication Activities",
+    "K - Financial & Insurance Activities",
+    "L - Real Estate Activities",
+    "M - Professional, Scientific & Technical Activities",
+    "N - Administrative & Support Service Activities",
+    "O - Public Administration & Defence",
+    "P - Education",
+    "Q - Health & Social Work Activities",
+    "R - Arts, Entertainment and Recreation",
+    "S - Other Service Activities",
+    "T - Domestic Activities of Households as Employers",
+}
 
 # Known DETE Grand Totals from the source Excel files.
 # Used to verify the parser produced correct output.
@@ -74,4 +104,47 @@ class TestCompanyParsing:
         # 48k rows is expected; allow a 10% band either side
         assert 43_000 < len(company_df) < 53_000, (
             f"Unexpected row count: {len(company_df):,}"
+        )
+
+
+class TestSectorColumn:
+    """
+    Tests for the 'sector' column added by the company_sector_map.csv join.
+
+    The sector column is always present (added as null when the map CSV is absent).
+    When the map CSV exists, all non-null sector values must be valid NACE names.
+    """
+
+    def test_sector_column_always_present(self, company_df):
+        assert "sector" in company_df.columns, (
+            "'sector' column missing from company_permits.csv — "
+            "check src/05_clean_companies.py sector enrichment logic"
+        )
+
+    def test_sector_values_valid_or_null(self, company_df):
+        """Every non-null sector value must be one of the 24 canonical NACE names."""
+        non_null = company_df["sector"].dropna()
+        unexpected = set(non_null.unique()) - CANONICAL_NACE_SECTORS
+        assert not unexpected, (
+            f"Unexpected sector values found: {unexpected}\n"
+            "Check data/raw/company_sector_map.csv for typos."
+        )
+
+    def test_no_unexpected_sector_strings(self, company_df):
+        """Alias for test_sector_values_valid_or_null — explicit guard for typos."""
+        non_null = company_df["sector"].dropna()
+        for val in non_null.unique():
+            assert val in CANONICAL_NACE_SECTORS, (
+                f"'{val}' is not a canonical NACE sector name. "
+                "Values must match sector_permits.csv (2020+ rows) exactly."
+            )
+
+    def test_sector_coverage_nonzero_when_map_exists(self, company_df):
+        """If company_sector_map.csv is present, at least one company must be tagged."""
+        if not SECTOR_MAP_PATH.exists():
+            pytest.skip("company_sector_map.csv absent — sector tagging not active")
+        tagged = company_df["sector"].notna().sum()
+        assert tagged > 0, (
+            "company_sector_map.csv exists but no sector values were joined — "
+            "check that company_name_clean join keys match."
         )

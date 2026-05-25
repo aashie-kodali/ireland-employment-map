@@ -1,0 +1,151 @@
+company_name_clean,total_permits,sector,source
+Google Ireland Limited,3901,J - Information & Communication Activities,known
+Ernst & Young,2635,"M - Professional, Scientific & Technical Activities",known
+Health Services Executive,2610,Q - Health & Social Work Activities,known
+Accenture Limited,2267,"M - Professional, Scientific & Technical Activities",known
+Cork University Hospital,1898,Q - Health & Social Work Activities,known
+Dawn Meats Ireland UC,1895,"C - Manufacture of Food, Drink & Tobacco",known
+Galway University Hospital,1764,Q - Health & Social Work Activities,known
+Beaumont Hospital,1724,Q - Health & Social Work Activities,known
+Amazon Development Centre Ireland Limited,1657,J - Information & Communication Activities,known
+University Hospital Limerick,1464,Q - Health & Social Work Activities,known
+University Hospital Waterford,1427,Q - Health & Social Work Activities,known
+Our Lady of Lourdes Hospital,1327,Q - Health & Social Work Activities,known
+Mowlam Healthcare Services Unlimited Company,1312,Q - Health & Social Work Activities,known
+Anglo Beef Processors Ireland Unlimited Company,1309,"C - Manufacture of Food, Drink & Tobacco",known
+St. Vincent's Healthcare Group,1298,Q - Health & Social Work Activities,known
+Redwood Extended Care Facility UC,1293,Q - Health & Social Work Activities,known
+Amazon Web Services EMEA SARL,1229,J - Information & Communication Activities,known
+Letterkenny University Hospital,1218,Q - Health & Social Work Activities,known
+Facebook Ireland Limited,1208,J - Information & Communication Activities,known
+Cognizant Technology Solutions Ireland Limited,1205,J - Information & Communication Activities,known
+Mater Misericordiae University Hospital,1181,Q - Health & Social Work Activities,known
+Intel Ireland Limited,1106,"C - Manufacture of Computers, Electronics & Optical Equipment",known
+Deloitte Ireland LLP,1093,"M - Professional, Scientific & Technical Activities",known
+St. James's Hospital,1081,Q - Health & Social Work Activities,known
+University Hospital Kerry,1080,Q - Health & Social Work Activities,known
+Children's Health Ireland,1018,Q - Health & Social Work Activities,known
+Mayo University Hospital,986,Q - Health & Social Work Activities,known
+Rosderra Irish Meats Group UC,930,"C - Manufacture of Food, Drink & Tobacco",known
+South Tipperary General Hospital,870,Q - Health & Social Work Activities,known
+Nua Healthcare Services,859,Q - Health & Social Work Activities,known
+Amazon Data Services Ireland Limited,840,J - Information & Communication Activities,known
+Microsoft Ireland Operations Limited,838,J - Information & Communication Activities,known
+University Limerick Hospitals Group,836,Q - Health & Social Work Activities,known
+TikTok Technology Limited,774,J - Information & Communication Activities,known
+Infosys Limited,752,J - Information & Communication Activities,known
+KPMG,745,"M - Professional, Scientific & Technical Activities",known
+LM Ericsson Limited,745,J - Information & Communication Activities,known
+Applied Materials Ireland Limited,735,"C - Manufacture of Computers, Electronics & Optical Equipment",known
+Tallaght University Hospital,731,Q - Health & Social Work Activities,known
+Tata Consultancy Services Limited,731,J - Information & Communication Activities,known
+MasterCard Ireland Limited,714,K - Financial & Insurance Activities,known
+Dawn Meats Ireland,707,"C - Manufacture of Food, Drink & Tobacco",known
+Mercy University Hospital,697,Q - Health & Social Work Activities,known
+Sligo University Hospital,696,Q - Health & Social Work Activities,known
+Wexford General Hospital,692,Q - Health & Social Work Activities,known
+Grant Thornton,685,"M - Professional, Scientific & Technical Activities",known
+Wipro Limited - Irish Branch,673,J - Information & Communication Activities,known
+Amazon Data Services Ireland Ltd,666,J - Information & Communication Activities,known
+Liffey Meats (Cavan) Unlimited Company,664,"C - Manufacture of Food, Drink & Tobacco",known
+Slaney Foods International UC,664,"C - Manufacture of Food, Drink & Tobacco",known
+WuXi Biologics Ireland Limited,661,C - Manufacture of Chemicals & Pharmaceuticals,known
+Wipro Limited,635,J - Information & Communication Activities,known
+Portiuncula University Hospital,632,Q - Health & Social Work Activities,known
+PricewaterhouseCoopers,583,"M - Professional, Scientific & Technical Activities",known
+Kildare Chilling Company,583,"C - Manufacture of Food, Drink & Tobacco",known
+Citibank Europe PLC,577,K - Financial & Insurance Activities,known
+SAP Service and Support Centre (Ireland) Limited,573,J - Information & Communication Activities,known
+Workday Limited,553,J - Information & Communication Activities,known
+Cavan General Hospital,551,Q - Health & Social Work Activities,known
+Midland Regional Hospital at Tullamore,545,Q - Health & Social Work Activities,known
+Amazon Ireland Support Services Ltd,537,N - Administrative & Support Service Activities,known
+Meta Platforms Ireland Limited,533,J - Information & Communication Activities,known
+Beacon Hospital Sandyford Ltd,532,Q - Health & Social Work Activities,known
+St. Lukes Hospital,526,Q - Health & Social Work Activities,known
+Mater Private Hospital,495,Q - Health & Social Work Activities,known
+TLC Health Services Ltd,494,Q - Health & Social Work Activities,known
+QT Technologies Ireland Limited,488,J - Information & Communication Activities,"solocheck.ie/CorkChamber — Qualcomm subsidiary, R&D/software"
+Naas General Hospital,485,Q - Health & Social Work Activities,known
+Connolly Hospital,480,Q - Health & Social Work Activities,known
+Mullingar Regional Hospital,473,Q - Health & Social Work Activities,known
+Electricity Supply Board,422,D - Electricity & Gas & Air Conditioning Supply,known
+Connaught Electronics Limited,411,"C - Manufacture of Computers, Electronics & Optical Equipment",known
+Cavan & Monaghan Hospital,404,Q - Health & Social Work Activities,known
+Tokyo Electron Europe Limited,398,"C - Manufacture of Computers, Electronics & Optical Equipment",known
+Anglo Beef Processors Ireland,392,"C - Manufacture of Food, Drink & Tobacco",known
+Monaghan Mushrooms Ireland UC,390,"A - Agriculture, Forestry & Fishing",known
+Microsoft Ireland Research Unlimited Company,381,J - Information & Communication Activities,known
+IBM Ireland Product Distribution Limited,375,J - Information & Communication Activities,known
+Infosys BPO Limited,375,N - Administrative & Support Service Activities,known
+Optum Services (Ireland) Limited,370,J - Information & Communication Activities,known
+Boston Scientific Ireland Limited,367,C - Manufacture of Medical Devices,known
+Applus Inspection Services Ireland Ltd,363,"M - Professional, Scientific & Technical Activities",known
+Bon Secours Health Systems,361,Q - Health & Social Work Activities,known
+Software Labs Campus Unlimited Company,360,J - Information & Communication Activities,siliconrepublic.com — Meta campus entity in Dublin
+St. James Hospital,357,Q - Health & Social Work Activities,known
+Tiernaneill Mushrooms Limited,355,"A - Agriculture, Forestry & Fishing",known
+Analog Devices International Unlimited Company,354,"C - Manufacture of Computers, Electronics & Optical Equipment",known
+Bartra OpCo (Beaumont NH) Limited,353,Q - Health & Social Work Activities,known
+Wild Atlantic Pictures Limited,346,"R - Arts, Entertainment and Recreation",screenproducersireland.com — film/TV production
+FISC Ireland Limited,345,J - Information & Communication Activities,dnb.com — IT consulting/managed services
+Intel Research and Development Ireland Limited,340,"C - Manufacture of Computers, Electronics & Optical Equipment",known
+Our Lady's Hospital Navan,337,Q - Health & Social Work Activities,known
+HCL Technologies Limited,335,J - Information & Communication Activities,known
+InisCare Limited,324,Q - Health & Social Work Activities,known
+Staunton Foods Ltd,320,"C - Manufacture of Food, Drink & Tobacco",known
+Mazars,315,"M - Professional, Scientific & Technical Activities",known
+Microsoft Ireland Research,312,J - Information & Communication Activities,known
+Knockrobin Nursing Home Limited,309,Q - Health & Social Work Activities,known
+Apple Distribution International Limited,304,G - Wholesale & Retail Trade,known
+Infosys BPM Limited,301,N - Administrative & Support Service Activities,known
+HCL (Ireland) Information Systems Limited,300,J - Information & Communication Activities,known
+Globe Technical Services Limited,299,J - Information & Communication Activities,"globetech.eu — IT managed services, software localisation"
+Drimbawn Mushrooms Ireland Unlimited Company,299,"A - Agriculture, Forestry & Fishing",known
+Kepak Cork Unlimited Company,298,"C - Manufacture of Food, Drink & Tobacco",known
+Dublin North City Mental Health Services,298,Q - Health & Social Work Activities,known
+Farm Solutions Ltd,298,"A - Agriculture, Forestry & Fishing",known
+National Pen Promotional Products Ltd,297,C - All Other Manufacturing,known
+SFDC Ireland Limited,292,J - Information & Communication Activities,known — Salesforce Ireland entity
+Adelaide & Meath Hospital Incorporating The National Children's Hospital,292,Q - Health & Social Work Activities,known
+Bon Secours Health System CLG,282,Q - Health & Social Work Activities,known
+McCarren Meats Unlimited Company,280,"C - Manufacture of Food, Drink & Tobacco",known
+Abbott Ireland,277,C - Manufacture of Medical Devices,known
+Linkedin Ireland Unlimited Company,276,J - Information & Communication Activities,known
+Capgemini Ireland Limited,274,J - Information & Communication Activities,known
+Version 1 Software Limited,272,J - Information & Communication Activities,known
+Irish Country Meats (Sheepmeat) Unlimited,269,"C - Manufacture of Food, Drink & Tobacco",known
+CPL Solutions Limited,261,N - Administrative & Support Service Activities,known
+Adelaide & Meath Hospital Inc The National Children's Hospital,261,Q - Health & Social Work Activities,known
+Accenture,260,"M - Professional, Scientific & Technical Activities",known
+MCGA Limited,258,N - Administrative & Support Service Activities,dnb.com — employment/staffing agency (sector uncertain)
+Tullow Mushroom Growers Ltd,248,"A - Agriculture, Forestry & Fishing",known
+Guidewire Software (Ireland) Limited,248,J - Information & Communication Activities,known
+Emerson Automation Solutions Ireland Limited,248,C - All Other Manufacturing,known — process automation/industrial instruments
+Wuxi Vaccines Ireland Limited,247,C - Manufacture of Chemicals & Pharmaceuticals,known
+Sparantus Ltd,246,N - Administrative & Support Service Activities,creditsafe.com — temporary employment agency
+Permanent TSB PLC,242,K - Financial & Insurance Activities,known
+ServiceNow Ireland Limited,242,J - Information & Communication Activities,known
+Atlantic Aviation Group Limited,239,H - Transport & Storage,"known — aircraft MRO (maintenance, repair, overhaul)"
+Bank of America Europe DAC,232,K - Financial & Insurance Activities,known
+General Motors IT Services (Ireland) Ltd,231,J - Information & Communication Activities,known — GM IT services center Dublin
+Costern Unlimited Company,231,Q - Health & Social Work Activities,dnb.com — ambulatory/other health care services
+Ove Arup & Partners Ireland Limited,229,"M - Professional, Scientific & Technical Activities",known — engineering consultancy
+Grant Thornton Corporate Finance Limited,228,"M - Professional, Scientific & Technical Activities",known
+Eli Lilly Kinsale Limited,223,C - Manufacture of Chemicals & Pharmaceuticals,known
+Amazon Web Services Ireland Ltd,221,J - Information & Communication Activities,known
+Eli Lilly Cork Limited,220,C - Manufacture of Chemicals & Pharmaceuticals,known
+Johnson and Johnson Vision Care Ireland Unlimited Company,219,C - Manufacture of Medical Devices,known — contact lens manufacturing
+Carton Brothers Unlimited Company,218,"C - Manufacture of Food, Drink & Tobacco",known — poultry processing
+The Coombe Lying in Hospital,216,Q - Health & Social Work Activities,known — maternity hospital
+Nikon Precision Europe GMBH,212,"C - Manufacture of Computers, Electronics & Optical Equipment",known — semiconductor lithography equipment
+Novartis Ireland Limited,211,C - Manufacture of Chemicals & Pharmaceuticals,known
+Tata Consultancy Services Ireland Limited,209,J - Information & Communication Activities,known
+Kepak Longford Unlimited Company,208,"C - Manufacture of Food, Drink & Tobacco",known
+Midland Regional Hospital,206,Q - Health & Social Work Activities,known
+Wipro Outsourcing Services (Ireland)Ltd,206,N - Administrative & Support Service Activities,known
+Northern Trust Management Services (Ireland) Ltd,206,K - Financial & Insurance Activities,known
+CareChoice Swords Two Limited,205,Q - Health & Social Work Activities,known — nursing home
+Apple Distribution International,201,G - Wholesale & Retail Trade,known
+Alliance Medical Diagnostic Imaging Ltd,198,Q - Health & Social Work Activities,known — diagnostic imaging services
+Jaguar Land Rover Ireland (Services) Limited,195,N - Administrative & Support Service Activities,known — JLR shared services centre Dublin
