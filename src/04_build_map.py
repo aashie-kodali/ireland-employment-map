@@ -251,13 +251,16 @@ def load_company_data() -> dict:
 
     df = pd.read_csv(csv_path)
 
-    # ── Top 20 employers per year ──────────────────────────────────────────────
+    # ── Top 50 employers per year ──────────────────────────────────────────────
+    # We store 50 (not 20) so the JavaScript dynamic-growth calculation has enough
+    # coverage — a company that grew from rank 40 to rank 2 would be invisible if
+    # we only stored the top 20 for each year.
     top_by_year = {}
     for year, grp in df.groupby("year"):
-        top20 = grp.nlargest(20, "issued")[["company_name_clean", "issued"]]
+        top50 = grp.nlargest(50, "issued")[["company_name_clean", "issued"]]
         top_by_year[str(year)] = [
             {"company": row["company_name_clean"], "issued": int(row["issued"])}
-            for _, row in top20.iterrows()
+            for _, row in top50.iterrows()
         ]
 
     # ── Fastest growers: 2019→2024 ────────────────────────────────────────────
@@ -586,14 +589,30 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <!-- Employer intelligence panel (hidden when company data is absent) -->
     <div class="sidebar-section" id="employer-section" style="display:none;">
       <h3>Top Employers</h3>
-      <div id="employer-tabs">
-        <button class="emp-tab active" data-tab="top">Top 20</button>
-        <button class="emp-tab" data-tab="growers">Fastest Growing</button>
-        <button class="emp-tab" data-tab="entrants">New Entrants</button>
+
+      <!-- Shown when a sector filter is active — swaps in place of the controls -->
+      <div id="employer-sector-note" style="display:none;text-align:center;padding:16px 8px;">
+        <div style="font-size:1.3rem;margin-bottom:6px;">🚧</div>
+        <div style="font-size:0.75rem;font-weight:600;color:#555;margin-bottom:5px;">
+          Sector-level employer breakdown coming soon
+        </div>
+        <div style="font-size:0.68rem;color:#aaa;line-height:1.5;">
+          DETE doesn't publish a combined employer + sector dataset.
+          Select <em>All sectors</em> above to browse employers.
+        </div>
       </div>
-      <input type="text" id="employer-search" placeholder="Search employer…">
-      <div id="employer-list"></div>
-      <div id="employer-empty">No results</div>
+
+      <!-- Shown when no sector filter is active -->
+      <div id="employer-controls">
+        <div id="employer-tabs">
+          <button class="emp-tab active" data-tab="top">Top 20</button>
+          <button class="emp-tab" data-tab="growers">Fastest Growing</button>
+          <button class="emp-tab" data-tab="entrants">New Entrants</button>
+        </div>
+        <input type="text" id="employer-search" placeholder="Search employer…">
+        <div id="employer-list"></div>
+        <div id="employer-empty">No results</div>
+      </div>
     </div>
 
   </div><!-- /sidebar -->
@@ -933,19 +952,30 @@ legend.addTo(map);
 // Which tab is currently active in the employer panel.
 let currentEmployerTab = 'top';   // 'top' | 'growers' | 'entrants'
 
-function updateEmployerPanel(toYear) {
+function updateEmployerPanel(fromYear, toYear) {
   // Guard: panel is hidden when COMPANY_DATA is empty (CSV absent at build time).
   if (!COMPANY_DATA || !COMPANY_DATA.top_by_year) return;
 
-  const query  = (document.getElementById('employer-search').value || '').toLowerCase();
-  const list   = document.getElementById('employer-list');
-  const empty  = document.getElementById('employer-empty');
+  const query = (document.getElementById('employer-search').value || '').toLowerCase();
+  const list  = document.getElementById('employer-list');
+  const empty = document.getElementById('employer-empty');
   let rows = [];
 
   if (currentEmployerTab === 'top') {
-    // Top 20 employers for the selected "to" year, filterable by name.
-    const yearData = COMPANY_DATA.top_by_year[toYear] || [];
-    rows = yearData
+    // Aggregate permits across every year in the selected range, then rank.
+    // top_by_year stores the top 50 per year so coverage is broad.
+    // If fromYear === toYear we're looking at a single year's snapshot.
+    const rangeYears = YEARS.filter(y => y >= fromYear && y <= toYear);
+    const totals = {};
+    for (const yr of rangeYears) {
+      for (const r of (COMPANY_DATA.top_by_year[yr] || [])) {
+        totals[r.company] = (totals[r.company] || 0) + r.issued;
+      }
+    }
+    rows = Object.entries(totals)
+      .map(([company, issued]) => ({ company, issued }))
+      .sort((a, b) => b.issued - a.issued)
+      .slice(0, 20)
       .filter(r => r.company.toLowerCase().includes(query))
       .map((r, i) => `
         <div class="emp-row">
@@ -954,9 +984,34 @@ function updateEmployerPanel(toYear) {
         </div>`);
 
   } else if (currentEmployerTab === 'growers') {
-    // Fastest-growing companies 2019→2024, ranked by % change.
-    // 2019/2024 are the reference years baked in at build time.
-    rows = (COMPANY_DATA.top_growers || [])
+    // Compute growth dynamically for the selected fromYear → toYear range.
+    // Companies must appear in both years' top-50 lists to be compared.
+    if (fromYear === toYear) {
+      // Growth is meaningless over a single year — prompt the user to widen the range.
+      list.innerHTML = `
+        <div style="text-align:center;padding:14px 8px;font-size:0.72rem;color:#aaa;">
+          Drag the left slider handle to select a range and see growth
+        </div>`;
+      empty.style.display = 'none';
+      return;
+    }
+    // Build lookup maps for fromYear and toYear
+    const fromMap = {};
+    for (const r of (COMPANY_DATA.top_by_year[fromYear] || [])) fromMap[r.company] = r.issued;
+    const toMap = {};
+    for (const r of (COMPANY_DATA.top_by_year[toYear]   || [])) toMap[r.company]   = r.issued;
+
+    // Only rank companies present in both years (need a baseline to compute growth)
+    const growers = [];
+    for (const [company, fromIssued] of Object.entries(fromMap)) {
+      if (toMap[company] !== undefined && fromIssued > 0) {
+        const pct = +((toMap[company] - fromIssued) / fromIssued * 100).toFixed(1);
+        growers.push({ company, fromIssued, toIssued: toMap[company], pct_change: pct });
+      }
+    }
+    growers.sort((a, b) => b.pct_change - a.pct_change);
+
+    rows = growers.slice(0, 20)
       .filter(r => r.company.toLowerCase().includes(query))
       .map((r, i) => {
         const sign = r.pct_change >= 0 ? '+' : '';
@@ -966,13 +1021,16 @@ function updateEmployerPanel(toYear) {
             <span class="emp-name" title="${r.company}">${i+1}. ${r.company}</span>
             <span class="emp-val">
               <span class="${cls}">${sign}${r.pct_change}%</span>
-              <span class="emp-sub"> (${r.issued_2019}→${r.issued_2024})</span>
+              <span class="emp-sub"> (${r.fromIssued}→${r.toIssued})</span>
             </span>
           </div>`;
       });
 
   } else {
-    // New entrants: companies appearing for the first time in the "to" year.
+    // New Entrants: companies first appearing in the "to" year specifically.
+    // Range-responsive doesn't make sense here — over a wide range almost
+    // every company would qualify. Pinning to toYear keeps the question sharp:
+    // "who just showed up this year?"
     const entrants = (COMPANY_DATA.new_entrants[toYear] || [])
       .filter(c => c.toLowerCase().includes(query));
     rows = entrants.map((company, i) => `
@@ -1271,7 +1329,7 @@ function setupRangeSlider() {
     refreshGeojsonColors(toYear);       // map colours based on the "to" year
     updateCountyTable(fromYear, toYear);
     updateSectorChart(toYear);          // sector chart shows the "to" year
-    updateEmployerPanel(toYear);        // employer panel follows the "to" year
+    updateEmployerPanel(fromYear, toYear); // employer panel responds to the full range
   });
 }
 
@@ -1285,21 +1343,34 @@ function setupRangeSlider() {
   updateCountyTable(currentFromYear, currentToYear);
   updateSectorChart(currentToYear);
 
-  // Sector filter — update chart, county table, and map badge together
+  // Sector filter — update chart, county table, map badge, and employer panel together
   document.getElementById('sector-select').addEventListener('change', () => {
     const sector = document.getElementById('sector-select').value;
-    // Show/hide the "sector data is national" badge on the map
+    const sectorActive = sector !== 'all';
+
+    // Show/hide the "sector data is national" badge floating over the map
     document.getElementById('sector-map-badge').style.display =
-      sector === 'all' ? 'none' : 'block';
+      sectorActive ? 'block' : 'none';
+
     updateSectorChart(currentToYear);
     updateCountyTable(currentFromYear, currentToYear);
+
+    // Employer panel: swap between the "coming soon" note and the live controls.
+    // When a sector is active we can't filter employers (DETE doesn't publish
+    // a combined employer + sector file), so we show a clear explanation instead.
+    if (COMPANY_DATA && COMPANY_DATA.top_by_year) {
+      document.getElementById('employer-sector-note').style.display =
+        sectorActive ? 'block' : 'none';
+      document.getElementById('employer-controls').style.display =
+        sectorActive ? 'none' : 'block';
+    }
   });
 
   // ── Employer panel ──────────────────────────────────────────────────────
   // Only wire up the panel if company data was included at build time.
   if (COMPANY_DATA && COMPANY_DATA.top_by_year) {
     document.getElementById('employer-section').style.display = 'block';
-    updateEmployerPanel(currentToYear);
+    updateEmployerPanel(currentFromYear, currentToYear);
 
     // Tab switching — mark the clicked button active, update the list
     document.querySelectorAll('.emp-tab').forEach(btn => {
@@ -1307,13 +1378,13 @@ function setupRangeSlider() {
         document.querySelectorAll('.emp-tab').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         currentEmployerTab = btn.dataset.tab;
-        updateEmployerPanel(currentToYear);
+        updateEmployerPanel(currentFromYear, currentToYear);
       });
     });
 
     // Live search — filter the current tab's list as the user types
     document.getElementById('employer-search').addEventListener('input', () => {
-      updateEmployerPanel(currentToYear);
+      updateEmployerPanel(currentFromYear, currentToYear);
     });
   }
 })();
