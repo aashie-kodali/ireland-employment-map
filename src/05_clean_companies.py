@@ -343,6 +343,10 @@ def build_company_permits() -> pd.DataFrame:
     else:
         print(f"  [MISSING]      {fname_2025}")
 
+    if not frames:
+        raise RuntimeError(
+            "build_company_permits: no source files found — check data/raw/ is populated"
+        )
     df = pd.concat(frames, ignore_index=True)
 
     # Apply name cleaning

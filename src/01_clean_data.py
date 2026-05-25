@@ -261,6 +261,10 @@ def build_county_permits() -> pd.DataFrame:
         else:
             print(f"  [MISSING]    {fname}")
 
+    if not frames:
+        raise RuntimeError(
+            "build_county_permits: no source files found — check data/raw/ is populated"
+        )
     df = pd.concat(frames, ignore_index=True)
     # Keep only the 26 ROI counties — this drops NI counties AND any stray
     # country names (e.g. "England", "India") from the old County/Country column.
@@ -376,6 +380,14 @@ def parse_sector_new(path: Path, year: int) -> pd.DataFrame:
     else:
         grand_total_col = df.shape[1] - 1  # 2025+ layout: Grand Total is last col
 
+    # Sanity-check: the chosen column must contain at least one numeric value.
+    # If a future layout change causes the wrong column to be selected, this
+    # assertion will fail loudly rather than silently returning zero data.
+    assert pd.to_numeric(df.iloc[2:, grand_total_col], errors="coerce").notna().any(), (
+        f"parse_sector_new ({path.name}): column {grand_total_col} has no numeric values — "
+        "the file layout may have changed, update the grand_total_col detection logic."
+    )
+
     # Data begins at row 2 (rows 0 and 1 are a double header in all years).
     # We only need sector name (col 0) and the annual total.
     data = df.iloc[2:, [0, grand_total_col]].copy()
@@ -490,6 +502,10 @@ def build_sector_permits() -> pd.DataFrame:
         else:
             print(f"  [MISSING]    {fname}")
 
+    if not frames:
+        raise RuntimeError(
+            "build_sector_permits: no source files found — check data/raw/ is populated"
+        )
     df = pd.concat(frames, ignore_index=True)
 
     # Normalise sector names to fix truncations, capitalisation variants, and
@@ -667,8 +683,10 @@ VISA_ALLOW_LIST = {"long term visa applications"}
 
 VISA_FILE = "Visa Applications and Decisions by Year and Nationality.csv"
 
-# Year columns present in the source file
-VISA_YEAR_COLS = [str(y) for y in range(2017, 2027)]
+# Year columns to look for in the source file.
+# The range is wide so new annual updates are picked up automatically
+# without needing to edit this file.
+VISA_YEAR_COLS = [str(y) for y in range(2017, 2041)]
 
 
 def clean_visa_decisions() -> pd.DataFrame:
