@@ -1,8 +1,8 @@
 # Interactive County Map for Work Permits in Ireland
 
-**[Live demo → hosted on AWS Amplify]()**
+**[Live demo → hosted on AWS Amplify](https://www.employmentpermitmapie.com/)**
 
-[![Ireland Employment Map](docs/Map%20Screenshot.png)]()
+[![Ireland Employment Map](docs/Map%20Screenshot.png)](https://www.employmentpermitmapie.com/)
 
 I built this project to answer the question of where international workers are being hired over time in Ireland and which sectors are hiring, to effectively target my job search efforts. This map helps you navigate hiring trends by county and sector over time.
 
