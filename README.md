@@ -76,7 +76,9 @@ make test-all   # everything
 
 **Sector tagging**
 
-The employer panel's sector filter is powered by `data/raw/company_sector_map.csv`, built from eleven years of NACE-classified company data. To rebuild it after adding new source files:
+DETE's company permit files contain only company names and permit counts without sector information. The sector tags were built separately by matching every employer against the CRO (Companies Registration Office) open data register using exact name matching followed by TF-IDF fuzzy matching, with each result assigned a confidence tier. Known-bad CRO codes (multinationals registered as holding companies), keyword rules on company names, and manual verification via web search were then applied as correction layers. Results were validated against DETE's official sector totals.
+
+`scripts/build_sector_map_from_user_data.py` consolidates the classified files into `data/raw/company_sector_map.csv`, dropping low-confidence matches and splitting DETE's single Manufacturing category into five sub-categories using keyword rules. To rebuild after adding new source files:
 
 ```bash
 python scripts/build_sector_map_from_user_data.py
@@ -105,7 +107,7 @@ git push   # Amplify deploys automatically on push
 
 - **DETE** (Dept. of Enterprise, Trade and Employment) — Work permit statistics by county, sector, nationality, and employer, 2015–2025
 - **ISD** (Irish Immigration Service Delivery) — Long-term visa decisions by nationality, 2017–2026
-- **NACE sector classification** — Hand-validated employer → sector mapping across 20,662 unique companies (94.9% of all permits), built from eleven years of company-level data
+- **CRO open data register** (`opendata.cro.ie`) — NACE Rev.2 sector codes assigned to DETE employers via exact and TF-IDF fuzzy matching against the CRO company register, with correction layers for known-bad codes, keyword rules, and manual verification of uncertain matches
 - **simplemaps.com** — Ireland county boundary GeoJSON
 
 A few things worth knowing about the data: sector names changed around 2020 so pre-2020 sector trends are not directly comparable to later years. The sector breakdown shown in the map is national — DETE does not publish a county-level sector breakdown. Small visa counts are suppressed with `*` in the source data (treated as missing, not zero).
@@ -124,7 +126,7 @@ A few things worth knowing about the data: sector names changed around 2020 so p
 │   └── map_template.html         # HTML/JS template injected at build time
 ├── scripts/
 │   ├── build_sector_map_from_user_data.py  # builds company_sector_map.csv
-│   └── research_company_sectors.py         # generates CSV template for tagging
+│   └── research_company_sectors.py         # one-time utility: blank CSV template for manual sector tagging (top 150 companies)
 ├── tests/
 │   ├── test_cleaning.py          # unit tests for cleaning helpers
 │   ├── test_company_cleaning.py  # integration tests for company_permits.csv
