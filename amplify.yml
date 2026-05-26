@@ -1,0 +1,14 @@
+version: 1
+frontend:
+  phases:
+    build:
+      commands:
+        - echo "Static site — map is pre-built locally and committed to public/"
+  artifacts:
+    # Serve everything in public/ at the root URL.
+    # public/index.html becomes the site's home page.
+    baseDirectory: public
+    files:
+      - "**/*"
+  cache:
+    paths: []
