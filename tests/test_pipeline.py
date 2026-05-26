@@ -27,7 +27,7 @@ ROOT = Path(__file__).parent.parent
 
 CLEANED_DIR = ROOT / "data" / "cleaned"
 DB_PATH     = ROOT / "data" / "employment.db"
-MAP_PATH    = ROOT / "output" / "map" / "ireland_employment_map.html"
+MAP_PATH    = ROOT / "public" / "index.html"
 
 EXPECTED_CSVS = [
     "county_permits.csv",

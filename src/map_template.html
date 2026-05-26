@@ -626,7 +626,6 @@ function updateEmployerPanel(fromYear, toYear) {
     // Sector filtering — when a sector is selected, show only companies tagged
     // with that sector.  Each top_by_year entry carries a 'sector' field (the
     // sector_short string, i.e. the NACE name with its letter prefix stripped).
-    // Fastest Growing and New Entrants tabs show cross-sector data by design.
     const selectedSector = document.getElementById('sector-select').value;
     if (selectedSector !== 'all') {
       const taggedSet = new Set();
@@ -640,10 +639,7 @@ function updateEmployerPanel(fromYear, toYear) {
       if (candidates.length === 0) {
         list.innerHTML = `
           <div style="text-align:center;padding:14px 8px;font-size:0.72rem;color:#aaa;">
-            No tagged employers for this sector.<br>
-            <span style="font-size:0.65rem;">
-              Only the top 150 employers (by total permits) are sector-tagged.
-            </span>
+            No employers found for this sector in the selected range.
           </div>`;
         empty.style.display = 'none';
         return;
@@ -687,7 +683,28 @@ function updateEmployerPanel(fromYear, toYear) {
     }
     growers.sort((a, b) => b.pct_change - a.pct_change);
 
-    rows = growers.slice(0, 20)
+    // Sector filtering — collect tagged companies from both boundary years
+    const growSector = document.getElementById('sector-select').value;
+    let growCandidates = growers;
+    if (growSector !== 'all') {
+      const taggedSet = new Set();
+      for (const yr of [fromYear, toYear]) {
+        for (const r of (COMPANY_DATA.top_by_year[yr] || [])) {
+          if (r.sector === growSector) taggedSet.add(r.company);
+        }
+      }
+      growCandidates = growers.filter(r => taggedSet.has(r.company));
+      if (growCandidates.length === 0) {
+        list.innerHTML = `
+          <div style="text-align:center;padding:14px 8px;font-size:0.72rem;color:#aaa;">
+            No employers found for this sector in the selected range.
+          </div>`;
+        empty.style.display = 'none';
+        return;
+      }
+    }
+
+    rows = growCandidates.slice(0, 20)
       .filter(r => r.company.toLowerCase().includes(query))
       .map((r, i) => {
         const sign = r.pct_change >= 0 ? '+' : '';
@@ -707,13 +724,27 @@ function updateEmployerPanel(fromYear, toYear) {
     // Range-responsive doesn't make sense here — over a wide range almost
     // every company would qualify. Pinning to toYear keeps the question sharp:
     // "who just showed up this year?"
-    const entrants = (COMPANY_DATA.new_entrants[toYear] || [])
-      .filter(c => c.toLowerCase().includes(query));
-    rows = entrants.map((company, i) => `
-      <div class="emp-row">
-        <span class="emp-name" title="${company}">${i+1}. ${company}</span>
-        <span class="emp-val emp-sub">new ${toYear}</span>
-      </div>`);
+    // Each entry is {company, sector} so sector filtering works directly.
+    const entSector = document.getElementById('sector-select').value;
+    let entrantPool = COMPANY_DATA.new_entrants[toYear] || [];
+    if (entSector !== 'all') {
+      entrantPool = entrantPool.filter(r => r.sector === entSector);
+      if (entrantPool.length === 0) {
+        list.innerHTML = `
+          <div style="text-align:center;padding:14px 8px;font-size:0.72rem;color:#aaa;">
+            No new entrants found for this sector in ${toYear}.
+          </div>`;
+        empty.style.display = 'none';
+        return;
+      }
+    }
+    rows = entrantPool
+      .filter(r => r.company.toLowerCase().includes(query))
+      .map((r, i) => `
+        <div class="emp-row">
+          <span class="emp-name" title="${r.company}">${i+1}. ${r.company}</span>
+          <span class="emp-val emp-sub">new ${toYear}</span>
+        </div>`);
   }
 
   if (rows.length === 0) {

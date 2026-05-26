@@ -2,7 +2,7 @@
 src/04_build_map.py
 ===================
 Generates a standalone interactive HTML choropleth map at:
-  output/map/ireland_employment_map.html
+  public/index.html                     ← served by AWS Amplify at the root URL
 
 Features:
   • Leaflet.js choropleth coloured by permits issued per county
@@ -44,11 +44,14 @@ import pandas as pd
 # ── Paths ─────────────────────────────────────────────────────────────────────
 CLEANED_DIR = Path("data/cleaned")
 GEO_DIR     = Path("data/geo")
-OUTPUT_DIR  = Path("output/map")
-OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+# Output goes to public/ so AWS Amplify can serve it at the root URL.
+# public/index.html is tracked in git — push after rebuilding to deploy.
+PUBLIC_DIR  = Path("public")
+PUBLIC_DIR.mkdir(parents=True, exist_ok=True)
 
 GEOJSON_PATH = GEO_DIR / "GIS Maps of Ireland.json"
-OUTPUT_PATH  = OUTPUT_DIR / "ireland_employment_map.html"
+OUTPUT_PATH  = PUBLIC_DIR / "index.html"
 
 # ── County name normalisation ─────────────────────────────────────────────────
 # Different GeoJSON sources use different spellings. This map converts whatever
@@ -299,6 +302,7 @@ def load_company_data() -> dict:
 
     # ── New entrants: first year each company appears ─────────────────────────
     # first_year[company] = the earliest year that company has a row in the data.
+    # Each entry is {company, sector} so the JS sector filter can apply directly.
     first_year = df.groupby("company_name_clean")["year"].min()
     new_entrants = {}
     for year, grp in df.groupby("year"):
@@ -306,8 +310,17 @@ def load_company_data() -> dict:
         debutants = first_year[first_year == year].index
         year_data = grp[grp["company_name_clean"].isin(debutants)]
         if not year_data.empty:
-            top_new = year_data.nlargest(20, "issued")["company_name_clean"].tolist()
-            new_entrants[str(year)] = top_new
+            top_new = year_data.nlargest(20, "issued")[["company_name_clean", "sector"]]
+            new_entrants[str(year)] = [
+                {
+                    "company": row["company_name_clean"],
+                    "sector": (
+                        re.sub(r"^[A-Z]\s*-\s*", "", str(row["sector"])).strip()
+                        if pd.notna(row["sector"]) else None
+                    ),
+                }
+                for _, row in top_new.iterrows()
+            ]
 
     return {
         "top_by_year":  top_by_year,
