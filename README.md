@@ -20,7 +20,7 @@ A few things that surprised me in the data:
 
 **Healthcare has consistently led, with one exception where IT overtook the board.** Health & Social Work has been the top sector for work permits every year since 2020 except for 2022, when a surge in tech hiring briefly pushed Information & Communication to the top (10,800 vs 9,800). By 2023, the pattern had reasserted itself, and by 2024 the gap had widened again. Healthcare issued nearly twice as many permits as IT (~12,500 vs ~6,800).
 
-**COVID barely registered.** Permits in 2019, 2020, and 2021 were virtually identical — within 1% of each other. The real shock came in 2022, when national totals more than doubled in a single year, going from around 16,000 to nearly 40,000. Whatever the pandemic froze, it unfroze all at once.
+**COVID barely registered.** Permits in 2019, 2020, and 2021 were virtually identical, within 1% of each other. The real shock came in 2022, when national totals more than doubled in a single year, going from around 16,000 to nearly 40,000. Whatever the pandemic froze, it unfroze all at once.
 
 **Agriculture more than doubled from 2023 to 2024**, rebounding strongly after an unusual dip the year before. The sector had been growing steadily since 2015, collapsed in 2023 for reasons that are not obvious from the data alone, then came back sharply.
 
@@ -39,7 +39,7 @@ The pipeline runs in five steps:
 | 1 | `src/01_clean_data.py` | Reads raw Excel/CSV files, handles inconsistent layouts across years, outputs tidy CSVs for county, sector, nationality, and visa data |
 | 2 | `src/05_clean_companies.py` | Parses eleven years of company-level permit files, normalises employer names, joins sector tags |
 | 3 | `src/02_build_sqlite.py` | Loads all five CSVs into a SQLite database with indexes for fast querying |
-| 4 | `src/03_analyze.py` | Runs summary analysis — tables and interactive Plotly charts |
+| 4 | `src/03_analyze.py` | Runs summary analysis: tables and interactive Plotly charts |
 | 5 | `src/04_build_map.py` | Generates the self-contained interactive choropleth map at `public/index.html` |
 
 The HTML template lives separately in `src/map_template.html` and is injected with data at build time.
@@ -105,12 +105,12 @@ git push   # Amplify deploys automatically on push
 
 ## Data sources
 
-- **DETE** (Dept. of Enterprise, Trade and Employment) — Work permit statistics by county, sector, nationality, and employer, 2015–2025
-- **ISD** (Irish Immigration Service Delivery) — Long-term visa decisions by nationality, 2017–2026
-- **CRO open data register** (`opendata.cro.ie`) — NACE Rev.2 sector codes assigned to DETE employers via exact and TF-IDF fuzzy matching against the CRO company register, with correction layers for known-bad codes, keyword rules, and manual verification of uncertain matches
-- **simplemaps.com** — Ireland county boundary GeoJSON
+- **DETE** (Dept. of Enterprise, Trade and Employment): Work permit statistics by county, sector, nationality, and employer, 2015–2025
+- **ISD** (Irish Immigration Service Delivery): Long-term visa decisions by nationality, 2017–2026
+- **CRO open data register** (`opendata.cro.ie`): NACE Rev.2 sector codes assigned to DETE employers via exact and TF-IDF fuzzy matching against the CRO company register, with correction layers for known-bad codes, keyword rules, and manual verification of uncertain matches
+- **simplemaps.com**: Ireland county boundary GeoJSON
 
-A few things worth knowing about the data: sector names changed around 2020 so pre-2020 sector trends are not directly comparable to later years. The sector breakdown shown in the map is national — DETE does not publish a county-level sector breakdown. Small visa counts are suppressed with `*` in the source data (treated as missing, not zero).
+A few things worth knowing about the data: sector names changed around 2020 so pre-2020 sector trends are not directly comparable to later years. The sector breakdown shown in the map is national; DETE does not publish a county-level sector breakdown. Small visa counts are suppressed with `*` in the source data (treated as missing, not zero).
 
 ---
 
@@ -138,7 +138,7 @@ A few things worth knowing about the data: sector names changed around 2020 so p
 │   ├── cleaned/                  # pipeline-generated CSVs
 │   └── geo/                      # county boundary GeoJSON
 ├── public/
-│   └── index.html                # built map — committed and served by Amplify
+│   └── index.html                # built map, committed and served by Amplify
 ├── output/
 │   ├── charts/                   # Plotly charts
 │   └── tables/                   # summary CSVs
@@ -150,7 +150,7 @@ A few things worth knowing about the data: sector names changed around 2020 so p
 
 ## Author
 
-**Aashie Kodali** — Built as a portfolio project while learning Python and data analysis.
+**Aashie Kodali** | Built as a portfolio project while learning Python and data analysis.
 
 ---
 
