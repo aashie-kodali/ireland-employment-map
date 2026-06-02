@@ -40,7 +40,7 @@ Applied Materials Ireland Limited,735,J - Information & Communication Activities
 Tallaght University Hospital,731,Q - Health & Social Work Activities,high/exact
 Tata Consultancy Services Limited,731,J - Information & Communication Activities,high/exact
 MasterCard Ireland Limited,714,K - Financial & Insurance Activities,high/exact
-Dawn Meats Ireland,707,"A - Agriculture, Forestry & Fishing",high/exact
+Dawn Meats Ireland,707,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
 Mercy University Hospital,697,Q - Health & Social Work Activities,high/exact
 Sligo University Hospital,696,Q - Health & Social Work Activities,high/exact
 Wexford General Hospital,692,Q - Health & Social Work Activities,high/exact
@@ -581,7 +581,7 @@ Our Lady's Childrens Hospital Crumlin,55,Q - Health & Social Work Activities,hig
 Ethos Engineering Ltd,54,"M - Professional, Scientific & Technical Activities",low/medium
 Applewood Homecare Ltd,54,Q - Health & Social Work Activities,override
 Sparkoo Technologies Ireland Co Limited,54,J - Information & Communication Activities,high/exact
-Boyne Valley Meats Ltd,54,S - Other Service Activities,high/exact
+Boyne Valley Meats Ltd,54,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
 Ardancare Limited,54,Q - Health & Social Work Activities,high/exact
 Anns Home Care Ire Limited,54,Q - Health & Social Work Activities,high/exact
 Clearstream Global Securities Services Ltd,54,N - Administrative & Support Service Activities,low/medium
@@ -976,7 +976,7 @@ HSBC Securities Services (Ireland) DAC,31,K - Financial & Insurance Activities,l
 Genesis Healthcare Ltd,31,Q - Health & Social Work Activities,high/exact
 NeoDyne Limited,31,"M - Professional, Scientific & Technical Activities",low/medium
 Grasstec Advance Limited,31,"M - Professional, Scientific & Technical Activities",high/exact
-"Kilkenny, Carlow and District Farm Relief Services Society Limited",31,J - Information & Communication Activities,high/exact
+"Kilkenny, Carlow and District Farm Relief Services Society Limited",31,"A - Agriculture, Forestry & Fishing",manual/corrected
 Majorel Ireland Limited,31,N - Administrative & Support Service Activities,high/exact
 Greenfield Mushrooms Ltd,31,"A - Agriculture, Forestry & Fishing",high/exact
 Thomond Care Services Limited,31,L - Real Estate Activities,low/medium
@@ -1002,7 +1002,7 @@ Clifton Scannell Emerson Associates Ltd,30,"M - Professional, Scientific & Techn
 Sonas Nursing Home Tullow,30,Q - Health & Social Work Activities,high/exact
 3D4Medical Limited,30,"M - Professional, Scientific & Technical Activities",low/medium
 J.P. Ryan Limited,30,C - All Other Manufacturing,high/exact
-Ashbourne Meats Roscrea,30,I - Accommodation & Food Services Activities,low/medium
+Ashbourne Meats Roscrea,30,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
 ABB Limited,30,"M - Professional, Scientific & Technical Activities",low/medium
 Reign Healthcare,30,Q - Health & Social Work Activities,high/exact
 Mercury Engineering Limited,30,"M - Professional, Scientific & Technical Activities",low/medium
@@ -1181,7 +1181,7 @@ NSK Healthcare Ltd,24,Q - Health & Social Work Activities,high/exact
 O'Dwyer Transport and Warehousing Ltd,24,H - Transport & Storage,high/exact
 Winthrop Technologies Limited,24,J - Information & Communication Activities,high/exact
 Ace Autobody Ltd,24,G - Wholesale & Retail Trade,high/exact
-National Co-Operative Farm Relief Services,24,C - All Other Manufacturing,low/medium
+National Co-Operative Farm Relief Services,24,"A - Agriculture, Forestry & Fishing",manual/corrected
 Smart New Homes Solutions Limited,24,F - Construction,high/exact
 Blacklion Produce Limited,24,C - All Other Manufacturing,low/medium
 Air Products Ireland Limited,24,G - Wholesale & Retail Trade,low/medium
@@ -1324,7 +1324,7 @@ Trinseo Services Ireland Limited,21,N - Administrative & Support Service Activit
 HX46 Cafe And Pan Asian Casual Dining Ltd,21,I - Accommodation & Food Services Activities,high/exact
 Brookridge Farm Ltd,21,K - Financial & Insurance Activities,low/medium
 Bank of America Merrill Lynch International Limited,21,K - Financial & Insurance Activities,high/exact
-Tavan Meats Ltd,21,"M - Professional, Scientific & Technical Activities",high/exact
+Tavan Meats Ltd,21,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
 Fainne Entertainment Limited,21,I - Accommodation & Food Services Activities,high/exact
 Tipperter Limited,21,G - Wholesale & Retail Trade,low/medium
 Gama Construction Ireland Limited,21,F - Construction,high/exact
@@ -1424,12 +1424,12 @@ Acorn Healthcare Ltd,19,Q - Health & Social Work Activities,high/exact
 BAE Systems Applied Intelligence (Ireland) Limited,19,"E - Water Supply, Sewerage, Waste Management & Remedial Activities",low/medium
 Boundless Payroll Ireland Limited,19,N - Administrative & Support Service Activities,high/exact
 Creganna Medical Ireland Limited,19,N - Administrative & Support Service Activities,high/exact
-Dunleavy Meats Ltd,19,K - Financial & Insurance Activities,high/exact
+Dunleavy Meats Ltd,19,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
 AIG Europe Limited,19,K - Financial & Insurance Activities,low/medium
 Pilgrims Rest Nursing Home Limited,19,Q - Health & Social Work Activities,high/exact
 Silverstream Healthcare,19,Q - Health & Social Work Activities,high/exact
 Clocktower Productions DAC,19,J - Information & Communication Activities,high/exact
-County Waterford Farm Relief Services limited,19,C - All Other Manufacturing,low/medium
+County Waterford Farm Relief Services limited,19,"A - Agriculture, Forestry & Fishing",manual/corrected
 Halcyon Cleaning Services LTD,19,N - Administrative & Support Service Activities,high/exact
 Mel Building Services Limited,19,F - Construction,high/exact
 Reddit Ireland Limited,19,J - Information & Communication Activities,high/exact
@@ -1503,7 +1503,7 @@ Sai Kripa Foods Limited,18,I - Accommodation & Food Services Activities,high/exa
 Passage Healthcare International Ireland Limited,18,Q - Health & Social Work Activities,high/exact
 Masala Restaurants Limited,18,I - Accommodation & Food Services Activities,high/exact
 Matthew & Son Cafe Limited,18,I - Accommodation & Food Services Activities,high/exact
-Ashbury Nursing Home Ltd,18,N - Administrative & Support Service Activities,high/exact
+Ashbury Nursing Home Ltd,18,Q - Health & Social Work Activities,manual/corrected
 Tenable Network Security Ireland Limited,18,J - Information & Communication Activities,high/exact
 Bentley Systems International Limited,18,C - All Other Manufacturing,low/medium
 Hamilton UK Services Limited,18,F - Construction,low/medium
@@ -1525,7 +1525,7 @@ Shine Analytics Ltd,18,J - Information & Communication Activities,low/medium
 Kylemore Nursing Home Limited,18,Q - Health & Social Work Activities,high/exact
 TH Mushrooms Ltd,18,"A - Agriculture, Forestry & Fishing",high/exact
 Alucraft Limited,17,G - Wholesale & Retail Trade,low/medium
-Ashbourne Meats Roscrea UC,17,I - Accommodation & Food Services Activities,low/medium
+Ashbourne Meats Roscrea UC,17,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
 KETA Products Limited,17,G - Wholesale & Retail Trade,low/medium
 Circet Transmission Limited,17,F - Construction,high/exact
 Club Travel Ltd,17,N - Administrative & Support Service Activities,low/medium
@@ -1643,7 +1643,7 @@ GlobalLogic Software and Technology Ireland Limited,16,J - Information & Communi
 Oriflame Research and Development,16,"M - Professional, Scientific & Technical Activities",high/exact
 Ryevale Nursing Services Limited,16,Q - Health & Social Work Activities,high/exact
 Padraig Thornton Waste Disposal Limited,16,"E - Water Supply, Sewerage, Waste Management & Remedial Activities",low/medium
-O'Mahony Meats Limited,16,N - Administrative & Support Service Activities,low/medium
+O'Mahony Meats Limited,16,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
 Wau Asian Cuisine Limited,16,I - Accommodation & Food Services Activities,low/medium
 Xinji Limited,16,I - Accommodation & Food Services Activities,high/exact
 Innovapeak Ltd,16,F - Construction,low/medium
@@ -1982,7 +1982,7 @@ CareChoice Trim,13,Q - Health & Social Work Activities,high/exact
 Lakefield E Technologies Ltd,13,J - Information & Communication Activities,high/exact
 Goodman Medical Ireland Ltd,13,K - Financial & Insurance Activities,low/medium
 Gourmet Tart Company Limited,13,I - Accommodation & Food Services Activities,low/medium
-National Co-Operative Farm Relief Services Limited,13,C - All Other Manufacturing,low/medium
+National Co-Operative Farm Relief Services Limited,13,"A - Agriculture, Forestry & Fishing",manual/corrected
 Bimeda Animal Health Limited,13,"M - Professional, Scientific & Technical Activities",high/exact
 ResMed Sensor Technologies Limited,13,J - Information & Communication Activities,high/exact
 St. Paul's Nursing Home Limited,13,Q - Health & Social Work Activities,high/exact
@@ -2142,7 +2142,7 @@ Little Harvard Northside Ltd,12,Q - Health & Social Work Activities,high/exact
 Southwest Marine Limited,12,J - Information & Communication Activities,low/medium
 Centaur Fund Services Limited,12,K - Financial & Insurance Activities,low/medium
 Strandbray Management Limited,12,I - Accommodation & Food Services Activities,high/exact
-Coogan Meats Limited,12,H - Transport & Storage,low/medium
+Coogan Meats Limited,12,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
 MSD International GmBH,12,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
 Himalaya House Limited,12,I - Accommodation & Food Services Activities,high/exact
 Clavis Technology Ltd,12,J - Information & Communication Activities,low/medium
@@ -2179,7 +2179,7 @@ Bernard Kavanagh and Sons (Dublin) Ltd,11,"M - Professional, Scientific & Techni
 Firstcare Ireland Kilcock Limited,11,F - Construction,low/medium
 Konfloor IRL Limited,11,F - Construction,high/exact
 FotoNation Limited,11,K - Financial & Insurance Activities,high/exact
-Fox's Pub Ltd,11,C - All Other Manufacturing,low/medium
+Fox's Pub Ltd,11,I - Accommodation & Food Services Activities,manual/corrected
 Alpha Automation & Controls Limited,11,C - All Other Manufacturing,high/exact
 Brophy Produce LTD,11,C - All Other Manufacturing,high/exact
 Riada Care Ltd,11,Q - Health & Social Work Activities,high/exact
@@ -2336,7 +2336,7 @@ Sean Doyle Windows Limited,11,G - Wholesale & Retail Trade,high/exact
 Mulcahy McDonagh & Partners Limited,11,"M - Professional, Scientific & Technical Activities",low/medium
 Irish Blood Transfusion Service,11,C - All Other Manufacturing,low/medium
 Creditsafe Services Limited,11,J - Information & Communication Activities,low/medium
-KBC Bank Ireland PLC,11,N - Administrative & Support Service Activities,low/medium
+KBC Bank Ireland PLC,11,K - Financial & Insurance Activities,manual/corrected
 Prodieco Limited,11,K - Financial & Insurance Activities,low/medium
 New Mandarin Castle Restaurant (Castleknock) Limited,11,I - Accommodation & Food Services Activities,high/exact
 Yivee Ltd,11,G - Wholesale & Retail Trade,high/exact
@@ -2409,7 +2409,7 @@ Burger Chick Cork Limited,10,I - Accommodation & Food Services Activities,high/e
 Bunzl Ireland Limited,10,K - Financial & Insurance Activities,low/medium
 Mull Enterprises Limited,10,N - Administrative & Support Service Activities,low/medium
 Broadway Gaming Ireland Limited,10,"R - Arts, Entertainment and Recreation",high/exact
-Dunleavy Meats Unlimited Company,10,K - Financial & Insurance Activities,high/exact
+Dunleavy Meats Unlimited Company,10,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
 Gemcon Limited,10,F - Construction,high/exact
 Dundrum Steel RHD Limited,10,I - Accommodation & Food Services Activities,low/medium
 Writech Industrial Services Limited,10,"M - Professional, Scientific & Technical Activities",low/medium
@@ -2485,7 +2485,7 @@ Nuarca Ireland Limited,10,J - Information & Communication Activities,low/medium
 Xsellco Limited,10,K - Financial & Insurance Activities,low/medium
 Mars Foods Ireland Limited,10,I - Accommodation & Food Services Activities,low/medium
 Herbie Stephenson Limited,10,S - Other Service Activities,high/exact
-Herbert Park Hotel 2 Limited,10,F - Construction,high/exact
+Herbert Park Hotel 2 Limited,10,I - Accommodation & Food Services Activities,manual/corrected
 St Attracta's Nursing Home,10,Q - Health & Social Work Activities,high/exact
 Bank of Montreal Ireland plc,10,K - Financial & Insurance Activities,high/exact
 Little Blue Links Limited,10,J - Information & Communication Activities,low/medium
@@ -2549,7 +2549,7 @@ Store Computer Technology Ltd,10,J - Information & Communication Activities,low/
 Castleknock Foods Limited,10,L - Real Estate Activities,high/exact
 Jennings O'Donovan and Partners Ltd,10,F - Construction,low/medium
 The Sims Clinic Limited,10,Q - Health & Social Work Activities,low/medium
-Carrabawn Homecare Limited,10,S - Other Service Activities,high/exact
+Carrabawn Homecare Limited,10,Q - Health & Social Work Activities,manual/corrected
 Rahat Perveen Holdings Limited,10,K - Financial & Insurance Activities,high/exact
 Mulranny Day Centre Housing Co. Ltd,10,L - Real Estate Activities,low/medium
 LSM Engineering Ltd,10,"M - Professional, Scientific & Technical Activities",low/medium
@@ -2749,7 +2749,7 @@ Superior Health Limited,9,N - Administrative & Support Service Activities,high/e
 Sláinte Hospitality Limited,9,Q - Health & Social Work Activities,high/exact
 Cerner Ireland Ltd,9,"M - Professional, Scientific & Technical Activities",low/medium
 Microstrain Limited,9,G - Wholesale & Retail Trade,low/medium
-Glenmar Construction Limited,9,S - Other Service Activities,high/exact
+Glenmar Construction Limited,9,F - Construction,manual/corrected
 St Paul's Nursing Home Limited,9,Q - Health & Social Work Activities,high/exact
 Castle Ceilings Partitions Ltd,9,F - Construction,low/medium
 Carolan Catering Limtied,9,I - Accommodation & Food Services Activities,high/exact
@@ -2770,7 +2770,7 @@ Xpress Pantry Limited,9,C - All Other Manufacturing,high/exact
 Waystone Centralised Services (IE) Ltd,9,K - Financial & Insurance Activities,high/exact
 W.& H. Steel & Roofing Systems Limited,9,F - Construction,high/exact
 Banktech Software Services Limited,9,"M - Professional, Scientific & Technical Activities",high/exact
-Asba Meats Ltd,9,S - Other Service Activities,low/medium
+Asba Meats Ltd,9,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
 Refresh Hospitality Dundrum Limited,9,I - Accommodation & Food Services Activities,high/exact
 Adaptive HVM Limited,9,S - Other Service Activities,high/exact
 Aperee Living Churchtown Limited,9,G - Wholesale & Retail Trade,low/medium
@@ -2863,7 +2863,7 @@ JFK Autotech Limited,8,G - Wholesale & Retail Trade,low/medium
 Arkray Ireland Limited,8,C - All Other Manufacturing,high/exact
 Synergy Security Solutions Limited,8,N - Administrative & Support Service Activities,low/medium
 Elder Home Care Ltd,8,Q - Health & Social Work Activities,high/exact
-County Waterford Farm Relief Services,8,C - All Other Manufacturing,low/medium
+County Waterford Farm Relief Services,8,"A - Agriculture, Forestry & Fishing",manual/corrected
 Ballymaguire Foods Limited,8,"R - Arts, Entertainment and Recreation",low/medium
 Vistra Corporate Services (Ireland) Limited,8,N - Administrative & Support Service Activities,low/medium
 Perigord Premedia Ltd,8,K - Financial & Insurance Activities,low/medium
@@ -2892,7 +2892,7 @@ Kildare County Council,8,"M - Professional, Scientific & Technical Activities",l
 Cafe Presse Ltd,8,I - Accommodation & Food Services Activities,high/exact
 Zaib Foods Limited,8,Q - Health & Social Work Activities,low/medium
 Mindtree Limited,8,J - Information & Communication Activities,low/medium
-Dental Care Ireland Management Limited,8,K - Financial & Insurance Activities,low/medium
+Dental Care Ireland Management Limited,8,Q - Health & Social Work Activities,manual/corrected
 Freeburn Transport Limited,8,H - Transport & Storage,high/exact
 Kam Palace Chinese Restaurant Limited,8,I - Accommodation & Food Services Activities,high/exact
 Spot The Pig Limited,8,"M - Professional, Scientific & Technical Activities",low/medium
@@ -3027,7 +3027,7 @@ Camillus Healthcare Limited,8,Q - Health & Social Work Activities,high/exact
 Sligo Football Sport Dev Soc Ltd,8,"R - Arts, Entertainment and Recreation",high/exact
 Deena Energy Services Limited,8,N - Administrative & Support Service Activities,low/medium
 Bausch + Lomb Ireland Limited,8,G - Wholesale & Retail Trade,high/exact
-DSW Homecare Services Limited,8,F - Construction,high/exact
+DSW Homecare Services Limited,8,Q - Health & Social Work Activities,manual/corrected
 P. J. Hegarty & Sons Unlimited Company,8,G - Wholesale & Retail Trade,low/medium
 Stanford Woods Care Centre Ltd,8,Q - Health & Social Work Activities,high/exact
 Nolan Construction Consultants Ltd,8,F - Construction,high/exact
@@ -3051,7 +3051,7 @@ Sensational Kids CLG,8,S - Other Service Activities,low/medium
 Ice Data Services Ireland Limited,8,"M - Professional, Scientific & Technical Activities",low/medium
 Summit Scaffolding Ltd,8,F - Construction,high/exact
 Pat Smith Engineering Limited,8,F - Construction,low/medium
-City Pharmacy Ltd,8,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+City Pharmacy Ltd,8,Q - Health & Social Work Activities,manual/corrected
 BT Sourced,8,Q - Health & Social Work Activities,low/medium
 Oilfield Solutions Limited,8,"M - Professional, Scientific & Technical Activities",low/medium
 Darragh McArdle Engineering Ltd,8,"M - Professional, Scientific & Technical Activities",low/medium
@@ -3200,7 +3200,7 @@ Fallon & Byrne Limited,7,I - Accommodation & Food Services Activities,low/medium
 Exertis Supply Chain Services Limited,7,"M - Professional, Scientific & Technical Activities",low/medium
 Stryker NV Operations Limited,7,C - Manufacture of Medical Devices,high/exact
 Colm Quinn Limited,7,G - Wholesale & Retail Trade,low/medium
-Portlaoise Logistics Limited,7,Q - Health & Social Work Activities,high/exact
+Portlaoise Logistics Limited,7,H - Transport & Storage,manual/corrected
 Garryduff Dairy Farm Ltd,7,"C - Manufacture of Food, Drink & Tobacco",high/exact
 Earlsfort Centre Hotel Proprietors Limited,7,I - Accommodation & Food Services Activities,high/exact
 Atex and Verification Services Ltd,7,K - Financial & Insurance Activities,low/medium
@@ -3250,7 +3250,7 @@ Sprout and Co Kitchen Limited,7,I - Accommodation & Food Services Activities,hig
 St. Joseph's Psychiatric Hospital,7,Q - Health & Social Work Activities,high/exact
 Parnell Road Two Limited,7,G - Wholesale & Retail Trade,low/medium
 Celestine Cafe Bar Limited,7,I - Accommodation & Food Services Activities,high/exact
-Fox's Pub Limited,7,C - All Other Manufacturing,low/medium
+Fox's Pub Limited,7,I - Accommodation & Food Services Activities,manual/corrected
 LGT Fund Managers (Ireland) Limited,7,K - Financial & Insurance Activities,low/medium
 J.P.G Freight LTD,7,H - Transport & Storage,high/exact
 Wu Catering Limited,7,I - Accommodation & Food Services Activities,high/exact
@@ -3305,7 +3305,7 @@ PD Smart Homes Limited,7,F - Construction,high/exact
 Ecarg Contracting Limited,7,F - Construction,high/exact
 Parexel International (IRL) Limited,7,K - Financial & Insurance Activities,low/medium
 Rock Boxes Limited,7,"M - Professional, Scientific & Technical Activities",high/exact
-Sandyford Meats Ltd,7,N - Administrative & Support Service Activities,low/medium
+Sandyford Meats Ltd,7,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
 Kinsealy Property Unlimited,7,F - Construction,low/medium
 TBC Junction Unlimited Company,7,I - Accommodation & Food Services Activities,low/medium
 GE Medical Systems Ireland Limited,7,G - Wholesale & Retail Trade,high/exact
@@ -3314,7 +3314,7 @@ Bijou Catering Limited,7,I - Accommodation & Food Services Activities,high/exact
 Maginn Machinery Company Limited,7,H - Transport & Storage,low/medium
 Aperee Living Ballinasloe Ltd,7,Q - Health & Social Work Activities,low/medium
 Kinsale Capital Management Limited,7,S - Other Service Activities,low/medium
-Southgate Dental Limited,7,K - Financial & Insurance Activities,low/medium
+Southgate Dental Limited,7,Q - Health & Social Work Activities,manual/corrected
 Europlan Engineering Services Limited,7,K - Financial & Insurance Activities,high/exact
 JC Chinese Buffet Limited,7,I - Accommodation & Food Services Activities,low/medium
 Ashgrove Wholesale Ltd,7,G - Wholesale & Retail Trade,high/exact
@@ -3367,7 +3367,7 @@ Prism Engineering Ltd,7,"M - Professional, Scientific & Technical Activities",lo
 WMC Concrete Limited,7,F - Construction,high/exact
 HireDepot Construction Services Limited,7,F - Construction,high/exact
 Th Mushrooms Ltd,7,"A - Agriculture, Forestry & Fishing",high/exact
-H & D Meats Ltd. Trading as Robinson Meats,7,G - Wholesale & Retail Trade,low/medium
+H & D Meats Ltd. Trading as Robinson Meats,7,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
 Texuna Technologies Limited,7,J - Information & Communication Activities,high/exact
 Gum-Song Limited,7,I - Accommodation & Food Services Activities,high/exact
 The Point Dynamic Limited,7,S - Other Service Activities,high/exact
@@ -3415,7 +3415,7 @@ Novartis International Pharmaceuticals Ltd,7,C - Manufacture of Chemicals & Phar
 i3PT Certification Association Limited,7,"M - Professional, Scientific & Technical Activities",low/medium
 Bank of America Merrill Lynch International Ltd. - Dublin Branch,7,K - Financial & Insurance Activities,high/exact
 Green Pastures (Donegal),7,J - Information & Communication Activities,low/medium
-Shannonview Rainbow Childcare Academy Limited,7,S - Other Service Activities,high/exact
+Shannonview Rainbow Childcare Academy Limited,7,P - Education,manual/corrected
 Laurel Lodge Nursing Home Ltd,7,Q - Health & Social Work Activities,high/exact
 M&P O Sullivan Ltd,7,H - Transport & Storage,low/medium
 Matt The Threshers Limited,7,I - Accommodation & Food Services Activities,low/medium
@@ -3608,7 +3608,7 @@ Cully Automation Limited,7,"M - Professional, Scientific & Technical Activities"
 Pfizer Manufacturing Ireland Unlimited Company,7,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
 Grange Con Quarters Limited,7,L - Real Estate Activities,low/medium
 Evercam Ltd,6,C - All Other Manufacturing,low/medium
-Datoba Engineering Construction Ireland Limited,6,"M - Professional, Scientific & Technical Activities",high/exact
+Datoba Engineering Construction Ireland Limited,6,F - Construction,manual/corrected
 The Residence KK Limited,6,Q - Health & Social Work Activities,high/exact
 Kernel Construction Limited,6,F - Construction,high/exact
 Bewley's Cafe Grafton Street Limited,6,I - Accommodation & Food Services Activities,high/exact
@@ -3817,7 +3817,7 @@ Eirebloc,6,"M - Professional, Scientific & Technical Activities",low/medium
 Eiratech Robotics Ltd,6,"M - Professional, Scientific & Technical Activities",low/medium
 Patrick Fahy,6,I - Accommodation & Food Services Activities,low/medium
 McCulla (Ireland) Limited,6,C - All Other Manufacturing,low/medium
-Asba Meats Limited,6,S - Other Service Activities,low/medium
+Asba Meats Limited,6,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
 SAAB Innovations Ltd,6,"M - Professional, Scientific & Technical Activities",low/medium
 Bam Civil,6,F - Construction,low/medium
 Terenure Sports Club,6,"R - Arts, Entertainment and Recreation",high/exact
@@ -3856,7 +3856,7 @@ Irish Mapping GIS Solutions Ltd,6,J - Information & Communication Activities,low
 Aidan Kinsella,6,N - Administrative & Support Service Activities,low/medium
 Irish Hockey Company Limited by Guarantee,6,"R - Arts, Entertainment and Recreation",low/medium
 CKH IOD Data Limited,6,K - Financial & Insurance Activities,high/exact
-Gallaghers Seafood Restaurant Ltd,6,"A - Agriculture, Forestry & Fishing",high/exact
+Gallaghers Seafood Restaurant Ltd,6,I - Accommodation & Food Services Activities,manual/corrected
 Praya Foods Ltd,6,I - Accommodation & Food Services Activities,high/exact
 Aimware Limited,6,K - Financial & Insurance Activities,low/medium
 Industrial Domestic Furniture (Tullamore) Ltd,6,"M - Professional, Scientific & Technical Activities",low/medium
@@ -3921,7 +3921,7 @@ Cawley NEA Limited,6,F - Construction,low/medium
 Sambel Kitchen Limited,6,I - Accommodation & Food Services Activities,high/exact
 Mars Capital Management Ireland DAC,6,K - Financial & Insurance Activities,low/medium
 Celtic Anglian Water Limited,6,K - Financial & Insurance Activities,low/medium
-Xeon Dental Services Limited,6,L - Real Estate Activities,low/medium
+Xeon Dental Services Limited,6,Q - Health & Social Work Activities,manual/corrected
 Primeline Logistics Unlimited Company,6,H - Transport & Storage,high/exact
 Celtic Ross Hotel Limited,6,I - Accommodation & Food Services Activities,high/exact
 AG National Motors Ltd,6,F - Construction,high/exact
@@ -3999,7 +3999,7 @@ Gourmet Burger Kitchen Ireland Limited,6,I - Accommodation & Food Services Activ
 UCC Academy Limited,6,P - Education,high/exact
 Acquirer Systems Ltd,6,N - Administrative & Support Service Activities,low/medium
 Manpowergroup (Ireland) Limited,6,N - Administrative & Support Service Activities,low/medium
-Institute Of Technology ( Sligo ),6,J - Information & Communication Activities,high/exact
+Institute Of Technology ( Sligo ),6,P - Education,manual/corrected
 Grange Con Quarters Ltd,6,L - Real Estate Activities,low/medium
 Scope Ease IT Solutions Limited,6,J - Information & Communication Activities,high/exact
 Slainte Technologies Limited,6,J - Information & Communication Activities,high/exact
@@ -4060,7 +4060,7 @@ Abbey Lane Hotel (Trading) Ltd,6,I - Accommodation & Food Services Activities,hi
 Forte Pespa,6,F - Construction,high/exact
 AK & KA Ventures Limited,6,F - Construction,low/medium
 Mercer Global Investments Europe Limited,6,K - Financial & Insurance Activities,low/medium
-O'Neill Hotel Limited,6,S - Other Service Activities,high/exact
+O'Neill Hotel Limited,6,I - Accommodation & Food Services Activities,manual/corrected
 Bushmount Nursing Home Limited,6,Q - Health & Social Work Activities,high/exact
 Home Fare Services,6,F - Construction,low/medium
 AA Unity Foods Limited,6,I - Accommodation & Food Services Activities,high/exact
@@ -4182,7 +4182,7 @@ AFA Foods Co Limited,5,I - Accommodation & Food Services Activities,high/exact
 IHER Energy Services Ltd,5,F - Construction,low/medium
 Seoidin Limited,5,J - Information & Communication Activities,low/medium
 "Newbaze Ireland Nutrition Food Co., Ltd",5,"C - Manufacture of Food, Drink & Tobacco",high/exact
-Dnata Catering Limited Ireland,5,N - Administrative & Support Service Activities,high/exact
+Dnata Catering Limited Ireland,5,I - Accommodation & Food Services Activities,manual/corrected
 Greenfield Global LFS Ireland Limited,5,K - Financial & Insurance Activities,high/exact
 Maples Fund Services (Ireland) Limited,5,K - Financial & Insurance Activities,low/medium
 Heffernan Tyres LTD,5,"M - Professional, Scientific & Technical Activities",low/medium
@@ -4213,11 +4213,11 @@ Abellio LTD,5,C - All Other Manufacturing,low/medium
 iNua Limerick General Partner Limited,5,"M - Professional, Scientific & Technical Activities",low/medium
 Newcastlewest Nursing Home,5,Q - Health & Social Work Activities,high/exact
 Seahorse Catering Limited,5,I - Accommodation & Food Services Activities,high/exact
-Development And Construction Company Limited,5,K - Financial & Insurance Activities,high/exact
+Development And Construction Company Limited,5,F - Construction,manual/corrected
 Ability Software Ltd,5,J - Information & Communication Activities,high/exact
 Tent Engineering Limited,5,"M - Professional, Scientific & Technical Activities",high/exact
 Luxury Perfume Limited,5,C - All Other Manufacturing,high/exact
-Réalta Homecare Limited,5,"M - Professional, Scientific & Technical Activities",low/medium
+Réalta Homecare Limited,5,Q - Health & Social Work Activities,manual/corrected
 Rush Malone Limited,5,K - Financial & Insurance Activities,low/medium
 Dewan Hotels Limited,5,I - Accommodation & Food Services Activities,high/exact
 Dave Fallon Construction Limited,5,F - Construction,high/exact
@@ -4382,8 +4382,8 @@ AJM Prime Catering Limited,5,I - Accommodation & Food Services Activities,high/e
 Quest Computing Ltd,5,J - Information & Communication Activities,low/medium
 Inchydoney Island Lodge Spa Limited,5,C - All Other Manufacturing,low/medium
 Homecare Adaption Construction LTD,5,F - Construction,high/exact
-Daisybelle Childcare Limited,5,Q - Health & Social Work Activities,high/exact
-ASHBOURNE MEATS ROSCREA UNLIMITED COMPANY,5,I - Accommodation & Food Services Activities,low/medium
+Daisybelle Childcare Limited,5,P - Education,manual/corrected
+ASHBOURNE MEATS ROSCREA UNLIMITED COMPANY,5,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
 Seema Food House limited,5,I - Accommodation & Food Services Activities,high/exact
 Mary Coyne,5,"M - Professional, Scientific & Technical Activities",low/medium
 Marino Software Limited,5,J - Information & Communication Activities,high/exact
@@ -4391,7 +4391,7 @@ Phantomarc Studio Limited,5,J - Information & Communication Activities,high/exac
 Red Torch Ginger Thai Restaurant,5,I - Accommodation & Food Services Activities,high/exact
 Shrewsbury House Nursing Home Ltd,5,Q - Health & Social Work Activities,high/exact
 Sherpa Restaurant Limited,5,I - Accommodation & Food Services Activities,high/exact
-Hickeys Pharmacy Limited,5,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+Hickeys Pharmacy Limited,5,Q - Health & Social Work Activities,manual/corrected
 Phoenix Tyre Company Limited,5,G - Wholesale & Retail Trade,low/medium
 BOMEK Construction Limited,5,F - Construction,high/exact
 HMH IP Company Ltd,5,"M - Professional, Scientific & Technical Activities",low/medium
@@ -4893,7 +4893,7 @@ Bartra OPO (Northwood NH) limited,5,Q - Health & Social Work Activities,high/exa
 Ulysses Neuroscience Limited,5,Q - Health & Social Work Activities,high/exact
 Ultan Technologies Limited,5,J - Information & Communication Activities,high/exact
 CY Khor Limited,5,I - Accommodation & Food Services Activities,high/exact
-Ulster Bank Ireland DAC,5,C - All Other Manufacturing,low/medium
+Ulster Bank Ireland DAC,5,K - Financial & Insurance Activities,manual/corrected
 Oak Hall Consulting Limited,5,S - Other Service Activities,high/exact
 Thompsons R B Limited,5,I - Accommodation & Food Services Activities,high/exact
 Thomas McCarthy,5,C - All Other Manufacturing,low/medium
@@ -5212,7 +5212,7 @@ Connacht Hospitality Forster Street Limited,4,I - Accommodation & Food Services 
 Duggan Brothers Contractors LTD,4,F - Construction,low/medium
 Duggan Allied Steel Ltd,4,L - Real Estate Activities,low/medium
 CXC Renovation Limited,4,F - Construction,high/exact
-Ulster Bank Ireland Limited,4,C - All Other Manufacturing,low/medium
+Ulster Bank Ireland Limited,4,K - Financial & Insurance Activities,manual/corrected
 Atlantic Technological University,4,P - Education,high/exact
 Vention Medical Ireland Ltd,4,"M - Professional, Scientific & Technical Activities",low/medium
 Abdullah Nuri Guc,4,I - Accommodation & Food Services Activities,low/medium
@@ -5330,7 +5330,7 @@ TROY IT CONSULTANCY LIMITED,4,J - Information & Communication Activities,high/ex
 ED Advanced Medical Services Ltd,4,Q - Health & Social Work Activities,low/medium
 SIM Travel Limited,4,H - Transport & Storage,low/medium
 Gourmet Inn Limited,4,I - Accommodation & Food Services Activities,high/exact
-Institute of Technology Carlow,4,J - Information & Communication Activities,high/exact
+Institute of Technology Carlow,4,P - Education,manual/corrected
 Boots Retail (Ireland) Limited,4,S - Other Service Activities,low/medium
 Cambria Consultants Limited,4,"M - Professional, Scientific & Technical Activities",high/exact
 TPQH Limited,4,S - Other Service Activities,high/exact
@@ -5347,11 +5347,11 @@ Mc Grath Heavy Transport Limited,4,H - Transport & Storage,high/exact
 E.Z. Management Limited,4,H - Transport & Storage,low/medium
 Ross O'Sullivan Racing Ltd,4,C - All Other Manufacturing,high/exact
 Provident CRM LTD,4,J - Information & Communication Activities,low/medium
-RWA Pharmacy Limited,4,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+RWA Pharmacy Limited,4,Q - Health & Social Work Activities,manual/corrected
 Synergy Consulting IFA Ireland Ltd,4,"M - Professional, Scientific & Technical Activities",high/exact
 RongCheng Chinese Restaurant Ltd,4,I - Accommodation & Food Services Activities,high/exact
 Celtic Mobile Phones Limited,4,G - Wholesale & Retail Trade,high/exact
-Triur Construction Limited,4,"M - Professional, Scientific & Technical Activities",high/exact
+Triur Construction Limited,4,F - Construction,manual/corrected
 GAM Fund Management Limited,4,K - Financial & Insurance Activities,high/exact
 Topsec Cloud Solutions Limited,4,J - Information & Communication Activities,high/exact
 Squarebreed Limited,4,F - Construction,low/medium
@@ -5472,7 +5472,7 @@ Francis Ely Transport Limited,4,H - Transport & Storage,high/exact
 Andemare Limited,4,K - Financial & Insurance Activities,low/medium
 Caveo Information Systems Limited,4,J - Information & Communication Activities,low/medium
 O'Sullivan Rock Breaking Limited,4,F - Construction,low/medium
-Church Street Dental Ltd,4,I - Accommodation & Food Services Activities,low/medium
+Church Street Dental Ltd,4,Q - Health & Social Work Activities,manual/corrected
 Resolute Engineering Group Limited,4,F - Construction,high/exact
 Trifol Resources Limited,4,G - Wholesale & Retail Trade,low/medium
 Fahamore Inns Ltd,4,K - Financial & Insurance Activities,low/medium
@@ -5668,7 +5668,7 @@ Trunwitt Transport Limited,4,H - Transport & Storage,high/exact
 Chob Thai Restaurant Limited,4,I - Accommodation & Food Services Activities,high/exact
 Blinder Films Ltd,4,J - Information & Communication Activities,low/medium
 Quinn Tanker Services Ltd,4,N - Administrative & Support Service Activities,low/medium
-McCabes Pharmacy Limited,4,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+McCabes Pharmacy Limited,4,Q - Health & Social Work Activities,manual/corrected
 Salute Mission Critical Limited,4,J - Information & Communication Activities,high/exact
 BidX1 Technology Limited,4,K - Financial & Insurance Activities,high/exact
 Salted Stone EMEA Limited,4,"M - Professional, Scientific & Technical Activities",high/exact
@@ -5730,7 +5730,7 @@ Moore SeaFoods Limited,4,"A - Agriculture, Forestry & Fishing",high/exact
 Mossies Peak Limited,4,I - Accommodation & Food Services Activities,high/exact
 Payzaar Limited,4,K - Financial & Insurance Activities,high/exact
 Harvey Norman Trading (Ireland) Ltd,4,L - Real Estate Activities,low/medium
-Cork Institute of Technology (C.I.T.),4,J - Information & Communication Activities,high/exact
+Cork Institute of Technology (C.I.T.),4,P - Education,manual/corrected
 INIT Innovations in Transportation Limited,4,J - Information & Communication Activities,high/exact
 Bun and Bowl Limited,4,I - Accommodation & Food Services Activities,high/exact
 Lily Haosi Limited,4,I - Accommodation & Food Services Activities,high/exact
@@ -5790,7 +5790,7 @@ The White Chestnut Tavern Ltd,4,I - Accommodation & Food Services Activities,hig
 The Westport Plaza and Castlecourt Hotel Resort Unlimited Company,4,I - Accommodation & Food Services Activities,high/exact
 RoviSys Ireland Private Limited,4,"M - Professional, Scientific & Technical Activities",high/exact
 HavenWood Retirement Villages Ltd,4,Q - Health & Social Work Activities,low/medium
-Development And Construction Company Ltd,4,K - Financial & Insurance Activities,high/exact
+Development And Construction Company Ltd,4,F - Construction,manual/corrected
 Semple Transport Limited,4,H - Transport & Storage,high/exact
 The Eden Pizza Company Limited,4,I - Accommodation & Food Services Activities,high/exact
 Leyenkee Limited,4,I - Accommodation & Food Services Activities,high/exact
@@ -5915,7 +5915,7 @@ Business Recovery Services Limited,4,H - Transport & Storage,low/medium
 The Asset Management Exchange (Ireland) Limited,4,K - Financial & Insurance Activities,high/exact
 Paysafe Payment Solutions Limited,4,K - Financial & Insurance Activities,high/exact
 RCK Investments Limited,4,I - Accommodation & Food Services Activities,high/exact
-The Square Dental Services Limited,4,S - Other Service Activities,high/exact
+The Square Dental Services Limited,4,Q - Health & Social Work Activities,manual/corrected
 Kilcawley Building & Civil Engineering (Sligo) Limited,4,F - Construction,high/exact
 Hill 16 Tiles Limited,4,G - Wholesale & Retail Trade,high/exact
 Daytona Heavy Haulage Ltd,4,H - Transport & Storage,high/exact
@@ -6043,7 +6043,7 @@ ProCloud Horizon Limited,4,J - Information & Communication Activities,high/exact
 HSE West (Limerick),4,Q - Health & Social Work Activities,high/exact
 Teagasc (Agriculture & Food Development Authority),4,"A - Agriculture, Forestry & Fishing",high/exact
 HSE South-East (Kilkenny),4,Q - Health & Social Work Activities,high/exact
-MAAP Childcare Sallins Limited,4,Q - Health & Social Work Activities,high/exact
+MAAP Childcare Sallins Limited,4,P - Education,manual/corrected
 Douglas Chiropractic Physiotherapy Clinic Ltd,4,Q - Health & Social Work Activities,high/exact
 Drigate Products (Manufacturing) Limited,4,C - All Other Manufacturing,high/exact
 CN Khor Ltd,4,I - Accommodation & Food Services Activities,high/exact
@@ -6092,7 +6092,7 @@ United Caps Greystones Ltd,4,"M - Professional, Scientific & Technical Activitie
 3D Design Bureau Limited,4,"M - Professional, Scientific & Technical Activities",low/medium
 Barrett Mahony Consulting Engineers Ltd,4,"M - Professional, Scientific & Technical Activities",high/exact
 Lias Foods Limited,4,I - Accommodation & Food Services Activities,high/exact
-MAAP Childcare Limited,4,Q - Health & Social Work Activities,high/exact
+MAAP Childcare Limited,4,P - Education,manual/corrected
 H & V Catering Limited,4,I - Accommodation & Food Services Activities,high/exact
 Red Box Direct Limited,4,C - All Other Manufacturing,low/medium
 BROOKFIELD CARE SERVICES LIMITED,4,Q - Health & Social Work Activities,low/medium
@@ -6138,7 +6138,7 @@ Kilrush District Hospital Company Limited by Guarantee,4,Q - Health & Social Wor
 Sexton Bistro Limited,4,I - Accommodation & Food Services Activities,high/exact
 Marin Software Ltd,4,J - Information & Communication Activities,high/exact
 H L Asian Street Food Ltd,4,I - Accommodation & Food Services Activities,high/exact
-PORTLAOISE LOGISTICS LIMITED,4,Q - Health & Social Work Activities,high/exact
+PORTLAOISE LOGISTICS LIMITED,4,H - Transport & Storage,manual/corrected
 Dr James Hiney,4,C - All Other Manufacturing,low/medium
 Brookview Taverns Ltd,4,I - Accommodation & Food Services Activities,high/exact
 The Irish Air Navigation Service,4,O - Public Administration & Defence,high/exact
@@ -6244,7 +6244,7 @@ Blackwell Energy Ltd,3,"M - Professional, Scientific & Technical Activities",hig
 Akari Software Limited,3,J - Information & Communication Activities,high/exact
 Tru Data Analytics Ltd,3,J - Information & Communication Activities,low/medium
 L&J Catering Limited,3,I - Accommodation & Food Services Activities,high/exact
-Akash Kebab Limited,3,S - Other Service Activities,high/exact
+Akash Kebab Limited,3,I - Accommodation & Food Services Activities,manual/corrected
 Fisherhook LTD,3,J - Information & Communication Activities,low/medium
 Magheracloone Mushrooms Limited,3,"A - Agriculture, Forestry & Fishing",high/exact
 Castleknock Resort Limited,3,L - Real Estate Activities,low/medium
@@ -6393,7 +6393,7 @@ Sport Ireland,3,"R - Arts, Entertainment and Recreation",high/exact
 HoopsLife Ireland Limited,3,"R - Arts, Entertainment and Recreation",high/exact
 A.C. Nielsen of Ireland Limited,3,K - Financial & Insurance Activities,low/medium
 Focus Point Ireland,3,Q - Health & Social Work Activities,low/medium
-A. Cliffe Haulage Limited,3,"M - Professional, Scientific & Technical Activities",high/exact
+A. Cliffe Haulage Limited,3,H - Transport & Storage,manual/corrected
 Bishops Island Dairies Limited,3,N - Administrative & Support Service Activities,low/medium
 PowerGrade Ltd,3,"R - Arts, Entertainment and Recreation",low/medium
 Hughlin Properties Ltd,3,I - Accommodation & Food Services Activities,high/exact
@@ -6406,7 +6406,7 @@ A. C. Nielsen of Ireland Limited,3,K - Financial & Insurance Activities,low/medi
 IN2 Design Partnership Ltd,3,K - Financial & Insurance Activities,high/exact
 Qial Ltd,3,S - Other Service Activities,low/medium
 Tresworth Limited,3,"M - Professional, Scientific & Technical Activities",low/medium
-Sree Guru Dental Limited,3,K - Financial & Insurance Activities,high/exact
+Sree Guru Dental Limited,3,Q - Health & Social Work Activities,manual/corrected
 Little Pond Limited,3,I - Accommodation & Food Services Activities,low/medium
 Monterey Logistics Limited,3,H - Transport & Storage,high/exact
 LGT Capital Partners (Ireland) Limited,3,"M - Professional, Scientific & Technical Activities",low/medium
@@ -6430,7 +6430,7 @@ O'Reilly Garage (Carrigrohane) Limited,3,L - Real Estate Activities,low/medium
 A G Couriers Limited,3,H - Transport & Storage,high/exact
 iPing Limited,3,F - Construction,low/medium
 Power Solutions DTD Limited,3,F - Construction,low/medium
-iNua Hospitality Series 2 Limited T/A Muckross Park Hotel Spa,3,Q - Health & Social Work Activities,high/exact
+iNua Hospitality Series 2 Limited T/A Muckross Park Hotel Spa,3,I - Accommodation & Food Services Activities,manual/corrected
 Macquarie Capital (Ireland) DAC,3,K - Financial & Insurance Activities,high/exact
 Alexion Pharma International Operations UC,3,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
 Foodgenics Limited,3,I - Accommodation & Food Services Activities,high/exact
@@ -6465,7 +6465,7 @@ PW Renovation and Construction Limited,3,F - Construction,high/exact
 4F Pizzeria Limited,3,I - Accommodation & Food Services Activities,high/exact
 Furryhill Farm Limited,3,C - All Other Manufacturing,high/exact
 Villa Television Productions DAC,3,J - Information & Communication Activities,high/exact
-Burkes Meats (Kinvara) Ltd,3,"M - Professional, Scientific & Technical Activities",low/medium
+Burkes Meats (Kinvara) Ltd,3,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
 Quality First Ltd,3,K - Financial & Insurance Activities,high/exact
 Matt Pender Automation and Control Limited,3,F - Construction,low/medium
 Flexi Fabrication Technical Services Limited,3,F - Construction,low/medium
@@ -6523,7 +6523,7 @@ Spillane Pre-Cast Concrete Limited,3,C - All Other Manufacturing,low/medium
 J and J Irish Car Express Limited,3,H - Transport & Storage,low/medium
 Madanjo Limited,3,F - Construction,low/medium
 Freshways Unlimited Company,3,I - Accommodation & Food Services Activities,high/exact
-Shahi Catering Limited,3,S - Other Service Activities,high/exact
+Shahi Catering Limited,3,I - Accommodation & Food Services Activities,manual/corrected
 Catherine Condon,3,J - Information & Communication Activities,low/medium
 Little Apples Academy,3,S - Other Service Activities,high/exact
 Pavilion Garden Centre Ltd,3,G - Wholesale & Retail Trade,high/exact
@@ -6735,7 +6735,7 @@ Abbey House Medical Centre,3,Q - Health & Social Work Activities,high/exact
 RMG PIGS,3,C - All Other Manufacturing,high/exact
 Siva Foods Limited,3,I - Accommodation & Food Services Activities,high/exact
 "Grid Team Services (Ireland) Ltd,",3,F - Construction,high/exact
-Abington Dental Limited,3,K - Financial & Insurance Activities,low/medium
+Abington Dental Limited,3,Q - Health & Social Work Activities,manual/corrected
 Marcoh Care Limited,3,Q - Health & Social Work Activities,high/exact
 Boylan Engineering and Environmental Limited,3,"M - Professional, Scientific & Technical Activities",high/exact
 Laya Healthcare Limited,3,Q - Health & Social Work Activities,high/exact
@@ -6856,7 +6856,7 @@ Shimmer Research Ltd,3,"M - Professional, Scientific & Technical Activities",hig
 Lai Huu Nguyen,3,S - Other Service Activities,low/medium
 Urban Volt Limited,3,K - Financial & Insurance Activities,low/medium
 AGUP RESTAURANTS LIMITED,3,I - Accommodation & Food Services Activities,high/exact
-Heaney Meats Catering Co,3,I - Accommodation & Food Services Activities,high/exact
+Heaney Meats Catering Co,3,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
 Gaucho's Dog Limited,3,I - Accommodation & Food Services Activities,high/exact
 Gather & Gather Ireland Limited,3,I - Accommodation & Food Services Activities,high/exact
 YeChuan Ltd,3,I - Accommodation & Food Services Activities,high/exact
@@ -6913,7 +6913,7 @@ Xuxiuying Cafe Limited,3,I - Accommodation & Food Services Activities,high/exact
 Rochefreight (Ireland) Limited,3,H - Transport & Storage,high/exact
 Melbourne Health Care Limited,3,Q - Health & Social Work Activities,low/medium
 Southern Advertising Limerick Limited,3,S - Other Service Activities,low/medium
-Lissanalta Creche Ltd,3,Q - Health & Social Work Activities,high/exact
+Lissanalta Creche Ltd,3,P - Education,manual/corrected
 ODS Structures Limited,3,F - Construction,high/exact
 South Doc Services Limited,3,S - Other Service Activities,low/medium
 Irish Life and Permanent,3,S - Other Service Activities,low/medium
@@ -7123,16 +7123,16 @@ Athletic Greens (EU) Limited,3,N - Administrative & Support Service Activities,l
 Conaghan Evergreen Bloodstock Limited,3,C - All Other Manufacturing,high/exact
 Perrigo Pharma International Limited,3,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
 Wexford Casings Limited,3,G - Wholesale & Retail Trade,low/medium
-Our Lady of Lourdes National School,3,Q - Health & Social Work Activities,high/exact
+Our Lady of Lourdes National School,3,P - Education,manual/corrected
 E & W Catering Ltd T/A Ming Court,3,I - Accommodation & Food Services Activities,high/exact
 MCDS Geo Surveyors Ltd,3,"M - Professional, Scientific & Technical Activities",low/medium
 Compliance Engineering Ireland Ltd,3,"M - Professional, Scientific & Technical Activities",low/medium
 TSS Manufacturing Ltd,3,C - All Other Manufacturing,high/exact
 Assure Hedge Limited,3,"M - Professional, Scientific & Technical Activities",low/medium
-TSR Pharmacy Limited,3,G - Wholesale & Retail Trade,high/exact
+TSR Pharmacy Limited,3,Q - Health & Social Work Activities,manual/corrected
 Complete Stainless Engineering Ltd,3,F - Construction,low/medium
 VorTech Water Solutions Ltd,3,S - Other Service Activities,high/exact
-Whelan Trucking Ltd,3,"M - Professional, Scientific & Technical Activities",low/medium
+Whelan Trucking Ltd,3,H - Transport & Storage,manual/corrected
 TRS Catering Limited,3,I - Accommodation & Food Services Activities,high/exact
 Nursecure Ltd,3,O - Public Administration & Defence,high/exact
 Net Ministries Of Ireland Ltd,3,S - Other Service Activities,low/medium
@@ -7351,7 +7351,7 @@ Beacon Sushi Limited,3,C - All Other Manufacturing,high/exact
 Nawaab Ventures Limited,3,I - Accommodation & Food Services Activities,low/medium
 Ross Medical Practice,3,Q - Health & Social Work Activities,low/medium
 MD Burns & Co Ltd,3,K - Financial & Insurance Activities,low/medium
-THC Dental Limited,3,J - Information & Communication Activities,low/medium
+THC Dental Limited,3,Q - Health & Social Work Activities,manual/corrected
 Our Lady's Manor Incorporated,3,Q - Health & Social Work Activities,high/exact
 Net Beo Teoranta,3,C - All Other Manufacturing,low/medium
 Realdeal Foods Limited,3,I - Accommodation & Food Services Activities,high/exact
@@ -7406,8 +7406,8 @@ John Gleesons Newsagents Ltd,3,G - Wholesale & Retail Trade,low/medium
 Collins Transport Rathcoole Limited,3,H - Transport & Storage,high/exact
 Outmin Limited,3,N - Administrative & Support Service Activities,high/exact
 Party HQ Limited,3,"M - Professional, Scientific & Technical Activities",high/exact
-Collen Construction Ltd,3,N - Administrative & Support Service Activities,high/exact
-Collen Construction Limited,3,N - Administrative & Support Service Activities,high/exact
+Collen Construction Ltd,3,F - Construction,manual/corrected
+Collen Construction Limited,3,F - Construction,manual/corrected
 Tim Kelly (Electrical Contractors) Limited,3,F - Construction,high/exact
 Ashley Martin Ltd,3,Q - Health & Social Work Activities,low/medium
 College View Ltd T/A College View Nursing Home,3,Q - Health & Social Work Activities,high/exact
@@ -7432,7 +7432,7 @@ Daon Technology,3,K - Financial & Insurance Activities,low/medium
 S & A Hayes Mechanical & Engineering Limited,3,F - Construction,high/exact
 Philip King Electrical Limited,3,F - Construction,low/medium
 The Croft Nursing Home,3,Q - Health & Social Work Activities,high/exact
-Kids Klubs Childcare Limited,3,S - Other Service Activities,high/exact
+Kids Klubs Childcare Limited,3,P - Education,manual/corrected
 Darjan Limited,3,I - Accommodation & Food Services Activities,high/exact
 Cronin and Co.,3,K - Financial & Insurance Activities,low/medium
 Ballinla Farm Ltd,3,C - All Other Manufacturing,high/exact
@@ -7444,7 +7444,7 @@ DWG GALA House Limited,3,I - Accommodation & Food Services Activities,high/exact
 Lyons of Limerick Limited,3,Q - Health & Social Work Activities,low/medium
 Walkers (Ireland) LLP,3,I - Accommodation & Food Services Activities,low/medium
 DaDa Molly Limited,3,I - Accommodation & Food Services Activities,high/exact
-Crowe Meats (Dundrum) Ltd,3,I - Accommodation & Food Services Activities,low/medium
+Crowe Meats (Dundrum) Ltd,3,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
 Nimbus Choice Limited,3,G - Wholesale & Retail Trade,high/exact
 Rye House Ltd,3,K - Financial & Insurance Activities,low/medium
 Quesada Developments Ltd,3,F - Construction,low/medium
@@ -7592,7 +7592,7 @@ Tel Magnetic Solutions Ltd,3,S - Other Service Activities,low/medium
 Cora Consulting Engineers Ltd,3,"M - Professional, Scientific & Technical Activities",high/exact
 KLM Utilities Ltd,3,S - Other Service Activities,high/exact
 Louis Fitzgerald Hotel Limited,3,I - Accommodation & Food Services Activities,high/exact
-District One Restaurant Limited,3,J - Information & Communication Activities,high/exact
+District One Restaurant Limited,3,I - Accommodation & Food Services Activities,manual/corrected
 Novartis Ringaskiddy Limited,3,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
 Copper Grove Investments Ltd,3,I - Accommodation & Food Services Activities,high/exact
 Avec Logistics (Ireland) Limited t/a Ceva Logistics,3,H - Transport & Storage,high/exact
@@ -7723,7 +7723,7 @@ Corked Designated Activity Company,3,J - Information & Communication Activities,
 Cork Transfer Accommodation Limited,3,I - Accommodation & Food Services Activities,high/exact
 Kilkenny Limestone Quarries Ltd,3,N - Administrative & Support Service Activities,low/medium
 Ayan K Limited,3,K - Financial & Insurance Activities,low/medium
-The Wicklow Heather Restaurant Limited,3,F - Construction,high/exact
+The Wicklow Heather Restaurant Limited,3,I - Accommodation & Food Services Activities,manual/corrected
 Miao Tian,3,I - Accommodation & Food Services Activities,low/medium
 Cork Radiation Oncology Associates LTD,3,"M - Professional, Scientific & Technical Activities",high/exact
 Axiseng ME Limited,3,K - Financial & Insurance Activities,high/exact
@@ -7846,7 +7846,7 @@ Chicken Club,3,G - Wholesale & Retail Trade,high/exact
 Jacks Bar Catering Ltd,3,I - Accommodation & Food Services Activities,high/exact
 Anthony's Chinese Take Away,3,S - Other Service Activities,low/medium
 LocalEyes Limited,3,J - Information & Communication Activities,low/medium
-McAuliffe Trucking Limited,3,F - Construction,low/medium
+McAuliffe Trucking Limited,3,H - Transport & Storage,manual/corrected
 Aran Biomedical Teoranta,3,C - All Other Manufacturing,high/exact
 Wilton Scrap Metals Limited,3,G - Wholesale & Retail Trade,high/exact
 James Walsh,3,F - Construction,low/medium
@@ -8216,7 +8216,7 @@ Lemon Tree Food Limited,2,I - Accommodation & Food Services Activities,low/mediu
 McGuinness Commercials,2,G - Wholesale & Retail Trade,high/exact
 Image Quest Group Ltd,2,J - Information & Communication Activities,low/medium
 Kam Bo Chinese Restaurant Limited,2,I - Accommodation & Food Services Activities,high/exact
-Kildare Hotel Opportunities Limited,2,"M - Professional, Scientific & Technical Activities",high/exact
+Kildare Hotel Opportunities Limited,2,I - Accommodation & Food Services Activities,manual/corrected
 Macro Works Limited,2,I - Accommodation & Food Services Activities,low/medium
 Regent Chinese Restaurant Limited,2,I - Accommodation & Food Services Activities,high/exact
 Secure Management Solutions Ltd,2,N - Administrative & Support Service Activities,low/medium
@@ -8315,7 +8315,7 @@ Ryans Cleaning Event Specialist Ltd,2,N - Administrative & Support Service Activ
 Lmbo Takeaway Limited,2,I - Accommodation & Food Services Activities,high/exact
 Randor Computers Limited,2,"M - Professional, Scientific & Technical Activities",low/medium
 Key Waste Management Limited,2,"E - Water Supply, Sewerage, Waste Management & Remedial Activities",high/exact
-Lloyds Pharmacy Ireland Limited,2,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+Lloyds Pharmacy Ireland Limited,2,Q - Health & Social Work Activities,manual/corrected
 Life Scientific Limited,2,G - Wholesale & Retail Trade,low/medium
 Li Chang Chen,2,I - Accommodation & Food Services Activities,low/medium
 RAW Marketing & Events Ltd,2,"M - Professional, Scientific & Technical Activities",low/medium
@@ -8407,7 +8407,7 @@ IQ PHARMATEK LIMITED,2,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
 J Hest Limited,2,I - Accommodation & Food Services Activities,high/exact
 Segregated Payments (Ireland) Limited,2,K - Financial & Insurance Activities,high/exact
 M C Furlong Transport Ltd,2,H - Transport & Storage,high/exact
-Reward Catering Limited,2,C - All Other Manufacturing,high/exact
+Reward Catering Limited,2,I - Accommodation & Food Services Activities,manual/corrected
 Kathleen Smyth,2,"M - Professional, Scientific & Technical Activities",low/medium
 Leonard Catering Ltd,2,I - Accommodation & Food Services Activities,high/exact
 Lucan Spa Hotel Limited,2,I - Accommodation & Food Services Activities,high/exact
@@ -8618,7 +8618,7 @@ Jamil Ahmed,2,K - Financial & Insurance Activities,low/medium
 J.W. Balfour Limited,2,K - Financial & Insurance Activities,low/medium
 Lark Rock Limited,2,"M - Professional, Scientific & Technical Activities",high/exact
 Kingdom Investments Limited T/A Heights Hotel Killarney,2,I - Accommodation & Food Services Activities,high/exact
-McAuliffe Trucking Ltd,2,F - Construction,low/medium
+McAuliffe Trucking Ltd,2,H - Transport & Storage,manual/corrected
 LZ Orchid House Ltd,2,I - Accommodation & Food Services Activities,low/medium
 Riverside Chinese Takeaway Limited,2,I - Accommodation & Food Services Activities,high/exact
 MDC Mortgage Brokers Ltd t/a Irish Mortgage Brokers,2,K - Financial & Insurance Activities,low/medium
@@ -8858,7 +8858,7 @@ Information Providers Ltd,2,J - Information & Communication Activities,low/mediu
 Kilnaseer Dairies Ltd,2,C - All Other Manufacturing,high/exact
 Maurice Regan,2,S - Other Service Activities,low/medium
 Leadwood Consulting Limited,2,"M - Professional, Scientific & Technical Activities",high/exact
-Kilnashee Childcare Limited,2,Q - Health & Social Work Activities,high/exact
+Kilnashee Childcare Limited,2,P - Education,manual/corrected
 MARIA GORETTI NURSING HOME,2,Q - Health & Social Work Activities,high/exact
 Information Security Assurance Services Limited,2,K - Financial & Insurance Activities,high/exact
 K.A.R.E.,2,F - Construction,low/medium
@@ -9120,7 +9120,7 @@ OTHS (PVT) Limited,2,G - Wholesale & Retail Trade,low/medium
 Uber Eats Ireland Limited,2,"M - Professional, Scientific & Technical Activities",high/exact
 Cahalane Bros Ltd,2,"M - Professional, Scientific & Technical Activities",low/medium
 Uber Ireland Center of Excellence Limited,2,N - Administrative & Support Service Activities,high/exact
-Pearl Dental Limited,2,"R - Arts, Entertainment and Recreation",low/medium
+Pearl Dental Limited,2,Q - Health & Social Work Activities,manual/corrected
 Campbell Catering Limited Head Office,2,I - Accommodation & Food Services Activities,high/exact
 Campions Garage Ltd,2,I - Accommodation & Food Services Activities,low/medium
 Cadmin Limited,2,N - Administrative & Support Service Activities,high/exact
@@ -9133,7 +9133,7 @@ Capital Care Dun Laoghaire Limited,2,Q - Health & Social Work Activities,high/ex
 Capital Care Dental lab,2,C - All Other Manufacturing,high/exact
 Capita IB Solutions (Ireland) Limited,2,"M - Professional, Scientific & Technical Activities",low/medium
 U Value Installation Ltd,2,"M - Professional, Scientific & Technical Activities",low/medium
-Capel Street Pharmacy Ltd,2,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+Capel Street Pharmacy Ltd,2,Q - Health & Social Work Activities,manual/corrected
 Capel Kebab and Cuisine Limited,2,I - Accommodation & Food Services Activities,high/exact
 Capcon Engineering,2,F - Construction,high/exact
 Canon (Irl) Business Equipment Ltd,2,G - Wholesale & Retail Trade,low/medium
@@ -9172,7 +9172,7 @@ CP Leisure LTD,2,I - Accommodation & Food Services Activities,low/medium
 Cabinteely Senior Football Club Limited,2,"R - Arts, Entertainment and Recreation",high/exact
 CPM Ireland Limited,2,F - Construction,low/medium
 CXC Renovation Ltd,2,F - Construction,high/exact
-Ulster Bank Ireland Designated Activity Company,2,C - All Other Manufacturing,low/medium
+Ulster Bank Ireland Designated Activity Company,2,K - Financial & Insurance Activities,manual/corrected
 CWire Retail 2 LIimited,2,K - Financial & Insurance Activities,low/medium
 OZ Dental Limited,2,Q - Health & Social Work Activities,high/exact
 CWPA Limited,2,"M - Professional, Scientific & Technical Activities",high/exact
@@ -9257,7 +9257,7 @@ Card Centric Limited,2,K - Financial & Insurance Activities,low/medium
 Twin Town Pubs Ltd,2,S - Other Service Activities,low/medium
 ONG Automation ltd,2,"M - Professional, Scientific & Technical Activities",low/medium
 Twinlite Services Limited,2,F - Construction,low/medium
-Pelly's Pharmacy Limited,2,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+Pelly's Pharmacy Limited,2,Q - Health & Social Work Activities,manual/corrected
 Carasco Management Limited,2,K - Financial & Insurance Activities,low/medium
 Carhoc Limited,2,"M - Professional, Scientific & Technical Activities",high/exact
 Pembroke Cafes Limited,2,I - Accommodation & Food Services Activities,high/exact
@@ -9280,7 +9280,7 @@ Carragh Properties Galway Limited,2,L - Real Estate Activities,low/medium
 Carole Anne Mulcahy,2,"M - Professional, Scientific & Technical Activities",low/medium
 Carolan Catering Ltd,2,I - Accommodation & Food Services Activities,high/exact
 OMEGA Systems Support Ltd,2,S - Other Service Activities,high/exact
-Carlton Dental Care Limited,2,F - Construction,low/medium
+Carlton Dental Care Limited,2,Q - Health & Social Work Activities,manual/corrected
 Turkish Airlines Inc.,2,H - Transport & Storage,high/exact
 CHR. Hansen Ireland Limited,2,I - Accommodation & Food Services Activities,low/medium
 Peak Physio Ltd,2,Q - Health & Social Work Activities,low/medium
@@ -9473,7 +9473,7 @@ The Wholesome Irish Biltong Company Ltd,2,C - All Other Manufacturing,low/medium
 Novacoast EU Limited,2,J - Information & Communication Activities,high/exact
 Corinthian Hockey Club,2,F - Construction,low/medium
 The Woodford Dolmen Hotel Limited,2,I - Accommodation & Food Services Activities,high/exact
-Cordar Pharmacy Limited,2,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+Cordar Pharmacy Limited,2,Q - Health & Social Work Activities,manual/corrected
 Corcorans Engineering Enterprises Ltd,2,"M - Professional, Scientific & Technical Activities",low/medium
 Themis Solutions (Ireland) Limited,2,"M - Professional, Scientific & Technical Activities",low/medium
 Corcoran Food Machines Ltd T/A Corcoran Food Equipment,2,S - Other Service Activities,low/medium
@@ -9641,7 +9641,7 @@ North County Cricket Club Limited,2,"R - Arts, Entertainment and Recreation",low
 Crown Roofing Ltd,2,F - Construction,high/exact
 Crown Roofing Cladding Ltd,2,F - Construction,high/exact
 Crown Foods LTD,2,"C - Manufacture of Food, Drink & Tobacco",low/medium
-Crowley's Pharmacy,2,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+Crowley's Pharmacy,2,Q - Health & Social Work Activities,manual/corrected
 Crowley Surface Coatings LTD,2,C - All Other Manufacturing,low/medium
 North Dublin Commercials Limited,2,F - Construction,low/medium
 The Piranha Bar Ltd,2,K - Financial & Insurance Activities,low/medium
@@ -9739,7 +9739,7 @@ Charleville Refrigeration Services Ltd,2,"M - Professional, Scientific & Technic
 Transperfect Translations Limited,2,J - Information & Communication Activities,low/medium
 Charleville RAC Service Ltd,2,"M - Professional, Scientific & Technical Activities",high/exact
 Charlestown Venture Capital Limited,2,C - All Other Manufacturing,low/medium
-Charlesland Pub Limited,2,G - Wholesale & Retail Trade,low/medium
+Charlesland Pub Limited,2,I - Accommodation & Food Services Activities,manual/corrected
 Charlemont Leisure Investments Limited,2,"M - Professional, Scientific & Technical Activities",low/medium
 Clearstory Limited,2,"M - Professional, Scientific & Technical Activities",high/exact
 O R Y Quality Foods Limited,2,G - Wholesale & Retail Trade,high/exact
@@ -9868,7 +9868,7 @@ Xia Chen,2,J - Information & Communication Activities,high/exact
 Alfredo's Catering Ltd,2,I - Accommodation & Food Services Activities,high/exact
 Parade Resources Limited,2,"M - Professional, Scientific & Technical Activities",low/medium
 Xiaofang Lin,2,G - Wholesale & Retail Trade,low/medium
-Alexandra Dental Practice Ltd,2,L - Real Estate Activities,low/medium
+Alexandra Dental Practice Ltd,2,Q - Health & Social Work Activities,manual/corrected
 Alexandra College,2,L - Real Estate Activities,low/medium
 Papa Rich Street Food Kitchen Newtownsmith Ltd,2,I - Accommodation & Food Services Activities,high/exact
 PAREXEL International (IRL) Limited,2,K - Financial & Insurance Activities,low/medium
@@ -9994,7 +9994,7 @@ PAC Studio Limited,2,"M - Professional, Scientific & Technical Activities",low/m
 All n One Ltd,2,H - Transport & Storage,low/medium
 All Star Food Limited,2,I - Accommodation & Food Services Activities,high/exact
 Writech Manufacturing Limited,2,C - All Other Manufacturing,high/exact
-Alpha Dental Limited,2,"M - Professional, Scientific & Technical Activities",low/medium
+Alpha Dental Limited,2,Q - Health & Social Work Activities,manual/corrected
 P and E Europe Star Ltd,2,I - Accommodation & Food Services Activities,high/exact
 Alpha Mechanical Services Limited,2,F - Construction,low/medium
 Woodford Timber Products Ltd,2,K - Financial & Insurance Activities,high/exact
@@ -10092,7 +10092,7 @@ jump! Marketing Limited,2,"M - Professional, Scientific & Technical Activities",
 AA Fine Catering Limited,2,I - Accommodation & Food Services Activities,high/exact
 AA DISTRIBUTION LIMITED,2,G - Wholesale & Retail Trade,high/exact
 A2Z Trade House Limited,2,G - Wholesale & Retail Trade,high/exact
-iNua Hospitality General Partner Limited T/A Radisson Blu Hotel Spa Cork,2,Q - Health & Social Work Activities,high/exact
+iNua Hospitality General Partner Limited T/A Radisson Blu Hotel Spa Cork,2,I - Accommodation & Food Services Activities,manual/corrected
 A.M. Higher Education Ireland Ltd,2,"M - Professional, Scientific & Technical Activities",low/medium
 A.K Bansal Limited,2,G - Wholesale & Retail Trade,low/medium
 A. Reddy & Company Ltd,2,K - Financial & Insurance Activities,high/exact
@@ -10280,7 +10280,7 @@ Orchid House Ltd,2,I - Accommodation & Food Services Activities,high/exact
 "Walkinstown Green Social Enterprises Ltd,",2,"M - Professional, Scientific & Technical Activities",low/medium
 Baldoyle Auto Centre Limited,2,G - Wholesale & Retail Trade,low/medium
 Wall and Kenneally Limited,2,C - All Other Manufacturing,low/medium
-Balbriggan Dental Services Limited,2,L - Real Estate Activities,low/medium
+Balbriggan Dental Services Limited,2,Q - Health & Social Work Activities,manual/corrected
 Baker Consultants Ltd,2,G - Wholesale & Retail Trade,low/medium
 Bakelicious Ltd,2,G - Wholesale & Retail Trade,low/medium
 Patrick Carroll Consulting LTD,2,"M - Professional, Scientific & Technical Activities",high/exact
@@ -10609,7 +10609,7 @@ Pratham Limited,2,I - Accommodation & Food Services Activities,high/exact
 GPSP Project Management Services Ltd,2,"M - Professional, Scientific & Technical Activities",low/medium
 GP Retailing Drum Limited,2,G - Wholesale & Retail Trade,high/exact
 GP Power Professionals Limited,2,G - Wholesale & Retail Trade,high/exact
-GO HEALTHYPHARMACY LIMITED,2,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+GO HEALTHYPHARMACY LIMITED,2,Q - Health & Social Work Activities,manual/corrected
 GN Lin Trading Limited,2,G - Wholesale & Retail Trade,low/medium
 GA Health Medical Devices Limited,2,C - Manufacture of Medical Devices,high/exact
 G Pace Limited,2,G - Wholesale & Retail Trade,low/medium
@@ -10773,7 +10773,7 @@ Stephen Wilmer,2,C - All Other Manufacturing,low/medium
 Farnham Hospitality Limited,2,N - Administrative & Support Service Activities,high/exact
 Foss Ireland Limited,2,"E - Water Supply, Sewerage, Waste Management & Remedial Activities",low/medium
 Farrel Food Restaurant Limited,2,I - Accommodation & Food Services Activities,high/exact
-Portobello Dental Clinic Limited,2,I - Accommodation & Food Services Activities,low/medium
+Portobello Dental Clinic Limited,2,Q - Health & Social Work Activities,manual/corrected
 Feng's New Spring Garden Restaurant Limited,2,I - Accommodation & Food Services Activities,high/exact
 N McElroy Associates Limited,2,"M - Professional, Scientific & Technical Activities",high/exact
 Stella and Jenny Company Ltd,2,K - Financial & Insurance Activities,low/medium
@@ -10793,7 +10793,7 @@ Faryal Himayat T/A Sarenna Restaurant Dingle,2,I - Accommodation & Food Services
 N.P.H. T.A. Financial and Taxation Services Ltd,2,K - Financial & Insurance Activities,low/medium
 Stephen O’Rourke & Sons Contractors Limited,2,F - Construction,low/medium
 FXB's Restaurant,2,I - Accommodation & Food Services Activities,high/exact
-FW POLIDORO CONSTRUCTION SERVICES LIMITED,2,C - All Other Manufacturing,high/exact
+FW POLIDORO CONSTRUCTION SERVICES LIMITED,2,F - Construction,manual/corrected
 FW FOOD PRODUCTS LIMITED,2,G - Wholesale & Retail Trade,high/exact
 Port Eatery Limited,2,G - Wholesale & Retail Trade,high/exact
 F&M Accountants Limited,2,"M - Professional, Scientific & Technical Activities",high/exact
@@ -10963,7 +10963,7 @@ Highfort Bloodstock Limited,2,C - All Other Manufacturing,high/exact
 High-Tech Machinery Ltd,2,J - Information & Communication Activities,high/exact
 Print G Holdings Limited,2,C - All Other Manufacturing,low/medium
 Higgins Refrigeration Limited,2,"M - Professional, Scientific & Technical Activities",low/medium
-Hickeys Pharmacy LTD,2,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+Hickeys Pharmacy LTD,2,Q - Health & Social Work Activities,manual/corrected
 Hibernian Gifts Ltd,2,C - All Other Manufacturing,low/medium
 Shelbourne Accountants,2,N - Administrative & Support Service Activities,low/medium
 Hibergene Diagnostics Limited,2,K - Financial & Insurance Activities,high/exact
@@ -10973,7 +10973,7 @@ Moreish Pizza Limited,2,I - Accommodation & Food Services Activities,high/exact
 Shellfish De La Mer Ltd,2,G - Wholesale & Retail Trade,low/medium
 Sheng Construction Limited,2,F - Construction,high/exact
 Hermitage Motors Ltd,2,F - Construction,low/medium
-Health Services Staffs Credit Union Limited,2,Q - Health & Social Work Activities,high/exact
+Health Services Staffs Credit Union Limited,2,K - Financial & Insurance Activities,manual/corrected
 Prime Value Capital Managment Europe Ltd,2,L - Real Estate Activities,low/medium
 Health Sector Talent Ltd,2,N - Administrative & Support Service Activities,low/medium
 Headway Software Technologies Ltd,2,J - Information & Communication Activities,high/exact
@@ -11087,7 +11087,7 @@ Hillside Machine Tech Limited,2,F - Construction,low/medium
 Hillmount Properties Limited,2,F - Construction,low/medium
 Hillfort Farms ULC,2,C - All Other Manufacturing,low/medium
 Shanwari Catering Limited,2,I - Accommodation & Food Services Activities,high/exact
-Holly's Childcare Ltd,2,Q - Health & Social Work Activities,high/exact
+Holly's Childcare Ltd,2,P - Education,manual/corrected
 Holmflemwok Takeaway Limited,2,I - Accommodation & Food Services Activities,high/exact
 Horizon Pharma Services Limited,2,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
 Shanahan Engineering Ltd,2,"M - Professional, Scientific & Technical Activities",low/medium
@@ -11267,8 +11267,8 @@ Griffin Education Services Ireland Limited,2,N - Administrative & Support Servic
 Movano Ireland Limited,2,J - Information & Communication Activities,high/exact
 MoveAhead Limited,2,"R - Arts, Entertainment and Recreation",high/exact
 Greyhound Taverns Limited,2,I - Accommodation & Food Services Activities,high/exact
-H & D Meats Limited,2,G - Wholesale & Retail Trade,low/medium
-H & D Meats Ltd t/a Robinson Meats,2,G - Wholesale & Retail Trade,low/medium
+H & D Meats Limited,2,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
+H & D Meats Ltd t/a Robinson Meats,2,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
 H & J Dairy Farm Ltd,2,"C - Manufacture of Food, Drink & Tobacco",high/exact
 H.P.L Takeaways Limited,2,I - Accommodation & Food Services Activities,high/exact
 Primary Integration Solutions Europe Limited,2,"M - Professional, Scientific & Technical Activities",low/medium
@@ -11311,7 +11311,7 @@ Tain Stores Ltd,2,G - Wholesale & Retail Trade,low/medium
 TYNAN DILLON ADVISORS LIMITED,2,K - Financial & Insurance Activities,low/medium
 TYEI Catering LTD,2,I - Accommodation & Food Services Activities,high/exact
 Dunbia Kilbeggan,2,C - All Other Manufacturing,low/medium
-Dawn Meats Ballyhaunis,2,"A - Agriculture, Forestry & Fishing",high/exact
+Dawn Meats Ballyhaunis,2,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
 TRS Catering Ltd,2,I - Accommodation & Food Services Activities,high/exact
 Pho Kim,2,I - Accommodation & Food Services Activities,low/medium
 Net Traffic Ltd,2,N - Administrative & Support Service Activities,low/medium
@@ -11356,7 +11356,7 @@ Neuromed Clinic Limited,2,Q - Health & Social Work Activities,high/exact
 Taj Indian Takeaway,2,I - Accommodation & Food Services Activities,high/exact
 Taka Catering Limited,2,I - Accommodation & Food Services Activities,high/exact
 Declan & Mary French Limited,2,G - Wholesale & Retail Trade,low/medium
-Declan Dowling Ltd t/a Dowling's Pharmacy,2,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+Declan Dowling Ltd t/a Dowling's Pharmacy,2,Q - Health & Social Work Activities,manual/corrected
 The Big Blue Bus Limited,2,F - Construction,low/medium
 Declan O´Callaghan,2,"M - Professional, Scientific & Technical Activities",high/exact
 Declan Treanor Commercials Ltd,2,F - Construction,low/medium
@@ -11412,7 +11412,7 @@ EKI Sushi Limited,2,I - Accommodation & Food Services Activities,high/exact
 Niche Hotels Unlimited Company,2,I - Accommodation & Food Services Activities,high/exact
 EIRTECH AVAITION SERVICES,2,K - Financial & Insurance Activities,low/medium
 Neoen Renewables Ireland,2,"M - Professional, Scientific & Technical Activities",high/exact
-The Church Restaurant Management limited,2,S - Other Service Activities,high/exact
+The Church Restaurant Management limited,2,I - Accommodation & Food Services Activities,manual/corrected
 EIP Ventures Limited,2,K - Financial & Insurance Activities,high/exact
 EF International Language Schools Ltd,2,P - Education,high/exact
 TOTL Farms Limited,2,C - All Other Manufacturing,high/exact
@@ -11443,7 +11443,7 @@ Dataworks Limited,2,J - Information & Communication Activities,low/medium
 The Clean Up Crew Designated Company,2,J - Information & Communication Activities,high/exact
 Tamba Aur Masala,2,I - Accommodation & Food Services Activities,high/exact
 New Bonanza Catering Ltd,2,I - Accommodation & Food Services Activities,high/exact
-The Bean Box Coffee Shop Ltd,2,S - Other Service Activities,high/exact
+The Bean Box Coffee Shop Ltd,2,I - Accommodation & Food Services Activities,manual/corrected
 New Street Restaurants Limited,2,I - Accommodation & Food Services Activities,high/exact
 Donaghy Ross Construction Limited,2,F - Construction,high/exact
 Techno Solutions Limited,2,J - Information & Communication Activities,low/medium
@@ -11500,7 +11500,7 @@ Dfor Taverns Ltd,2,I - Accommodation & Food Services Activities,high/exact
 Diego Dias,2,"M - Professional, Scientific & Technical Activities",low/medium
 Dillons Kitchens Limited,2,F - Construction,high/exact
 Dimensional Ireland Limited,2,K - Financial & Insurance Activities,high/exact
-Dnata Catering Ireland Limited,2,N - Administrative & Support Service Activities,high/exact
+Dnata Catering Ireland Limited,2,I - Accommodation & Food Services Activities,manual/corrected
 Dimples Creche & Montessori Limited,2,P - Education,high/exact
 Deutsche International Corporate Services (Irl) Ltd,2,"M - Professional, Scientific & Technical Activities",low/medium
 Tekenable Ltd,2,K - Financial & Insurance Activities,high/exact
@@ -11512,7 +11512,7 @@ Dexnihilo Ltd,2,N - Administrative & Support Service Activities,low/medium
 Distillery Productions DAC,2,J - Information & Communication Activities,high/exact
 Distilled Shared Service Limited,2,"M - Professional, Scientific & Technical Activities",high/exact
 Distag QCS Limited,2,K - Financial & Insurance Activities,low/medium
-Discoveries Creche and Montessori Limited,2,Q - Health & Social Work Activities,high/exact
+Discoveries Creche and Montessori Limited,2,P - Education,manual/corrected
 Direct Strike Limited,2,F - Construction,high/exact
 Physio Eireann CCO Ltd,2,Q - Health & Social Work Activities,low/medium
 Dineen Crash Repairs Ltd,2,G - Wholesale & Retail Trade,low/medium
@@ -11615,7 +11615,7 @@ Superior Health Limited T/A Kare Plus South Cork,2,N - Administrative & Support 
 DSB Retail Outsourcing Limited,2,N - Administrative & Support Service Activities,high/exact
 Nahanagan Electrical Engineering Services Limited,2,"M - Professional, Scientific & Technical Activities",low/medium
 The Gone Productions DAC,2,J - Information & Communication Activities,high/exact
-Sunshine Takeaway Limited,2,"M - Professional, Scientific & Technical Activities",high/exact
+Sunshine Takeaway Limited,2,I - Accommodation & Food Services Activities,manual/corrected
 Eoin Smith Limited,2,K - Financial & Insurance Activities,high/exact
 Sunstone Technologies Limited,2,J - Information & Communication Activities,high/exact
 Naasville Bialann Limited,2,I - Accommodation & Food Services Activities,high/exact
@@ -11638,7 +11638,7 @@ Emerald Green Farm Limited,2,S - Other Service Activities,low/medium
 The Exotic Foods Restaurant Limited,2,I - Accommodation & Food Services Activities,high/exact
 Dairy Green Ventures Ltd,2,"C - Manufacture of Food, Drink & Tobacco",high/exact
 Natare LTD,2,"R - Arts, Entertainment and Recreation",high/exact
-Emerald Core Construction Limited,2,N - Administrative & Support Service Activities,high/exact
+Emerald Core Construction Limited,2,F - Construction,manual/corrected
 Dairyglen Products Limited,2,G - Wholesale & Retail Trade,low/medium
 Sweet Fragrant Chilli Company Ltd,2,I - Accommodation & Food Services Activities,low/medium
 Sweet Fragrant Chilli Company Ltd T/A Adelphi Jade Restaurant,2,I - Accommodation & Food Services Activities,high/exact
@@ -11725,7 +11725,7 @@ Noel C Duggan Structural Steel Ltd,2,"M - Professional, Scientific & Technical A
 NZ Accountant,2,"M - Professional, Scientific & Technical Activities",low/medium
 DIGISURE (IRELAND) LIMITED,2,K - Financial & Insurance Activities,high/exact
 Summit Inn - Summit Hospitality Limited,2,I - Accommodation & Food Services Activities,high/exact
-Summerhill Meats Limited,2,S - Other Service Activities,high/exact
+Summerhill Meats Limited,2,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
 NY Star Limited,2,G - Wholesale & Retail Trade,low/medium
 Espresso Catering Limited,2,I - Accommodation & Food Services Activities,high/exact
 Pharma Force Limited,2,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
@@ -11736,7 +11736,7 @@ Errigal Operations Software Limited,2,J - Information & Communication Activities
 Esker Property Holdings Ltd t/a Hazel Hall Nursing Home,2,Q - Health & Social Work Activities,high/exact
 Eshaal Aliha Limited,2,I - Accommodation & Food Services Activities,high/exact
 Escher Group Limited,2,K - Financial & Insurance Activities,low/medium
-DK Meats Ltd,2,G - Wholesale & Retail Trade,low/medium
+DK Meats Ltd,2,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
 Noel Hanley,2,K - Financial & Insurance Activities,low/medium
 Sun & Moon Ltd,2,I - Accommodation & Food Services Activities,high/exact
 Swift Row Limited,2,G - Wholesale & Retail Trade,low/medium
@@ -12022,7 +12022,7 @@ Patricia O'Donnell,1,F - Construction,low/medium
 Property Health Check Limited,1,"M - Professional, Scientific & Technical Activities",low/medium
 Pizza Eile Limited,1,I - Accommodation & Food Services Activities,high/exact
 Powerboy Inn Limited,1,I - Accommodation & Food Services Activities,low/medium
-Pellys Pharmacy Limited,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+Pellys Pharmacy Limited,1,Q - Health & Social Work Activities,manual/corrected
 PizzaSi Distribution Limited,1,I - Accommodation & Food Services Activities,high/exact
 Qkangaroo Limited,1,J - Information & Communication Activities,high/exact
 Qliving Ltd,1,L - Real Estate Activities,high/exact
@@ -12058,7 +12058,7 @@ Quality Matters Company Limited by Guarantee,1,"M - Professional, Scientific & T
 Playroll Ireland Limited,1,N - Administrative & Support Service Activities,high/exact
 Paul Purcell,1,H - Transport & Storage,low/medium
 Polaris Taverns Ltd,1,I - Accommodation & Food Services Activities,high/exact
-Poleglen Ltd t/a Rochfords Pharmacy,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+Poleglen Ltd t/a Rochfords Pharmacy,1,Q - Health & Social Work Activities,manual/corrected
 Paul Rafter,1,G - Wholesale & Retail Trade,low/medium
 Paul Twomey,1,"M - Professional, Scientific & Technical Activities",low/medium
 Poised Ltd,1,"M - Professional, Scientific & Technical Activities",high/exact
@@ -12068,7 +12068,7 @@ Paul and Alan Murphy,1,H - Transport & Storage,low/medium
 Quality Irish Food Limited,1,I - Accommodation & Food Services Activities,low/medium
 Polis Consulting LIMITED,1,"M - Professional, Scientific & Technical Activities",high/exact
 Polished Dream Limited,1,S - Other Service Activities,high/exact
-Pollard Fast Food Ndian Takeaway Limited,1,S - Other Service Activities,high/exact
+Pollard Fast Food Ndian Takeaway Limited,1,I - Accommodation & Food Services Activities,manual/corrected
 Pompeii Pizza Limited,1,I - Accommodation & Food Services Activities,high/exact
 Pointer Control Systems Ltd,1,C - All Other Manufacturing,low/medium
 Prothena BioSciences Limited,1,"M - Professional, Scientific & Technical Activities",low/medium
@@ -12090,7 +12090,7 @@ Plaza Health Limited,1,Q - Health & Social Work Activities,high/exact
 Positives Systems Solutions Limited,1,"M - Professional, Scientific & Technical Activities",low/medium
 Quantum Support Services (Ireland) Limited,1,"M - Professional, Scientific & Technical Activities",low/medium
 Plus 55 Barber Shop LTD,1,S - Other Service Activities,low/medium
-Qualitas Engineering and Construction LTD,1,"M - Professional, Scientific & Technical Activities",high/exact
+Qualitas Engineering and Construction LTD,1,F - Construction,manual/corrected
 Portlaoise Specsavers Limited,1,Q - Health & Social Work Activities,high/exact
 Paysafe Prepaid Services Limited,1,K - Financial & Insurance Activities,high/exact
 Plus Promotions Limited,1,J - Information & Communication Activities,high/exact
@@ -12103,7 +12103,7 @@ Quality Education Development Limited,1,F - Construction,low/medium
 Qualtech Ltd,1,K - Financial & Insurance Activities,high/exact
 Plynk Limited,1,K - Financial & Insurance Activities,low/medium
 Porter Jones Ltd,1,C - All Other Manufacturing,low/medium
-Portarlington Pharmacy Ltd,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+Portarlington Pharmacy Ltd,1,Q - Health & Social Work Activities,manual/corrected
 Pmk Farm Limited,1,C - All Other Manufacturing,high/exact
 Pod-Trak Infrastructure Ltd,1,"M - Professional, Scientific & Technical Activities",high/exact
 PixQuanta Limited,1,C - All Other Manufacturing,high/exact
@@ -12228,7 +12228,7 @@ Premier Hvac Services Ltd,1,"M - Professional, Scientific & Technical Activities
 Polar IceTech Ireland Limited,1,J - Information & Communication Activities,low/medium
 People Solutions Ltd,1,"M - Professional, Scientific & Technical Activities",low/medium
 People and Place Limited,1,J - Information & Communication Activities,high/exact
-Parnell Street Pharmacy Limited,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+Parnell Street Pharmacy Limited,1,Q - Health & Social Work Activities,manual/corrected
 Quinn Motors (Castlecomer) Limited,1,D - Electricity & Gas & Air Conditioning Supply,low/medium
 Premier Delta Steel Services Limited,1,F - Construction,high/exact
 Program Management Information Services Ltd,1,"M - Professional, Scientific & Technical Activities",low/medium
@@ -12365,7 +12365,7 @@ The Trimbin Barbers Limited,1,S - Other Service Activities,high/exact
 The Translation Department Limited,1,"M - Professional, Scientific & Technical Activities",high/exact
 The Temple Grill Limited,1,I - Accommodation & Food Services Activities,high/exact
 The Talbot Lodge Hotel Ltd,1,I - Accommodation & Food Services Activities,high/exact
-The Sweet Spot Catering Limited,1,C - All Other Manufacturing,high/exact
+The Sweet Spot Catering Limited,1,I - Accommodation & Food Services Activities,manual/corrected
 The Sustainable Energy Authority of Ireland,1,F - Construction,low/medium
 The Smoking Cat Partnership ltd,1,C - All Other Manufacturing,low/medium
 The Process Xperts Limited,1,J - Information & Communication Activities,high/exact
@@ -12457,7 +12457,7 @@ Tolmur ltd,1,K - Financial & Insurance Activities,low/medium
 Too Good To Go Limited,1,I - Accommodation & Food Services Activities,high/exact
 Toscana Ltd,1,I - Accommodation & Food Services Activities,low/medium
 Tosca Reusable Solutions Ireland Limited,1,C - All Other Manufacturing,high/exact
-Tortuga Dental Limited,1,K - Financial & Insurance Activities,low/medium
+Tortuga Dental Limited,1,Q - Health & Social Work Activities,manual/corrected
 Torres Moria Services Limited,1,N - Administrative & Support Service Activities,high/exact
 Torque Consulting Engineers Limited,1,"M - Professional, Scientific & Technical Activities",high/exact
 Torc Candles Ltd,1,C - All Other Manufacturing,low/medium
@@ -12470,7 +12470,7 @@ Toovio Limited,1,K - Financial & Insurance Activities,high/exact
 Toomaline Taverns Limited,1,I - Accommodation & Food Services Activities,high/exact
 Tooling and Engineering Distributors (T.E.D.) Limited,1,G - Wholesale & Retail Trade,low/medium
 Tony's Shop Limited,1,N - Administrative & Support Service Activities,low/medium
-Total Care Pharmacy Limited,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+Total Care Pharmacy Limited,1,Q - Health & Social Work Activities,manual/corrected
 Tony Whyte,1,S - Other Service Activities,low/medium
 Tontine Pensions Administration Platform Limited,1,K - Financial & Insurance Activities,high/exact
 Tonon Fosco Limited,1,F - Construction,low/medium
@@ -12652,7 +12652,7 @@ THORN MOTORS LIMITED,1,G - Wholesale & Retail Trade,low/medium
 THG Aviation Ireland Limited,1,H - Transport & Storage,high/exact
 THE NAWAB HOTEL'S LIMITED,1,I - Accommodation & Food Services Activities,high/exact
 THE LITTLE PETER AFTER SCHOOL LIMITED,1,P - Education,high/exact
-THE LEFT BANK BISTRO LIMITED,1,K - Financial & Insurance Activities,high/exact
+THE LEFT BANK BISTRO LIMITED,1,I - Accommodation & Food Services Activities,manual/corrected
 THE FIRM ORGANISATION,1,K - Financial & Insurance Activities,low/medium
 THE CULTURED FOOD COMPANY LIMITED,1,"C - Manufacture of Food, Drink & Tobacco",high/exact
 Teckel Limited,1,"M - Professional, Scientific & Technical Activities",high/exact
@@ -12678,7 +12678,7 @@ The Goodness Grains Company Ltd,1,C - All Other Manufacturing,low/medium
 The Eagle King Limited,1,I - Accommodation & Food Services Activities,low/medium
 The Dublin Liberties Whiskey Company Limited,1,G - Wholesale & Retail Trade,low/medium
 The Dublin Hebrew Congregation,1,S - Other Service Activities,low/medium
-The Den Creche Limited,1,Q - Health & Social Work Activities,high/exact
+The Den Creche Limited,1,P - Education,manual/corrected
 The Dao Noodle Box Ltd,1,I - Accommodation & Food Services Activities,low/medium
 The Cycle Clinic,1,C - All Other Manufacturing,low/medium
 The Customer Experience Circle Limited,1,"M - Professional, Scientific & Technical Activities",high/exact
@@ -12714,7 +12714,7 @@ The Hub Bike for Life Limited,1,G - Wholesale & Retail Trade,high/exact
 The House Architects Ltd,1,"M - Professional, Scientific & Technical Activities",low/medium
 The Holy Grail Bar & Restaurant Ltd,1,I - Accommodation & Food Services Activities,high/exact
 The Hire Lab,1,G - Wholesale & Retail Trade,low/medium
-The Herbert Park Hotel 2 Ltd. T/A The Herbert Park Hotel,1,F - Construction,high/exact
+The Herbert Park Hotel 2 Ltd. T/A The Herbert Park Hotel,1,I - Accommodation & Food Services Activities,manual/corrected
 The Herald Printing and Publishing Co Ltd,1,J - Information & Communication Activities,low/medium
 The Heartbeat Trust Ltd,1,Q - Health & Social Work Activities,low/medium
 The Headfort Trust Ltd,1,L - Real Estate Activities,low/medium
@@ -12763,7 +12763,7 @@ The Cliff Townhouse Unlimited Company,1,I - Accommodation & Food Services Activi
 The Bun Store T/A Four Star Pizza,1,I - Accommodation & Food Services Activities,high/exact
 The Clean Up Crew Designated Activity Company,1,J - Information & Communication Activities,high/exact
 The City Bin Co Ltd,1,I - Accommodation & Food Services Activities,low/medium
-The Church Restaurant Management Limited,1,S - Other Service Activities,high/exact
+The Church Restaurant Management Limited,1,I - Accommodation & Food Services Activities,manual/corrected
 The Chinese & Irish Cultural Foundation Limited,1,"M - Professional, Scientific & Technical Activities",low/medium
 The China King Ltd,1,I - Accommodation & Food Services Activities,high/exact
 The Chicken Inn,1,I - Accommodation & Food Services Activities,low/medium
@@ -12923,7 +12923,7 @@ Whitewater Group H2O Limited,1,L - Real Estate Activities,low/medium
 Whitethorn Technologies Limited,1,J - Information & Communication Activities,high/exact
 Whiterock Technologies Limited,1,J - Information & Communication Activities,high/exact
 Whitelands Building Services Ltd,1,F - Construction,high/exact
-Whitefriars Childcare Limited,1,Q - Health & Social Work Activities,high/exact
+Whitefriars Childcare Limited,1,P - Education,manual/corrected
 Whiteform Construction Limited,1,F - Construction,high/exact
 White Swell Limited,1,"M - Professional, Scientific & Technical Activities",high/exact
 White Rabbit Catering Limited,1,I - Accommodation & Food Services Activities,high/exact
@@ -13219,7 +13219,7 @@ WRIGHTS AIRPORT CONVENIENCE STORE LIMITED,1,H - Transport & Storage,high/exact
 WOC Galway Bay Brewery Ltd,1,"C - Manufacture of Food, Drink & Tobacco",high/exact
 WMLS Systems Ltd,1,S - Other Service Activities,high/exact
 Walsh Medical Practice,1,Q - Health & Social Work Activities,low/medium
-WK Logistics Limited,1,G - Wholesale & Retail Trade,high/exact
+WK Logistics Limited,1,H - Transport & Storage,manual/corrected
 WK Automation & Electrical Limited,1,C - All Other Manufacturing,high/exact
 WINSOME CASH LIMITED,1,"R - Arts, Entertainment and Recreation",high/exact
 WILLS BROS LIMITED,1,F - Construction,high/exact
@@ -13257,7 +13257,7 @@ Watermans (LI) Limited,1,F - Construction,low/medium
 Waterman Moylan Consulting Engineers Ltd,1,"M - Professional, Scientific & Technical Activities",high/exact
 Waterford Vikings Basketball Club,1,"R - Arts, Entertainment and Recreation",low/medium
 Waterford Magic Wok Ltd,1,I - Accommodation & Food Services Activities,high/exact
-Waterford Health Park Pharmacy Limited,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+Waterford Health Park Pharmacy Limited,1,Q - Health & Social Work Activities,manual/corrected
 Water Control Instrumentation Ltd,1,"M - Professional, Scientific & Technical Activities",low/medium
 Wasif Restaurant Limited,1,I - Accommodation & Food Services Activities,high/exact
 Warren Allen Ltd,1,C - All Other Manufacturing,low/medium
@@ -13417,7 +13417,7 @@ Rossreade Dairy Limited,1,"C - Manufacture of Food, Drink & Tobacco",high/exact
 Rossnaree House Garden Limited,1,I - Accommodation & Food Services Activities,high/exact
 Rossmore Civils Ltd,1,Q - Health & Social Work Activities,low/medium
 Rosslea Priory Ltd,1,S - Other Service Activities,high/exact
-Rossfield Pharmacy Ltd,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+Rossfield Pharmacy Ltd,1,Q - Health & Social Work Activities,manual/corrected
 Rossdale Enterprises Ltd,1,N - Administrative & Support Service Activities,low/medium
 Ross O'Boyle,1,F - Construction,low/medium
 Ross Cleaning Facility Services Limited,1,N - Administrative & Support Service Activities,high/exact
@@ -13437,7 +13437,7 @@ Rongs Wholesale Limited,1,G - Wholesale & Retail Trade,high/exact
 Rong Guan,1,G - Wholesale & Retail Trade,low/medium
 Ronayne Shipping Limited,1,H - Transport & Storage,high/exact
 Rowe Creavin Medical Practice,1,Q - Health & Social Work Activities,low/medium
-Roy Hogan Pharmacy Ltd,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+Roy Hogan Pharmacy Ltd,1,Q - Health & Social Work Activities,manual/corrected
 S S Retail Limited,1,G - Wholesale & Retail Trade,high/exact
 Ryan and Lamb Architects Limited,1,"M - Professional, Scientific & Technical Activities",high/exact
 S S C Restaurants Limited,1,I - Accommodation & Food Services Activities,high/exact
@@ -13522,7 +13522,7 @@ Scantech Geoscience Ltd,1,"M - Professional, Scientific & Technical Activities",
 Scantech Geoscience Limited,1,"M - Professional, Scientific & Technical Activities",low/medium
 Scandal Beauty Lounge Limited,1,S - Other Service Activities,high/exact
 ScaleHat Technologies Ltd,1,J - Information & Communication Activities,high/exact
-Say Fish Seafood Restaurant,1,"A - Agriculture, Forestry & Fishing",high/exact
+Say Fish Seafood Restaurant,1,I - Accommodation & Food Services Activities,manual/corrected
 Sarah Louise Interiors Limited,1,S - Other Service Activities,high/exact
 Say Fish Limited,1,G - Wholesale & Retail Trade,high/exact
 Saxena Hospitality Ltd,1,Q - Health & Social Work Activities,high/exact
@@ -13617,13 +13617,13 @@ Rational Interaction Limited,1,J - Information & Communication Activities,low/me
 Rathwood,1,K - Financial & Insurance Activities,low/medium
 Rathnew Chinese Cuisine Limited,1,I - Accommodation & Food Services Activities,high/exact
 Rathmoyle Farm Ltd,1,C - All Other Manufacturing,low/medium
-Rathgar Pharmacy Ltd,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+Rathgar Pharmacy Ltd,1,Q - Health & Social Work Activities,manual/corrected
 Rathgar Creche and Montessori Ltd t/a Cranford Creche,1,P - Education,high/exact
 Rathfarnham Asian Food Ltd,1,G - Wholesale & Retail Trade,low/medium
 Rathcoole Medical Limited,1,"M - Professional, Scientific & Technical Activities",high/exact
 Rathcoole Commercial Vehicle Testing Centre Limited,1,H - Transport & Storage,low/medium
 Rathclarish Dairy Limited,1,"C - Manufacture of Food, Drink & Tobacco",high/exact
-Rathbally Scaffolding Limited,1,N - Administrative & Support Service Activities,high/exact
+Rathbally Scaffolding Limited,1,F - Construction,manual/corrected
 Rare Fusions Health and Dental Solutions Ltd,1,Q - Health & Social Work Activities,high/exact
 Raw Condition Ltd,1,J - Information & Communication Activities,low/medium
 Rapid Ratings Ireland Limited,1,G - Wholesale & Retail Trade,low/medium
@@ -13662,7 +13662,7 @@ Realmside Limited,1,K - Financial & Insurance Activities,high/exact
 Ray Foudy,1,I - Accommodation & Food Services Activities,low/medium
 Real Transfer Limited,1,S - Other Service Activities,low/medium
 Real Time Pain Relief Europe Limited,1,G - Wholesale & Retail Trade,high/exact
-Real Good Dental Company,1,"M - Professional, Scientific & Technical Activities",low/medium
+Real Good Dental Company,1,Q - Health & Social Work Activities,manual/corrected
 Real Fusion Ltd,1,N - Administrative & Support Service Activities,high/exact
 Reach Out Ireland Limited,1,"M - Professional, Scientific & Technical Activities",low/medium
 Reach Compliance Services Limited,1,"M - Professional, Scientific & Technical Activities",low/medium
@@ -13728,7 +13728,7 @@ Race Displays Ltd,1,"M - Professional, Scientific & Technical Activities",high/e
 Ra Royal's Trading Group Limited,1,G - Wholesale & Retail Trade,low/medium
 RWE Renewables Ireland Limited,1,D - Electricity & Gas & Air Conditioning Supply,high/exact
 RNR Cooking Ltd,1,I - Accommodation & Food Services Activities,high/exact
-RWA Pharmacy Ltd,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+RWA Pharmacy Ltd,1,Q - Health & Social Work Activities,manual/corrected
 RUBY KING ASIA CUISINE LIMITED,1,I - Accommodation & Food Services Activities,high/exact
 RTV Restaurants Limited,1,I - Accommodation & Food Services Activities,high/exact
 RTR Electronics Ltd,1,G - Wholesale & Retail Trade,low/medium
@@ -13750,7 +13750,7 @@ Road Safety Operations Ireland,1,H - Transport & Storage,low/medium
 Riverwood Capital Ltd Group,1,K - Financial & Insurance Activities,low/medium
 Riverdale Nursing Home Ltd,1,Q - Health & Social Work Activities,high/exact
 RiverStone International Ireland Designated Activity Company,1,K - Financial & Insurance Activities,low/medium
-River Logistics Limited,1,G - Wholesale & Retail Trade,high/exact
+River Logistics Limited,1,H - Transport & Storage,manual/corrected
 Rithik Engineering Ltd,1,F - Construction,high/exact
 Rita Byrne R.Byrne T/A Orahova Montessori,1,P - Education,high/exact
 Risktech Limited,1,J - Information & Communication Activities,high/exact
@@ -13919,8 +13919,8 @@ Stellwagen Capital Limited,1,K - Financial & Insurance Activities,low/medium
 Stella and Jenny Company Limited,1,K - Financial & Insurance Activities,low/medium
 Stein Study Abroard Limited,1,P - Education,low/medium
 Stay Gold Productions Limited,1,C - All Other Manufacturing,high/exact
-Stauntons Pharmacy Ltd,1,G - Wholesale & Retail Trade,high/exact
-Stauntons Pharmacy Limited,1,G - Wholesale & Retail Trade,high/exact
+Stauntons Pharmacy Ltd,1,Q - Health & Social Work Activities,manual/corrected
+Stauntons Pharmacy Limited,1,Q - Health & Social Work Activities,manual/corrected
 Staunton's Operations Limited,1,I - Accommodation & Food Services Activities,high/exact
 State Street Global Advisors Ireland Limited,1,N - Administrative & Support Service Activities,low/medium
 "Starwood Reservations LLC, a Marriott International Group Company",1,I - Accommodation & Food Services Activities,high/exact
@@ -13945,7 +13945,7 @@ St. Mary's Home,1,I - Accommodation & Food Services Activities,low/medium
 St. Mary's Holy Faith Secondary School,1,P - Education,high/exact
 "St. Luke's Home, Cork",1,Q - Health & Social Work Activities,high/exact
 St. Joseph's Nursing Home Ltd,1,Q - Health & Social Work Activities,high/exact
-Spectrum Logistics Limited,1,C - All Other Manufacturing,high/exact
+Spectrum Logistics Limited,1,H - Transport & Storage,manual/corrected
 Spectrum Homecare Ltd,1,Q - Health & Social Work Activities,high/exact
 Step Up Merchant Limited,1,G - Wholesale & Retail Trade,high/exact
 Somers Commercials Ltd,1,F - Construction,low/medium
@@ -14003,7 +14003,7 @@ SparroWatch Limited,1,J - Information & Communication Activities,high/exact
 Sparks Cafe & Bistro Ltd,1,I - Accommodation & Food Services Activities,high/exact
 Sparks Cafe & Bistro Limited,1,I - Accommodation & Food Services Activities,high/exact
 Southwest Doctors on Call Ltd,1,J - Information & Communication Activities,low/medium
-Southside Pharmacy Ltd,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+Southside Pharmacy Ltd,1,Q - Health & Social Work Activities,manual/corrected
 Southern Sandblasting Powdercoating Ltd,1,F - Construction,high/exact
 Southern Power Installation & Commissioning Services Limited,1,"M - Professional, Scientific & Technical Activities",high/exact
 Southern Hospitality Limited,1,Q - Health & Social Work Activities,high/exact
@@ -14168,11 +14168,11 @@ Shamzuri Mohd Hanifa t/a The Cottage Restaurant,1,I - Accommodation & Food Servi
 Shamrock Shield Limited,1,"M - Professional, Scientific & Technical Activities",high/exact
 Shamrock Commercial Trading Limited,1,G - Wholesale & Retail Trade,high/exact
 Shamrock & Phoenix Consulting Limited,1,"M - Professional, Scientific & Technical Activities",high/exact
-Shankill Pharmacy Limited,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+Shankill Pharmacy Limited,1,Q - Health & Social Work Activities,manual/corrected
 Shamma Electronics Limited,1,J - Information & Communication Activities,high/exact
 Shambles Riverside (Ardee) Limited,1,I - Accommodation & Food Services Activities,high/exact
 Shallots Indian Takeway Limited,1,I - Accommodation & Food Services Activities,high/exact
-Shalimar Pub Limited,1,G - Wholesale & Retail Trade,high/exact
+Shalimar Pub Limited,1,I - Accommodation & Food Services Activities,manual/corrected
 Shaka Bikeshop Limited,1,C - All Other Manufacturing,high/exact
 Shahid Rauf,1,S - Other Service Activities,low/medium
 Shah Catering Limited,1,I - Accommodation & Food Services Activities,high/exact
@@ -14464,7 +14464,7 @@ DM Mechanical & Pipe Installations Ltd,1,F - Construction,low/medium
 DM Myers Limited,1,G - Wholesale & Retail Trade,low/medium
 DMB Management Limited,1,"M - Professional, Scientific & Technical Activities",high/exact
 DMG Steel Limited,1,G - Wholesale & Retail Trade,high/exact
-DMH Pharmacy Ltd,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+DMH Pharmacy Ltd,1,Q - Health & Social Work Activities,manual/corrected
 DMHR Limited,1,K - Financial & Insurance Activities,high/exact
 DMS Tyres Limited,1,G - Wholesale & Retail Trade,low/medium
 DNG Group Limited,1,K - Financial & Insurance Activities,high/exact
@@ -14501,7 +14501,7 @@ Dame Street Chiropractic Limited,1,Q - Health & Social Work Activities,low/mediu
 Dabbledoomusic Ltd,1,P - Education,high/exact
 Daddy’s Restaurant Ltd,1,I - Accommodation & Food Services Activities,high/exact
 Daha Ventures Ltd,1,"M - Professional, Scientific & Technical Activities",high/exact
-Daisychain Montessori & Childcare Centre Ltd,1,Q - Health & Social Work Activities,high/exact
+Daisychain Montessori & Childcare Centre Ltd,1,P - Education,manual/corrected
 Dalco Engineering Ltd,1,"M - Professional, Scientific & Technical Activities",low/medium
 Dalkey Fish Emporium Limited,1,I - Accommodation & Food Services Activities,high/exact
 "Dalkey Lodge Nursing Home,",1,Q - Health & Social Work Activities,high/exact
@@ -14577,7 +14577,7 @@ DC Nevin and Sons Limited,1,F - Construction,high/exact
 DCC Brady Retail Limited,1,G - Wholesale & Retail Trade,high/exact
 DCC Financial Services Unlimited Company,1,K - Financial & Insurance Activities,high/exact
 DCC Management Services Ltd,1,K - Financial & Insurance Activities,low/medium
-DCP Pharmacy Ltd,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+DCP Pharmacy Ltd,1,Q - Health & Social Work Activities,manual/corrected
 DCS Electrical Limited,1,F - Construction,low/medium
 DCSS Technology Limited,1,J - Information & Communication Activities,high/exact
 DCU,1,K - Financial & Insurance Activities,low/medium
@@ -14637,7 +14637,7 @@ Dilosk DAC,1,K - Financial & Insurance Activities,low/medium
 Diluca Bistro Ltd,1,I - Accommodation & Food Services Activities,high/exact
 Dimension Network Systems,1,F - Construction,low/medium
 Dineen Crash Repairs Limited,1,G - Wholesale & Retail Trade,low/medium
-Dingle Childcare Services Limited,1,Q - Health & Social Work Activities,high/exact
+Dingle Childcare Services Limited,1,P - Education,manual/corrected
 Dingle Distillery,1,"C - Manufacture of Food, Drink & Tobacco",high/exact
 Dingshi Ltd,1,"M - Professional, Scientific & Technical Activities",low/medium
 Diarmund Kelly Architecture & Design,1,"M - Professional, Scientific & Technical Activities",low/medium
@@ -14668,7 +14668,7 @@ Dino’s Takeaway Limited,1,I - Accommodation & Food Services Activities,high/ex
 Direct Wholesale Kitchens & Bedrooms Ltd,1,G - Wholesale & Retail Trade,high/exact
 Davenzo Limited,1,H - Transport & Storage,low/medium
 Disegno Sq Limited,1,G - Wholesale & Retail Trade,low/medium
-Dolphins Early Education & Childcare Centre Limited,1,Q - Health & Social Work Activities,high/exact
+Dolphins Early Education & Childcare Centre Limited,1,P - Education,manual/corrected
 Domestic and Commercial Support Services Limited,1,N - Administrative & Support Service Activities,low/medium
 Dominic O Connor Ltd,1,K - Financial & Insurance Activities,high/exact
 Dominic Ryan,1,C - All Other Manufacturing,high/exact
@@ -14740,7 +14740,7 @@ Defense Architecture,1,J - Information & Communication Activities,high/exact
 Degani Consultants Limited,1,"M - Professional, Scientific & Technical Activities",high/exact
 Daypark Taverns Limited,1,I - Accommodation & Food Services Activities,high/exact
 Dawson Architecture Design Consultancy Limited,1,"M - Professional, Scientific & Technical Activities",high/exact
-Dawn Meats (Exports) Ltd,1,"A - Agriculture, Forestry & Fishing",high/exact
+Dawn Meats (Exports) Ltd,1,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
 David McCormack,1,K - Financial & Insurance Activities,low/medium
 Davey & Smith Architects,1,"M - Professional, Scientific & Technical Activities",low/medium
 David Brady Farms Limited,1,C - All Other Manufacturing,high/exact
@@ -14933,7 +14933,7 @@ Cicinfly Limited,1,G - Wholesale & Retail Trade,high/exact
 Cigniti Technologies Limited,1,J - Information & Communication Activities,high/exact
 Cilag Holding Treasury Unlimited Company,1,K - Financial & Insurance Activities,high/exact
 Ciphertechs EU Ltd,1,N - Administrative & Support Service Activities,low/medium
-Christie Dental,1,"M - Professional, Scientific & Technical Activities",low/medium
+Christie Dental,1,Q - Health & Social Work Activities,manual/corrected
 Christian Brothers Swords T/A Emmaus Retreat Centre,1,N - Administrative & Support Service Activities,low/medium
 Christian Blind Mission (Ireland),1,S - Other Service Activities,low/medium
 Chipright Limited,1,K - Financial & Insurance Activities,high/exact
@@ -15010,7 +15010,7 @@ Common Purpose (Ireland),1,"M - Professional, Scientific & Technical Activities"
 Cuala Senior Care Ltd,1,Q - Health & Social Work Activities,low/medium
 Crechecom Ltd,1,P - Education,high/exact
 Country Manor Hotels Unimited Company,1,I - Accommodation & Food Services Activities,high/exact
-County Waterford Farm Relief Services Limited,1,C - All Other Manufacturing,low/medium
+County Waterford Farm Relief Services Limited,1,"A - Agriculture, Forestry & Fishing",manual/corrected
 Coupa Operations Inc,1,C - All Other Manufacturing,low/medium
 Courcon Limited,1,F - Construction,high/exact
 CourseTrends Europe Ltd,1,J - Information & Communication Activities,high/exact
@@ -15019,7 +15019,7 @@ Cpac Modular Limited,1,Q - Health & Social Work Activities,low/medium
 Craftstudio Architecture Ltd,1,"M - Professional, Scientific & Technical Activities",high/exact
 Crag Meat Supply Limited,1,D - Electricity & Gas & Air Conditioning Supply,low/medium
 Crane Hire Limited,1,G - Wholesale & Retail Trade,low/medium
-Cranmore Pharmacy Ltd,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+Cranmore Pharmacy Ltd,1,Q - Health & Social Work Activities,manual/corrected
 CrannMed Ltd,1,"M - Professional, Scientific & Technical Activities",high/exact
 Crawford Art Gallery Cork Ltd,1,C - All Other Manufacturing,low/medium
 Crawford Construct Consultancy Services Ltd,1,"M - Professional, Scientific & Technical Activities",high/exact
@@ -15062,7 +15062,7 @@ Crosbie Refrigeration & Air Conditioning Limited,1,"M - Professional, Scientific
 CrossCountry Consulting LLC,1,"M - Professional, Scientific & Technical Activities",high/exact
 Crossfit Bua Ltd,1,S - Other Service Activities,high/exact
 Crowe Ireland / Shane McQuillan,1,C - All Other Manufacturing,low/medium
-Crowe Meats (Dundrum) Limited,1,I - Accommodation & Food Services Activities,low/medium
+Crowe Meats (Dundrum) Limited,1,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
 Crowley & McCarthy Accountancy Limited,1,"M - Professional, Scientific & Technical Activities",low/medium
 Crowley McCarthy Clonakilty Unlimited Company,1,"M - Professional, Scientific & Technical Activities",low/medium
 Crowley Millar Solicitors,1,"M - Professional, Scientific & Technical Activities",high/exact
@@ -15408,7 +15408,7 @@ Five Mile Concepts Limited,1,G - Wholesale & Retail Trade,high/exact
 Fix My Ride Limited,1,G - Wholesale & Retail Trade,high/exact
 Flame Prevention Services Ltd,1,O - Public Administration & Defence,high/exact
 Flamingo Space Limited,1,"M - Professional, Scientific & Technical Activities",high/exact
-Flanagan Berkley Road Pharmacy Ltd,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+Flanagan Berkley Road Pharmacy Ltd,1,Q - Health & Social Work Activities,manual/corrected
 Flash Energy Technology Ltd,1,G - Wholesale & Retail Trade,high/exact
 Fleetwood Paints Ltd,1,J - Information & Communication Activities,low/medium
 Fletcherstown Dairies Ltd,1,C - All Other Manufacturing,low/medium
@@ -15429,7 +15429,7 @@ First Ireland Risk Management Limited,1,K - Financial & Insurance Activities,low
 First Ireland Spirits (Manufacturing) Co. Ltd. T/A First Ireland Spirits,1,C - All Other Manufacturing,high/exact
 First Names Corporate Services (Ireland) Limited,1,S - Other Service Activities,low/medium
 First Success Ltd,1,I - Accommodation & Food Services Activities,high/exact
-First Tech Credit Union Limited,1,J - Information & Communication Activities,high/exact
+First Tech Credit Union Limited,1,K - Financial & Insurance Activities,manual/corrected
 Firstaff Personnel Consultants Limited,1,Q - Health & Social Work Activities,low/medium
 Fish Seafood Deli Ltd,1,"A - Agriculture, Forestry & Fishing",high/exact
 "Fishamble Theatre Company, CLG",1,"R - Arts, Entertainment and Recreation",high/exact
@@ -15510,7 +15510,7 @@ Fei Chen,1,I - Accommodation & Food Services Activities,low/medium
 Feinripp Studios Limited,1,J - Information & Communication Activities,high/exact
 Felicity Fox,1,"R - Arts, Entertainment and Recreation",low/medium
 Fenero Combined Services Limited,1,S - Other Service Activities,low/medium
-Feng Yuan Meats Limited,1,G - Wholesale & Retail Trade,high/exact
+Feng Yuan Meats Limited,1,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
 Fengarin Engineering Limited,1,S - Other Service Activities,low/medium
 Fenlon Electrical Services Limited,1,F - Construction,low/medium
 Fenlon's Pharma Kiltown Ltd,1,"M - Professional, Scientific & Technical Activities",high/exact
@@ -15530,7 +15530,7 @@ Far From Avocados Limited,1,"M - Professional, Scientific & Technical Activities
 Farcroft Inns Ltd T/A Horse and Jockey Hotel,1,I - Accommodation & Food Services Activities,high/exact
 Farhan Anwar,1,I - Accommodation & Food Services Activities,low/medium
 Farin Consultants Ltd,1,J - Information & Communication Activities,high/exact
-Farm Relief Services Network,1,C - All Other Manufacturing,low/medium
+Farm Relief Services Network,1,"A - Agriculture, Forestry & Fishing",manual/corrected
 Farmer Browns Eatery Ltd,1,I - Accommodation & Food Services Activities,high/exact
 Fashion Hot House,1,G - Wholesale & Retail Trade,low/medium
 Farmgate Store to Door Ltd,1,S - Other Service Activities,high/exact
@@ -15554,7 +15554,7 @@ Finn valley Physiotherapy,1,Q - Health & Social Work Activities,low/medium
 Finna Construction Ltd,1,F - Construction,high/exact
 Finnearton Ltd,1,"M - Professional, Scientific & Technical Activities",high/exact
 Finnegan Commercials Ltd,1,F - Construction,low/medium
-Finnerty Pharmacy Ltd,1,G - Wholesale & Retail Trade,high/exact
+Finnerty Pharmacy Ltd,1,Q - Health & Social Work Activities,manual/corrected
 Finsa Forest Products Limited,1,G - Wholesale & Retail Trade,low/medium
 Fineprint Ltd,1,S - Other Service Activities,low/medium
 Fintechpro Managed Services Limited,1,"M - Professional, Scientific & Technical Activities",high/exact
@@ -15593,7 +15593,7 @@ Fine Grain Property (Ireland) Limited,1,K - Financial & Insurance Activities,hig
 Emp Energy Limited,1,"M - Professional, Scientific & Technical Activities",high/exact
 Emirates,1,G - Wholesale & Retail Trade,low/medium
 Donnachadh O'brien + Associates Consulting Engineers limited,1,"M - Professional, Scientific & Technical Activities",high/exact
-Dwyer Dental Practice Limited,1,G - Wholesale & Retail Trade,low/medium
+Dwyer Dental Practice Limited,1,Q - Health & Social Work Activities,manual/corrected
 Dublin-dentist.ie,1,Q - Health & Social Work Activities,high/exact
 Duleek Energy Centre Ltd,1,G - Wholesale & Retail Trade,high/exact
 "Dun Laoghaire Institute of Art, Design & Technology",1,P - Education,low/medium
@@ -15676,7 +15676,7 @@ Dynamics Telephony Limited,1,N - Administrative & Support Service Activities,low
 Dynamics True,1,N - Administrative & Support Service Activities,low/medium
 Dynamicsoft Experts Limited,1,J - Information & Communication Activities,high/exact
 Dysart Construction Limited,1,F - Construction,high/exact
-Dún Laoghaire Educate Together National School,1,S - Other Service Activities,low/medium
+Dún Laoghaire Educate Together National School,1,P - Education,manual/corrected
 E-BIKE HOUSE LIMITED,1,G - Wholesale & Retail Trade,high/exact
 E.J.Kings Bar Ltd,1,S - Other Service Activities,low/medium
 E-Bike House Limited,1,G - Wholesale & Retail Trade,high/exact
@@ -15852,7 +15852,7 @@ Embassy of Malta,1,F - Construction,low/medium
 Embed Technical Transfer Limited,1,J - Information & Communication Activities,high/exact
 Emer's Kitchen Limited,1,I - Accommodation & Food Services Activities,low/medium
 Emerald Catering Equipment Limited,1,G - Wholesale & Retail Trade,high/exact
-Emerald Core Construction Ltd,1,N - Administrative & Support Service Activities,high/exact
+Emerald Core Construction Ltd,1,F - Construction,manual/corrected
 Emerald Freight Express,1,H - Transport & Storage,high/exact
 Emerald Panda Foodie Limited,1,I - Accommodation & Food Services Activities,high/exact
 Emerald Tower Limited,1,J - Information & Communication Activities,high/exact
@@ -15870,7 +15870,7 @@ Elis Pest Control Limited,1,C - All Other Manufacturing,low/medium
 Eliska Catering Limited,1,I - Accommodation & Food Services Activities,high/exact
 Elite Aero Ireland Limited,1,N - Administrative & Support Service Activities,high/exact
 Elite Healthcare Limited,1,Q - Health & Social Work Activities,high/exact
-Elite Quality Meats,1,G - Wholesale & Retail Trade,low/medium
+Elite Quality Meats,1,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
 Elite Shopfitters and Interiors Ltd,1,F - Construction,low/medium
 Eliteform Manufacturing Limited,1,C - All Other Manufacturing,high/exact
 Elma Gaffney,1,C - All Other Manufacturing,low/medium
@@ -15986,7 +15986,7 @@ Foxcourt Farming Ltd,1,C - All Other Manufacturing,high/exact
 Arnotts Ltd,1,G - Wholesale & Retail Trade,high/exact
 Ardfuse Management Ltd T/A Farrier Draper,1,"M - Professional, Scientific & Technical Activities",low/medium
 Ardglass Farm Ltd,1,S - Other Service Activities,high/exact
-Ardilea Childcare Ltd,1,Q - Health & Social Work Activities,high/exact
+Ardilea Childcare Ltd,1,P - Education,manual/corrected
 Ardine Farms Limited,1,C - All Other Manufacturing,low/medium
 Ardnamoher Farm Ltd,1,"M - Professional, Scientific & Technical Activities",low/medium
 Ardstone Homes Limited,1,K - Financial & Insurance Activities,high/exact
@@ -16089,7 +16089,7 @@ Amjad Malik,1,Q - Health & Social Work Activities,low/medium
 Ammeon Solutions Limited,1,K - Financial & Insurance Activities,low/medium
 Amnesia Production DAC,1,J - Information & Communication Activities,high/exact
 Amplitude Acoustics Ltd,1,"M - Professional, Scientific & Technical Activities",high/exact
-Ams Pharmacy Ltd,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+Ams Pharmacy Ltd,1,Q - Health & Social Work Activities,manual/corrected
 Amstes Medical Limited,1,Q - Health & Social Work Activities,high/exact
 Amundi Intermediation,1,K - Financial & Insurance Activities,low/medium
 Amundi Ireland Ltd,1,C - All Other Manufacturing,low/medium
@@ -16152,7 +16152,7 @@ Apex RC Frames,1,F - Construction,high/exact
 Apex RC Frames Ltd,1,F - Construction,high/exact
 Apex Surveys Ltd,1,"M - Professional, Scientific & Technical Activities",low/medium
 Annette O'Toole,1,K - Financial & Insurance Activities,low/medium
-Anne's Lane Dental,1,S - Other Service Activities,high/exact
+Anne's Lane Dental,1,Q - Health & Social Work Activities,manual/corrected
 Andersen Tax Ireland Limited,1,"M - Professional, Scientific & Technical Activities",high/exact
 Angel Faces Childcare Limited,1,P - Education,high/exact
 Andre Putter,1,"M - Professional, Scientific & Technical Activities",low/medium
@@ -16179,7 +16179,7 @@ Ask Networks Limited,1,F - Construction,low/medium
 Aspect Design to Finish Ltd,1,"M - Professional, Scientific & Technical Activities",low/medium
 Alternative Cleaning Services Ltd,1,N - Administrative & Support Service Activities,high/exact
 BG Equine International Limited,1,C - All Other Manufacturing,high/exact
-BALBRIGGAN DENTAL SERVICES LTD,1,L - Real Estate Activities,low/medium
+BALBRIGGAN DENTAL SERVICES LTD,1,Q - Health & Social Work Activities,manual/corrected
 BALLYHAMPSHIRE STUD LTD,1,K - Financial & Insurance Activities,low/medium
 BAM Building Ltd,1,F - Construction,low/medium
 BAMBINO Stephen Limited,1,I - Accommodation & Food Services Activities,high/exact
@@ -16372,7 +16372,7 @@ Avestus Capital Partners Unlimited Company,1,"M - Professional, Scientific & Tec
 Aveta Medical Limited,1,C - All Other Manufacturing,high/exact
 Alternus Energy Group PLC,1,N - Administrative & Support Service Activities,high/exact
 Alstonwood Ltd t/a B2 Communications,1,F - Construction,low/medium
-Bailey Seafoods Ltd T/A Aqua Restaurant,1,"A - Agriculture, Forestry & Fishing",high/exact
+Bailey Seafoods Ltd T/A Aqua Restaurant,1,I - Accommodation & Food Services Activities,manual/corrected
 Abbey Fire Safety Consultants Limited,1,"M - Professional, Scientific & Technical Activities",high/exact
 ASL Airlines (Ireland) Limited,1,H - Transport & Storage,high/exact
 ASL Shared Services Limited,1,H - Transport & Storage,high/exact
@@ -16448,14 +16448,14 @@ Accident Repair Management Ltd,1,"M - Professional, Scientific & Technical Activ
 Access Nursing Ltd,1,N - Administrative & Support Service Activities,high/exact
 Access Data Installations Ltd,1,F - Construction,low/medium
 Abode Accommodation Limited,1,I - Accommodation & Food Services Activities,high/exact
-Abbeyglebe 3-D Dental Vision,1,N - Administrative & Support Service Activities,low/medium
+Abbeyglebe 3-D Dental Vision,1,Q - Health & Social Work Activities,manual/corrected
 Abbeylands Furniture (Navan) Limited,1,C - All Other Manufacturing,low/medium
 Abbo Catering Ltd,1,I - Accommodation & Food Services Activities,high/exact
 Abdul Mumith,1,Q - Health & Social Work Activities,low/medium
 Abdullah's Biz Limited,1,G - Wholesale & Retail Trade,high/exact
 Abel Decor LTD,1,F - Construction,high/exact
 Abellio Productions Limited,1,C - All Other Manufacturing,high/exact
-Abington Dental Ltd,1,K - Financial & Insurance Activities,low/medium
+Abington Dental Ltd,1,Q - Health & Social Work Activities,manual/corrected
 Abmiro Europe Limited,1,J - Information & Communication Activities,high/exact
 Above Ground Ltd,1,I - Accommodation & Food Services Activities,high/exact
 Accelerating Change Together Company Limited by Guarantee,1,"M - Professional, Scientific & Technical Activities",high/exact
@@ -16580,7 +16580,7 @@ Alert Packaging Ltd,1,C - All Other Manufacturing,low/medium
 Alex Gogan,1,F - Construction,low/medium
 Alex Q Construction Limited,1,F - Construction,high/exact
 Alexander Conyngham,1,K - Financial & Insurance Activities,low/medium
-Alexandra Dental Practice Limited,1,L - Real Estate Activities,low/medium
+Alexandra Dental Practice Limited,1,Q - Health & Social Work Activities,manual/corrected
 Alexandra Woodhouse,1,L - Real Estate Activities,low/medium
 Alexion Pharma International Trading,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
 Alfa Electrical Limited,1,F - Construction,low/medium
@@ -16786,7 +16786,7 @@ CW O'Brien Architects LTD,1,"M - Professional, Scientific & Technical Activities
 CW8 Communications Ltd,1,F - Construction,low/medium
 CWIRE RETAIL 1 LTD,1,K - Financial & Insurance Activities,high/exact
 COUNTY KILDARE CHAMBER OF COMMERCE COMPANY LIMITED BY GUARANTEE,1,N - Administrative & Support Service Activities,low/medium
-COTE PHARMACY LTD,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+COTE PHARMACY LTD,1,Q - Health & Social Work Activities,manual/corrected
 COSMOS BRAIN WAVE SOFTWARE LIMITED,1,J - Information & Communication Activities,high/exact
 CMM Food Production Limited,1,"C - Manufacture of Food, Drink & Tobacco",high/exact
 CLEARSPHERE LTD,1,K - Financial & Insurance Activities,high/exact
@@ -16827,7 +16827,7 @@ Camus Dairy Ltd,1,"C - Manufacture of Food, Drink & Tobacco",high/exact
 Camy Fitted Furniture Limited,1,F - Construction,low/medium
 Canadia Distributors Ltd,1,G - Wholesale & Retail Trade,low/medium
 Canbe Ltd,1,K - Financial & Insurance Activities,high/exact
-Canning's Pharmacy Ltd,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+Canning's Pharmacy Ltd,1,Q - Health & Social Work Activities,manual/corrected
 Canon (IRL) Business Equipment Limited,1,G - Wholesale & Retail Trade,low/medium
 Canonical Support Services Ireland Limited,1,N - Administrative & Support Service Activities,high/exact
 Canton House Chinese Take Away,1,I - Accommodation & Food Services Activities,high/exact
@@ -16898,7 +16898,7 @@ Bunacum Farm Limited,1,C - All Other Manufacturing,low/medium
 Bundoran Physiotherapy Ltd,1,Q - Health & Social Work Activities,high/exact
 Burgerchick(Limerick)Limited,1,I - Accommodation & Food Services Activities,high/exact
 Butchers Best New Ross Ltd,1,G - Wholesale & Retail Trade,low/medium
-Burkes Meats Ltd,1,G - Wholesale & Retail Trade,low/medium
+Burkes Meats Ltd,1,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
 Burnt Pizza Limited,1,I - Accommodation & Food Services Activities,high/exact
 Burrell Marketing and Publicity Limited,1,S - Other Service Activities,low/medium
 Bushell Interiors Ltd,1,C - All Other Manufacturing,low/medium
@@ -16970,7 +16970,7 @@ Cdw-I IT Solutions Limited,1,F - Construction,low/medium
 CeMac Office Solutions Limited,1,F - Construction,low/medium
 Ceardean Limited,1,"M - Professional, Scientific & Technical Activities",low/medium
 Ceartas DMCA Limited,1,J - Information & Communication Activities,high/exact
-Cecil Street Pharmacy Ltd,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+Cecil Street Pharmacy Ltd,1,Q - Health & Social Work Activities,manual/corrected
 Cedar Brokers Ltd,1,K - Financial & Insurance Activities,low/medium
 Cedarbridge Developments Limited,1,F - Construction,high/exact
 Cefones Limited,1,S - Other Service Activities,high/exact
@@ -17018,7 +17018,7 @@ Charming Hand and Foot Spa Limited,1,S - Other Service Activities,high/exact
 Chartered Accountants Ireland,1,"M - Professional, Scientific & Technical Activities",high/exact
 Charttics Limited,1,J - Information & Communication Activities,high/exact
 Chasco Investments Limited,1,K - Financial & Insurance Activities,high/exact
-Chatterboxes Childcare Celbridge Limited,1,Q - Health & Social Work Activities,high/exact
+Chatterboxes Childcare Celbridge Limited,1,P - Education,manual/corrected
 Cheeverstown House Ltd,1,L - Real Estate Activities,low/medium
 Chef Chen Chinese Takeaway Limited,1,I - Accommodation & Food Services Activities,high/exact
 Chef In A Box Ltd,1,I - Accommodation & Food Services Activities,low/medium
@@ -17063,7 +17063,7 @@ CareChoice Finglas,1,Q - Health & Social Work Activities,high/exact
 Carechoice (Dungarvan) Ltd,1,Q - Health & Social Work Activities,high/exact
 Careerwise Recruitment Ltd,1,N - Administrative & Support Service Activities,high/exact
 Caregivers Ireland Company Limited By Guarantee,1,Q - Health & Social Work Activities,low/medium
-Careplus Pharmacy DAC,1,G - Wholesale & Retail Trade,high/exact
+Careplus Pharmacy DAC,1,Q - Health & Social Work Activities,manual/corrected
 Careworks Ltd,1,"M - Professional, Scientific & Technical Activities",low/medium
 Carey Groundworks Limited,1,N - Administrative & Support Service Activities,high/exact
 Cargo Control Limited,1,N - Administrative & Support Service Activities,low/medium
@@ -17153,7 +17153,7 @@ Carriganure Farm Ltd,1,C - All Other Manufacturing,high/exact
 Bryan S Ryan Limited,1,S - Other Service Activities,high/exact
 Bryan Greene Company Limited,1,S - Other Service Activities,low/medium
 Baili Asian Catering Llimited,1,I - Accommodation & Food Services Activities,high/exact
-Belvedere Meats Limited,1,K - Financial & Insurance Activities,low/medium
+Belvedere Meats Limited,1,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
 Beechbloom Farm Ltd,1,C - All Other Manufacturing,high/exact
 Beechgrove Ltd,1,I - Accommodation & Food Services Activities,high/exact
 Beechlawn Bloodstock Ltd,1,C - All Other Manufacturing,low/medium
@@ -17243,7 +17243,7 @@ Berryoak Limited,1,I - Accommodation & Food Services Activities,high/exact
 Besant Holdings Limited,1,K - Financial & Insurance Activities,low/medium
 Bespoke Framing Company Limited,1,C - All Other Manufacturing,high/exact
 Best Global Procurement Services Limited,1,G - Wholesale & Retail Trade,low/medium
-Best Start Childcare Limited,1,Q - Health & Social Work Activities,high/exact
+Best Start Childcare Limited,1,P - Education,manual/corrected
 Bestway International Holdings Limited,1,K - Financial & Insurance Activities,high/exact
 Beta Electronics Limited,1,K - Financial & Insurance Activities,low/medium
 Better Stay IE Limited,1,I - Accommodation & Food Services Activities,high/exact
@@ -17285,18 +17285,18 @@ Baker Finn Recruitment Ltd,1,N - Administrative & Support Service Activities,hig
 Bakerplace Limited,1,K - Financial & Insurance Activities,high/exact
 Bakerplace Ltd,1,K - Financial & Insurance Activities,high/exact
 Balam Limited,1,C - All Other Manufacturing,high/exact
-Balbriggan Dental Services Ltd,1,L - Real Estate Activities,low/medium
+Balbriggan Dental Services Ltd,1,Q - Health & Social Work Activities,manual/corrected
 Baldoyle Taverns Limited,1,I - Accommodation & Food Services Activities,high/exact
 Balloy Farm Limited,1,C - All Other Manufacturing,low/medium
 Balgaddy Tyres Limited,1,G - Wholesale & Retail Trade,high/exact
 Ballb Logistics Limited,1,H - Transport & Storage,high/exact
 Ballina Veterinary Clinic LTD,1,"M - Professional, Scientific & Technical Activities",high/exact
 Ballinahina Farm Limited,1,C - All Other Manufacturing,low/medium
-Ballinasloe Credit Union (Our Lady of Lourdes) Limited,1,Q - Health & Social Work Activities,high/exact
+Ballinasloe Credit Union (Our Lady of Lourdes) Limited,1,K - Financial & Insurance Activities,manual/corrected
 Ballincollig Physiotherapy Sports Injury Clinic,1,"R - Arts, Entertainment and Recreation",high/exact
 Ballindura Farms & Co. limited,1,C - All Other Manufacturing,low/medium
 Ballinguile Castlefarm Limited,1,C - All Other Manufacturing,low/medium
-Ballon Meats Ltd,1,G - Wholesale & Retail Trade,low/medium
+Ballon Meats Ltd,1,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
 Ballytrain Plant & Commercial Sales Ltd,1,G - Wholesale & Retail Trade,low/medium
 Ballywalter Stables Limited,1,C - All Other Manufacturing,low/medium
 Balrath MSG Limited,1,"M - Professional, Scientific & Technical Activities",high/exact
@@ -17374,7 +17374,7 @@ Brandpower Limited,1,"M - Professional, Scientific & Technical Activities",high/
 Brandmark Signs Limited,1,C - All Other Manufacturing,high/exact
 Brand Resto Limited,1,I - Accommodation & Food Services Activities,high/exact
 Boyne Sa Vets Limited,1,"M - Professional, Scientific & Technical Activities",high/exact
-Boston Pharmacy,1,G - Wholesale & Retail Trade,high/exact
+Boston Pharmacy,1,Q - Health & Social Work Activities,manual/corrected
 Bothma Enterprises Ltd,1,N - Administrative & Support Service Activities,high/exact
 Bovinity Restaurant Ltd,1,I - Accommodation & Food Services Activities,high/exact
 Bowen Water Technology Ltd,1,S - Other Service Activities,low/medium
@@ -17631,11 +17631,11 @@ Margaret Martin-Cooney,1,S - Other Service Activities,low/medium
 Marine Distribution and Management International Limited,1,F - Construction,high/exact
 Margin Investments Ltd,1,J - Information & Communication Activities,low/medium
 Marhaba Food Store Limited,1,G - Wholesale & Retail Trade,high/exact
-Mari Mina Pharmacy (Cahir) Limited,1,G - Wholesale & Retail Trade,high/exact
-Mari Mina Pharmacy (Rathcormac) Limited,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
-Mari Mina Pharmacy (Youghal) Limited,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
-Mari Mina Pharmacy Limited,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
-Mari Mina Pharmacy Toomevara Ltd,1,G - Wholesale & Retail Trade,high/exact
+Mari Mina Pharmacy (Cahir) Limited,1,Q - Health & Social Work Activities,manual/corrected
+Mari Mina Pharmacy (Rathcormac) Limited,1,Q - Health & Social Work Activities,manual/corrected
+Mari Mina Pharmacy (Youghal) Limited,1,Q - Health & Social Work Activities,manual/corrected
+Mari Mina Pharmacy Limited,1,Q - Health & Social Work Activities,manual/corrected
+Mari Mina Pharmacy Toomevara Ltd,1,Q - Health & Social Work Activities,manual/corrected
 Marian College,1,N - Administrative & Support Service Activities,low/medium
 Marie Hourigan,1,K - Financial & Insurance Activities,low/medium
 Mai Asian Street Food Limited,1,I - Accommodation & Food Services Activities,high/exact
@@ -17675,7 +17675,7 @@ MJ Maguire Mullingar Dental Ltd,1,Q - Health & Social Work Activities,high/exact
 MJB CATERING LIMITED,1,I - Accommodation & Food Services Activities,high/exact
 MJC Consultant Engineer Limited,1,"M - Professional, Scientific & Technical Activities",high/exact
 MJH Structural Engineers Limited,1,F - Construction,high/exact
-MJI Meats Limited,1,G - Wholesale & Retail Trade,low/medium
+MJI Meats Limited,1,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
 MKF Business Consultants Limited,1,"M - Professional, Scientific & Technical Activities",low/medium
 MMD Construction Cork Limited,1,F - Construction,high/exact
 MKS Food Enterprises Limited,1,I - Accommodation & Food Services Activities,high/exact
@@ -17705,7 +17705,7 @@ Macquarie Aircraft Leasing Services Ltd,1,H - Transport & Storage,low/medium
 Magento Commerce International Limited,1,K - Financial & Insurance Activities,high/exact
 Magento Ireland Limited,1,J - Information & Communication Activities,high/exact
 Magnate Software Ltd,1,J - Information & Communication Activities,high/exact
-Magner's Pharmacy Santry Limited,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+Magner's Pharmacy Santry Limited,1,Q - Health & Social Work Activities,manual/corrected
 Magnitu Digital Limited,1,"M - Professional, Scientific & Technical Activities",high/exact
 Magnostics Limited,1,C - All Other Manufacturing,high/exact
 Mahad Catering Limited,1,I - Accommodation & Food Services Activities,high/exact
@@ -18014,7 +18014,7 @@ Liam McDonnell,1,K - Financial & Insurance Activities,low/medium
 Liberties Recycling Training and Development Ltd,1,"E - Water Supply, Sewerage, Waste Management & Remedial Activities",high/exact
 Liberty CE Scheme Project Company Limited by Guarantee,1,Q - Health & Social Work Activities,high/exact
 Liberty Grill Limited,1,N - Administrative & Support Service Activities,low/medium
-Liberty Pharmacy Limited,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+Liberty Pharmacy Limited,1,Q - Health & Social Work Activities,manual/corrected
 Liberty Renaissance Limited,1,L - Real Estate Activities,high/exact
 Life Beating LTD,1,G - Wholesale & Retail Trade,high/exact
 Life Insurance Association Ireland Company Limited by Guarantee,1,K - Financial & Insurance Activities,high/exact
@@ -18028,7 +18028,7 @@ Liffey Developments (Dublin) Ltd,1,I - Accommodation & Food Services Activities,
 Liffey Valley Specsavers Hearcare Ltd,1,G - Wholesale & Retail Trade,low/medium
 Liffey-Dental Limited,1,Q - Health & Social Work Activities,high/exact
 Light Business Development Services Ltd,1,"M - Professional, Scientific & Technical Activities",high/exact
-Layher System Scaffolding Ltd,1,N - Administrative & Support Service Activities,high/exact
+Layher System Scaffolding Ltd,1,F - Construction,manual/corrected
 Lawlor Chiropractic & Sports Injuries Limited,1,"R - Arts, Entertainment and Recreation",high/exact
 Law Society of Ireland,1,P - Education,low/medium
 Lavina Nursing Agency Ltd,1,Q - Health & Social Work Activities,high/exact
@@ -18061,7 +18061,7 @@ Kyron Street Limited,1,S - Other Service Activities,high/exact
 Kyzentree Technologies Limited,1,J - Information & Communication Activities,high/exact
 L & T Dairy Farm Ltd,1,"C - Manufacture of Food, Drink & Tobacco",high/exact
 L & Z Good Foods Limited,1,I - Accommodation & Food Services Activities,high/exact
-L B Childcare Services Limited,1,Q - Health & Social Work Activities,high/exact
+L B Childcare Services Limited,1,P - Education,manual/corrected
 L Behan Aggregates and Recycling Ltd,1,"E - Water Supply, Sewerage, Waste Management & Remedial Activities",high/exact
 L Lynch Co. Ltd,1,"M - Professional, Scientific & Technical Activities",high/exact
 L Lynch Interact Ltd,1,"M - Professional, Scientific & Technical Activities",low/medium
@@ -18075,13 +18075,13 @@ L.W. Enterprises Ltd,1,F - Construction,high/exact
 LA Hospitality Limited,1,I - Accommodation & Food Services Activities,high/exact
 LAPIS LINE AUTO PARTS LIMITED,1,G - Wholesale & Retail Trade,high/exact
 LBJC European Beauty trading Ltd,1,G - Wholesale & Retail Trade,high/exact
-LBR Pharmacy Limited,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+LBR Pharmacy Limited,1,Q - Health & Social Work Activities,manual/corrected
 LCR Developments Limited,1,F - Construction,high/exact
 LUMA Vision Limited,1,"M - Professional, Scientific & Technical Activities",high/exact
 LV Coco Limited,1,I - Accommodation & Food Services Activities,low/medium
 LYW Property Investment Ltd,1,L - Real Estate Activities,high/exact
 Larkin Foods Limited,1,G - Wholesale & Retail Trade,high/exact
-Lanley Construction Limited,1,S - Other Service Activities,high/exact
+Lanley Construction Limited,1,F - Construction,manual/corrected
 Lansdowne Lodge Preschool Montessori Limited,1,P - Education,high/exact
 Lantaca Ltd,1,"M - Professional, Scientific & Technical Activities",high/exact
 Lantech IT Services Limited,1,J - Information & Communication Activities,high/exact
@@ -18117,7 +18117,7 @@ Lahore Tandoori Restaurant Limited,1,I - Accommodation & Food Services Activitie
 Lakeland Dairies Limited,1,"M - Professional, Scientific & Technical Activities",high/exact
 Landmark Environmental Services Ltd,1,"M - Professional, Scientific & Technical Activities",high/exact
 Lakeshore Medical Centre,1,Q - Health & Social Work Activities,high/exact
-Lalco Hotels Hospitality Limited,1,Q - Health & Social Work Activities,high/exact
+Lalco Hotels Hospitality Limited,1,I - Accommodation & Food Services Activities,manual/corrected
 Lamz Flair Investments Limited,1,K - Financial & Insurance Activities,high/exact
 Lamz Flair Investments Ltd,1,K - Financial & Insurance Activities,high/exact
 Lana Family Butcher Limited,1,G - Wholesale & Retail Trade,high/exact
@@ -18172,7 +18172,7 @@ M & J Gleeson & Co Unlimited Company,1,J - Information & Communication Activitie
 M & J Gleeson & Co.,1,J - Information & Communication Activities,low/medium
 M & M Childcare LTD T/A Meadows Childcare & Afterschool,1,P - Education,high/exact
 M & M Products Limited,1,G - Wholesale & Retail Trade,low/medium
-M & T Logistics Limited,1,"M - Professional, Scientific & Technical Activities",high/exact
+M & T Logistics Limited,1,H - Transport & Storage,manual/corrected
 M & T MAXIMUM SECURITY SYSTEMS LIMITED,1,N - Administrative & Support Service Activities,low/medium
 MARKET GREEN SPECSAVERS LTD.,1,G - Wholesale & Retail Trade,low/medium
 MASKO FOOD LIMITED,1,I - Accommodation & Food Services Activities,high/exact
@@ -18271,7 +18271,7 @@ Liya Food Ltd,1,I - Accommodation & Food Services Activities,high/exact
 Lizdan Business Services Limited,1,"M - Professional, Scientific & Technical Activities",low/medium
 Llewellyn Farm,1,"M - Professional, Scientific & Technical Activities",low/medium
 Lloyds Master Victualler,1,G - Wholesale & Retail Trade,low/medium
-Lloyds Pharmacy Ireland Ltd,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+Lloyds Pharmacy Ireland Ltd,1,Q - Health & Social Work Activities,manual/corrected
 Longcourt Hospitality Limited,1,Q - Health & Social Work Activities,high/exact
 Longevity Events Limited,1,N - Administrative & Support Service Activities,high/exact
 Longford/Westmeath Mental Health Services,1,Q - Health & Social Work Activities,high/exact
@@ -18333,7 +18333,7 @@ O'Reilly Bros Limited,1,J - Information & Communication Activities,low/medium
 O'Reilly Curran & Associates Limited,1,N - Administrative & Support Service Activities,low/medium
 O'Shea Farms Limited,1,C - All Other Manufacturing,low/medium
 O'Sheas Builders (Cork) Ltd,1,F - Construction,high/exact
-O'Sullivan Mullany Pharmacy Limited,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+O'Sullivan Mullany Pharmacy Limited,1,Q - Health & Social Work Activities,manual/corrected
 O'Sullivans Pharmacies and Beauticians Limited,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
 OAK PROJECTS IRELAND LIMITED,1,F - Construction,high/exact
 OBA Consulting Engineers Limited,1,"M - Professional, Scientific & Technical Activities",high/exact
@@ -18341,7 +18341,7 @@ OBS People Power Holdings Limited,1,N - Administrative & Support Service Activit
 OBS People Power Holdings Ltd,1,N - Administrative & Support Service Activities,low/medium
 OCX Capital Ltd,1,G - Wholesale & Retail Trade,high/exact
 OCarroll Fitzgerald Project Commercial Management,1,"M - Professional, Scientific & Technical Activities",high/exact
-OHS Scaffolding Limited,1,C - All Other Manufacturing,high/exact
+OHS Scaffolding Limited,1,F - Construction,manual/corrected
 OK Tool Hire and Sales Limited,1,N - Administrative & Support Service Activities,low/medium
 OKES Logistics ltd,1,H - Transport & Storage,high/exact
 OMahony Tree Specialists LTD,1,C - All Other Manufacturing,low/medium
@@ -18361,7 +18361,7 @@ O'Connor International Ltd,1,K - Financial & Insurance Activities,low/medium
 O'Dwyer Delaney Limited,1,K - Financial & Insurance Activities,low/medium
 O'Leary Opticians Limited,1,Q - Health & Social Work Activities,low/medium
 O'Dwyer Property Management Limited,1,F - Construction,low/medium
-O'Farrell Meats Ltd,1,K - Financial & Insurance Activities,low/medium
+O'Farrell Meats Ltd,1,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
 O'Flynn Building & Project Management Ltd,1,S - Other Service Activities,low/medium
 O'Gorman Contract Cleaning Limited,1,N - Administrative & Support Service Activities,low/medium
 O'Hanlon Tyres Limited,1,Q - Health & Social Work Activities,low/medium
@@ -18461,7 +18461,7 @@ Noble Fitout Limited,1,F - Construction,high/exact
 Night Work Games Ltd,1,S - Other Service Activities,low/medium
 Nightlife Hospitality Limited,1,S - Other Service Activities,high/exact
 Nile Integrity Solutions Limited,1,J - Information & Communication Activities,high/exact
-Nine One One Pharmacy Limited,1,G - Wholesale & Retail Trade,high/exact
+Nine One One Pharmacy Limited,1,Q - Health & Social Work Activities,manual/corrected
 Ninja Abrasives Limited,1,G - Wholesale & Retail Trade,high/exact
 Nippon Express (Ireland) Ltd,1,C - All Other Manufacturing,low/medium
 Nish Transport Limited,1,H - Transport & Storage,high/exact
@@ -18676,8 +18676,8 @@ Outlook Garden Project Management Limited,1,N - Administrative & Support Service
 Outside Garden Design LTD,1,F - Construction,low/medium
 Outsource Digital Marketing Limited,1,"M - Professional, Scientific & Technical Activities",high/exact
 Overcast HQ Ltd,1,J - Information & Communication Activities,high/exact
-Otean Restaurant & Takeaway Limited,1,S - Other Service Activities,high/exact
-Owenabue Pharmacy Limited,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+Otean Restaurant & Takeaway Limited,1,I - Accommodation & Food Services Activities,manual/corrected
+Owenabue Pharmacy Limited,1,Q - Health & Social Work Activities,manual/corrected
 Owenass Developments Ireland Limited,1,F - Construction,low/medium
 Oxfam Republic of Ireland,1,P - Education,low/medium
 Oxford Global Resources Limited,1,"M - Professional, Scientific & Technical Activities",low/medium
@@ -18753,7 +18753,7 @@ Morley Walsh Consulting Engineers,1,"M - Professional, Scientific & Technical Ac
 Moran & Ryan LLP,1,S - Other Service Activities,low/medium
 Moran Electrical Services Ltd,1,F - Construction,low/medium
 Moran Industrial and Agricultural Solutions LTD.,1,N - Administrative & Support Service Activities,high/exact
-Morell Meats Limited,1,G - Wholesale & Retail Trade,low/medium
+Morell Meats Limited,1,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
 Moretogether (Ireland) Limited,1,I - Accommodation & Food Services Activities,low/medium
 Moretum Ltd,1,G - Wholesale & Retail Trade,high/exact
 Morgan Fuels Limited,1,G - Wholesale & Retail Trade,low/medium
@@ -18810,7 +18810,7 @@ Mr. George O'Malley,1,"M - Professional, Scientific & Technical Activities",low/
 Mr. Michael Friel,1,"M - Professional, Scientific & Technical Activities",low/medium
 Moofwd Ltd,1,J - Information & Communication Activities,high/exact
 Monument Insurance European Services,1,K - Financial & Insurance Activities,high/exact
-Montpelier Childcare LTD,1,Q - Health & Social Work Activities,high/exact
+Montpelier Childcare LTD,1,P - Education,manual/corrected
 Monto & Sons Foods Limited,1,I - Accommodation & Food Services Activities,high/exact
 Mill Park Hotel Ltd,1,I - Accommodation & Food Services Activities,high/exact
 Millbrae Lodge Nursing Home LTD,1,Q - Health & Social Work Activities,high/exact
@@ -18919,7 +18919,7 @@ Neenan Bros Plastering Ltd,1,F - Construction,high/exact
 Neil Mulcahy,1,"M - Professional, Scientific & Technical Activities",low/medium
 Neilson Financial Services Limited,1,K - Financial & Insurance Activities,low/medium
 Neimco Consultants Limited,1,"M - Professional, Scientific & Technical Activities",high/exact
-Nenagh Dental Limited,1,L - Real Estate Activities,low/medium
+Nenagh Dental Limited,1,Q - Health & Social Work Activities,manual/corrected
 Neodyne Ltd,1,"M - Professional, Scientific & Technical Activities",low/medium
 Neomed Innovative Medical Ventures Ltd,1,Q - Health & Social Work Activities,low/medium
 Neptune Basketball Club,1,"R - Arts, Entertainment and Recreation",low/medium
@@ -18970,7 +18970,7 @@ Newpark Construction Limited,1,F - Construction,high/exact
 Newpark Healthcare Limited,1,N - Administrative & Support Service Activities,high/exact
 Newpark Music Centre,1,Q - Health & Social Work Activities,low/medium
 Newport Pharmaceuticals Ltd,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
-Newrath Pharmacy Ltd,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+Newrath Pharmacy Ltd,1,Q - Health & Social Work Activities,manual/corrected
 News Press Ireland Limited,1,G - Wholesale & Retail Trade,low/medium
 Newstar Mobile Limited,1,G - Wholesale & Retail Trade,high/exact
 Newstead DSOM Ltd,1,K - Financial & Insurance Activities,low/medium
@@ -19069,7 +19069,7 @@ NZEB Products Ltd,1,S - Other Service Activities,high/exact
 NPD Bia Teoranta,1,G - Wholesale & Retail Trade,low/medium
 Na Woods Property Services Limited,1,"M - Professional, Scientific & Technical Activities",low/medium
 Naas Aircraft Services International Ltd,1,K - Financial & Insurance Activities,low/medium
-Naas Pharmacy limited,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+Naas Pharmacy limited,1,Q - Health & Social Work Activities,manual/corrected
 Nabriva Therapeutics Ireland Designated Activity Company,1,K - Financial & Insurance Activities,high/exact
 Nadine Technology Limited,1,J - Information & Communication Activities,high/exact
 Nahanna Farm Limited,1,C - All Other Manufacturing,high/exact
@@ -19129,17 +19129,17 @@ Hales Freight Limited,1,H - Transport & Storage,high/exact
 Haldi By Manish Limited,1,I - Accommodation & Food Services Activities,high/exact
 Halcyon Aviation Leasing Limited,1,N - Administrative & Support Service Activities,high/exact
 Hader Solutions Distributions Limited,1,G - Wholesale & Retail Trade,high/exact
-HUNTSTOWN PHARMACY LTD,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+HUNTSTOWN PHARMACY LTD,1,Q - Health & Social Work Activities,manual/corrected
 HUYA Global Ltd,1,K - Financial & Insurance Activities,high/exact
 HW Machine Tools Ltd,1,G - Wholesale & Retail Trade,low/medium
 HWS2 Productions DAC,1,J - Information & Communication Activities,high/exact
 HWS5 Productions DAC,1,J - Information & Communication Activities,high/exact
 HYXQ Trading Limited,1,G - Wholesale & Retail Trade,high/exact
 Haandi Foods Limited,1,I - Accommodation & Food Services Activities,high/exact
-Hackett Homecare Limited,1,"M - Professional, Scientific & Technical Activities",low/medium
-Hackett Homecare Ltd,1,"M - Professional, Scientific & Technical Activities",low/medium
+Hackett Homecare Limited,1,Q - Health & Social Work Activities,manual/corrected
+Hackett Homecare Ltd,1,Q - Health & Social Work Activities,manual/corrected
 Haffenall Limited,1,K - Financial & Insurance Activities,high/exact
-Halal Prime Meats Ltd,1,G - Wholesale & Retail Trade,high/exact
+Halal Prime Meats Ltd,1,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
 Hafras Consultancy Services,1,Q - Health & Social Work Activities,high/exact
 Hai Phong Limited,1,I - Accommodation & Food Services Activities,high/exact
 Haile Global Meishi Limited,1,I - Accommodation & Food Services Activities,high/exact
@@ -19174,7 +19174,7 @@ Head 2 Toe Chiropractic Limited,1,Q - Health & Social Work Activities,low/medium
 Headon Boxing Academy Limited,1,"R - Arts, Entertainment and Recreation",high/exact
 Headspace Group Limited,1,K - Financial & Insurance Activities,high/exact
 Health Bridge Medical Limited,1,Q - Health & Social Work Activities,high/exact
-Hartstown Community School,1,Q - Health & Social Work Activities,low/medium
+Hartstown Community School,1,P - Education,manual/corrected
 Harry Walsh Associates Ltd,1,L - Real Estate Activities,low/medium
 Harry Farrell Sons Ltd,1,C - All Other Manufacturing,low/medium
 Harcourt Street Office Services Unlimited Company,1,N - Administrative & Support Service Activities,low/medium
@@ -19302,7 +19302,7 @@ Huixian Yong,1,I - Accommodation & Food Services Activities,low/medium
 Horseware Products Limited,1,K - Financial & Insurance Activities,low/medium
 Hose Express Limited,1,G - Wholesale & Retail Trade,low/medium
 Hospital Services Limited,1,Q - Health & Social Work Activities,high/exact
-Hotel & Hostel Logistics Limited,1,I - Accommodation & Food Services Activities,high/exact
+Hotel & Hostel Logistics Limited,1,I - Accommodation & Food Services Activities,manual/corrected
 Hotel Kilkenny,1,I - Accommodation & Food Services Activities,high/exact
 Hourigans Farm Ltd,1,C - All Other Manufacturing,high/exact
 House of Bacchus Limited,1,I - Accommodation & Food Services Activities,high/exact
@@ -19421,7 +19421,7 @@ Hideseek Games Ltd,1,J - Information & Communication Activities,high/exact
 Heneghan Peng Architects Ltd,1,"M - Professional, Scientific & Technical Activities",low/medium
 Hendrick Hotels Limited,1,I - Accommodation & Food Services Activities,high/exact
 Hello World Foundation t/a CoderDojo Foundation,1,P - Education,low/medium
-Heaney Dental Services Ltd,1,F - Construction,low/medium
+Heaney Dental Services Ltd,1,Q - Health & Social Work Activities,manual/corrected
 Health Servie Executive Mid West mental Health Services,1,Q - Health & Social Work Activities,high/exact
 Health Sport Technologies Limited,1,J - Information & Communication Activities,high/exact
 Health and Happiness (HH) Research Limited,1,"M - Professional, Scientific & Technical Activities",high/exact
@@ -19588,7 +19588,7 @@ Garanzuay Consulting Limited,1,"M - Professional, Scientific & Technical Activit
 Garden of Eden Fresh Herbs Limited,1,G - Wholesale & Retail Trade,high/exact
 Gardien Limited,1,G - Wholesale & Retail Trade,high/exact
 Gareth Smyth,1,"M - Professional, Scientific & Technical Activities",high/exact
-GL Meats Limited,1,G - Wholesale & Retail Trade,low/medium
+GL Meats Limited,1,"C - Manufacture of Food, Drink & Tobacco",manual/corrected
 GINGCRROOT LIMITED,1,I - Accommodation & Food Services Activities,high/exact
 GHRN Ltd,1,I - Accommodation & Food Services Activities,high/exact
 GH Hire Ltd,1,N - Administrative & Support Service Activities,low/medium
@@ -19860,7 +19860,7 @@ Glittering Prize Limited,1,I - Accommodation & Food Services Activities,high/exa
 Gleoite Homes Ltd,1,F - Construction,high/exact
 Glanmire Ladies Basketball Club,1,"R - Arts, Entertainment and Recreation",low/medium
 Gleman Software Development Ltd,1,J - Information & Communication Activities,high/exact
-Glanmire Pharmacy Limited,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+Glanmire Pharmacy Limited,1,Q - Health & Social Work Activities,manual/corrected
 Glann Consulting Ireland Limited,1,"M - Professional, Scientific & Technical Activities",high/exact
 Glas Media Limited,1,"M - Professional, Scientific & Technical Activities",low/medium
 Glasscarrig Farms Ltd,1,C - All Other Manufacturing,high/exact
@@ -19883,7 +19883,7 @@ Glenowen Hotel Limited,1,I - Accommodation & Food Services Activities,high/exact
 IES Lean Systems Ltd,1,"M - Professional, Scientific & Technical Activities",low/medium
 IKB Energy Ltd,1,K - Financial & Insurance Activities,low/medium
 Kronus Technologies Limited,1,J - Information & Communication Activities,high/exact
-"KILKENNY, CARLOW AND DISTRICT FARM RELIEF SERVICES SOCIETY LIMITED",1,J - Information & Communication Activities,high/exact
+"KILKENNY, CARLOW AND DISTRICT FARM RELIEF SERVICES SOCIETY LIMITED",1,"A - Agriculture, Forestry & Fishing",manual/corrected
 K P International Consulting Limited,1,"M - Professional, Scientific & Technical Activities",high/exact
 K and S Industrial Supplies Ltd,1,G - Wholesale & Retail Trade,low/medium
 K and U Ventures Limited,1,G - Wholesale & Retail Trade,high/exact
@@ -19959,7 +19959,7 @@ KT Nolan Associates Limited,1,"M - Professional, Scientific & Technical Activiti
 KSG Catering Limited,1,I - Accommodation & Food Services Activities,high/exact
 KNEGARE NURSING HOME HOLDINGS LIMITED,1,Q - Health & Social Work Activities,high/exact
 KISHMISH LIMITED,1,I - Accommodation & Food Services Activities,high/exact
-KK Creche Limited,1,Q - Health & Social Work Activities,high/exact
+KK Creche Limited,1,P - Education,manual/corrected
 KKAH Ormonde Hospitality Limited,1,I - Accommodation & Food Services Activities,high/exact
 KKAH Ormonde Hospitality Ltd,1,I - Accommodation & Food Services Activities,high/exact
 KKSK Consultancy Limited,1,S - Other Service Activities,high/exact
@@ -20078,7 +20078,7 @@ John Usher Ltd,1,"M - Professional, Scientific & Technical Activities",low/mediu
 Karl Strong Construction Limited,1,F - Construction,high/exact
 Karska Health and Cosmetics Limited,1,G - Wholesale & Retail Trade,high/exact
 "Jerome Desmond, Majella Desmond Brian Desmond",1,C - All Other Manufacturing,low/medium
-Kingscourt Dental Practice Limited,1,S - Other Service Activities,low/medium
+Kingscourt Dental Practice Limited,1,Q - Health & Social Work Activities,manual/corrected
 Killenaule Surgery,1,G - Wholesale & Retail Trade,low/medium
 Killeshal Precast Concrete Ltd,1,C - All Other Manufacturing,low/medium
 Killick Aerospace Limited,1,H - Transport & Storage,high/exact
@@ -20120,7 +20120,7 @@ Kilell Limited T/A Ellickson Engineering,1,"M - Professional, Scientific & Techn
 Kilgallen and Partners Consulting Engineers Limited,1,"M - Professional, Scientific & Technical Activities",high/exact
 Kilians Lodge Hotel Ltd,1,I - Accommodation & Food Services Activities,high/exact
 Kilkenny County Council,1,N - Administrative & Support Service Activities,low/medium
-Kilkenny Dental,1,F - Construction,low/medium
+Kilkenny Dental,1,Q - Health & Social Work Activities,manual/corrected
 Kilkenny Pembroke Hotel,1,I - Accommodation & Food Services Activities,high/exact
 Killaghmore Farm Ltd,1,C - All Other Manufacturing,high/exact
 Killarney Brewing Company Limited,1,"C - Manufacture of Food, Drink & Tobacco",high/exact
@@ -20269,7 +20269,7 @@ Kerona Scientific Ltd,1,"M - Professional, Scientific & Technical Activities",lo
 Kerri.Alexandra Limited,1,J - Information & Communication Activities,high/exact
 Kerrigan Mechanical Limited,1,"M - Professional, Scientific & Technical Activities",low/medium
 Kerry Coaches LTD,1,H - Transport & Storage,low/medium
-Kerry Hotel Limited,1,K - Financial & Insurance Activities,high/exact
+Kerry Hotel Limited,1,I - Accommodation & Food Services Activities,manual/corrected
 Jerry Fitzgerald,1,K - Financial & Insurance Activities,low/medium
 Jeremy Connolly,1,I - Accommodation & Food Services Activities,low/medium
 IL Fornaio Ltd,1,I - Accommodation & Food Services Activities,low/medium
@@ -20297,7 +20297,7 @@ Interchem (Ireland) Limited,1,C - All Other Manufacturing,low/medium
 Intercom Inc.,1,J - Information & Communication Activities,low/medium
 Instrotec Limited,1,K - Financial & Insurance Activities,low/medium
 Instrotec,1,K - Financial & Insurance Activities,low/medium
-Institute of Technology (Tallaght),1,J - Information & Communication Activities,high/exact
+Institute of Technology (Tallaght),1,P - Education,manual/corrected
 Innopharama Labs Limited,1,K - Financial & Insurance Activities,low/medium
 Inktech Vision Limited,1,J - Information & Communication Activities,low/medium
 Inkvasion Print Co Limited,1,C - All Other Manufacturing,high/exact
@@ -20478,7 +20478,7 @@ JOHN CRADOCK LTD,1,F - Construction,low/medium
 JOHN KELVIN FORMWORK & STEEL FIXING LIMITED,1,F - Construction,high/exact
 JP & Rampiyari Ltd,1,I - Accommodation & Food Services Activities,high/exact
 JPC Plant & Safety Limited,1,F - Construction,high/exact
-JPD Pharmacy Limited,1,C - Manufacture of Chemicals & Pharmaceuticals,high/exact
+JPD Pharmacy Limited,1,Q - Health & Social Work Activities,manual/corrected
 JPS IMPORT EXPORT LTD,1,"M - Professional, Scientific & Technical Activities",low/medium
 JPS Import Export Limited,1,"M - Professional, Scientific & Technical Activities",low/medium
 JPS Restaurant Services Ltd,1,I - Accommodation & Food Services Activities,high/exact

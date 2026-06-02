@@ -770,6 +770,56 @@ if __name__ == "__main__":
     save_chart(chart_visa_top15_granted(visa_top_df, year=2025),
                "10_visa_top15_granted_2025.html")
 
+    # ── 7. County × sector breakdown (derived — DETE never publishes this) ──────
+    # We can compute this because:
+    #   company_permits has (company, sector) — from 05_clean_companies.py
+    #   company_permits has (company, county)  — from 06_enrich_company_counties.py (CRO join)
+    # Joining these two dimensions gives a novel county × sector breakdown.
+    # Note: only companies successfully matched to a county contribute here.
+    # Unmatched companies (county IS NULL) are excluded from aggregation.
+    print("\n── 7. County × sector breakdown (derived from company data)")
+    county_sector_df = query("""
+        SELECT
+            year,
+            county,
+            sector,
+            SUM(issued) AS issued
+        FROM   company_permits
+        WHERE  county  IS NOT NULL
+          AND  county  != ''
+          AND  sector  IS NOT NULL
+          AND  sector  != ''
+        GROUP  BY year, county, sector
+        ORDER  BY year, county, issued DESC
+    """, conn)
+
+    if county_sector_df.empty:
+        print("  [INFO] No county × sector data yet — run 06_enrich_company_counties.py first")
+    else:
+        # Strip NACE letter codes from sector names (same as everywhere else)
+        county_sector_df["sector"] = county_sector_df["sector"].str.replace(
+            r"^[A-Z]\s*-\s*", "", regex=True
+        ).str.strip()
+        county_sector_df.to_csv(
+            TABLES_DIR / "county_sector_breakdown.csv", index=False
+        )
+        n_counties = county_sector_df["county"].nunique()
+        n_sectors  = county_sector_df["sector"].nunique()
+        print(f"  {len(county_sector_df):,} rows across {n_counties} counties, "
+              f"{n_sectors} sectors")
+        # Quick sanity check: top sector per county for the most recent year
+        latest = county_sector_df["year"].max()
+        top_per_county = (
+            county_sector_df[county_sector_df["year"] == latest]
+            .groupby("county", group_keys=False)
+            .apply(lambda g: g.nlargest(1, "issued"))
+            [["county", "sector", "issued"]]
+            .sort_values("issued", ascending=False)
+            .head(8)
+        )
+        print(f"\n  Top sector per county ({latest}):")
+        print(top_per_county.to_string(index=False))
+
     conn.close()
 
     # ── Summary ───────────────────────────────────────────────────────────────

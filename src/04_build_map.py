@@ -45,13 +45,16 @@ import pandas as pd
 CLEANED_DIR = Path("data/cleaned")
 GEO_DIR     = Path("data/geo")
 
-# Output goes to public/ so AWS Amplify can serve it at the root URL.
-# public/index.html is tracked in git — push after rebuilding to deploy.
+# Primary output: public/index.html  — tracked in git, served by AWS Amplify.
+# Secondary output: output/map/ireland_employment_map.html — local preview copy.
 PUBLIC_DIR  = Path("public")
+OUTPUT_DIR  = Path("output/map")
 PUBLIC_DIR.mkdir(parents=True, exist_ok=True)
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-GEOJSON_PATH = GEO_DIR / "GIS Maps of Ireland.json"
-OUTPUT_PATH  = PUBLIC_DIR / "index.html"
+GEOJSON_PATH    = GEO_DIR / "GIS Maps of Ireland.json"
+OUTPUT_PATH     = PUBLIC_DIR / "index.html"
+OUTPUT_PATH_ALT = OUTPUT_DIR / "ireland_employment_map.html"
 
 # ── County name normalisation ─────────────────────────────────────────────────
 # Different GeoJSON sources use different spellings. This map converts whatever
@@ -228,24 +231,41 @@ def load_sector_data() -> dict:
     return sector_by_year
 
 
+def _short_sector(raw):
+    """Strip the NACE letter prefix (e.g. 'J - ') from a sector name."""
+    if pd.isna(raw) or not str(raw).strip():
+        return None
+    return re.sub(r"^[A-Z]\s*-\s*", "", str(raw)).strip() or None
+
+
 def load_company_data() -> dict:
     """
-    Reads company_permits.csv and returns three employer intelligence signals
-    for injection into the map's JavaScript:
+    Reads company_permits.csv (which now has a 'county' column after the
+    02_build_sqlite.py county-enrichment join) and returns three structures:
 
-      top_by_year  : {year_str: [{company, issued}, ...]}
-          Top 20 employers per year by permits issued.
+      all_companies : flat list of {c, y, i, s, co} records (issued ≥ 5)
+          c  = company_name_clean
+          y  = year (int)
+          i  = issued (int)
+          s  = sector_short (NACE letter stripped)
+          co = county (or "" if unmatched)
 
-      top_growers  : [{company, issued_2019, issued_2024, pct_change}, ...]
-          Top 20 companies present in both 2019 and 2024, ranked by % growth.
-          Uses 2019→2024 as the reference window (avoids pandemic distortion).
+          WHY FLAT?  Pre-computing every county × sector × tab combination
+          would create a combinatorial explosion in file size.  Instead we
+          embed all qualifying records and let JavaScript filter client-side
+          in milliseconds.  The issued ≥ 5 threshold keeps minor companies
+          while ensuring every sector has at least some entries.
 
-      new_entrants : {year_str: [company, ...]}
-          Up to 20 companies first appearing in that year, ranked by permits
-          issued in their debut year.
+      top_growers : [{company, issued_2019, issued_2024, pct_change, sector, county}]
+          Top 200 fastest growers (2019→2024 window).  Expanded from 20 to 200
+          so county + sector filtering always finds relevant results.
 
-    Graceful degradation: returns {} and prints a warning if the CSV is absent.
-    The employer panel in the map checks for an empty COMPANY_DATA and hides itself.
+      new_entrants : {year_str: [{company, sector, county}]}
+          ALL new entrants per year (not just top 20) so sector/county
+          filtering never produces false-empty results.
+
+    Graceful degradation: returns {} if company_permits.csv is absent.
+    The employer panel in the map checks for empty COMPANY_DATA and hides itself.
     """
     csv_path = CLEANED_DIR / "company_permits.csv"
     if not csv_path.exists():
@@ -254,36 +274,59 @@ def load_company_data() -> dict:
 
     df = pd.read_csv(csv_path)
 
-    # Ensure sector column exists even if company_sector_map.csv was absent at build time
+    # Ensure sector column exists
     if "sector" not in df.columns:
         df["sector"] = None
 
-    # ── Top 50 employers per year ──────────────────────────────────────────────
-    # We store 50 (not 20) so the JavaScript dynamic-growth calculation has enough
-    # coverage — a company that grew from rank 40 to rank 2 would be invisible if
-    # we only stored the top 20 for each year.
-    #
-    # sector_short strips the leading NACE letter code (e.g. "J - ") so it matches
-    # the sector_short values already used in the sector-select dropdown — enabling
-    # a direct string equality comparison in JavaScript.
-    top_by_year = {}
-    for year, grp in df.groupby("year"):
-        top50 = grp.nlargest(50, "issued")[["company_name_clean", "issued", "sector"]]
-        top_by_year[str(year)] = [
-            {
-                "company": row["company_name_clean"],
-                "issued":  int(row["issued"]),
-                "sector":  (
-                    re.sub(r"^[A-Z]\s*-\s*", "", str(row["sector"])).strip()
-                    if pd.notna(row["sector"]) else None
-                ),
-            }
-            for _, row in top50.iterrows()
-        ]
+    # Join county data from company_county_map.csv (produced by 06_enrich_company_counties.py).
+    # company_permits.csv never has a county column — county lives in the CRO lookup file.
+    county_map_path = CLEANED_DIR / "company_county_map.csv"
+    if county_map_path.exists():
+        county_map = pd.read_csv(county_map_path, usecols=["company_name_clean", "county"])
+        county_map = county_map.rename(columns={"county": "county"})  # no-op, keeps clarity
+        df = df.merge(county_map, on="company_name_clean", how="left")
+        matched = df["county"].notna().sum()
+        print(f"  County join: {matched:,}/{len(df):,} rows matched ({100*matched/len(df):.0f}%)")
+    else:
+        print("  [WARNING] company_county_map.csv not found — county data unavailable.")
+        df["county"] = None
 
-    # ── Fastest growers: 2019→2024 ────────────────────────────────────────────
-    # 2019 and 2024 are both full years sitting outside the pandemic distortion
-    # window, making them the most honest baseline/endpoint pair in the dataset.
+    # Strip NACE prefixes for display; replace NaN/empty with None
+    df["sector_short"] = df["sector"].apply(_short_sector)
+    df["county_clean"] = df["county"].apply(
+        lambda v: str(v).strip() if pd.notna(v) and str(v).strip() else ""
+    )
+
+    # ── Flat ALL_COMPANIES array (issued ≥ 5) ─────────────────────────────────
+    # Single-character JSON keys minimise file size (~40% smaller than full names).
+    qualifying = df[df["issued"] >= 5].copy()
+    all_companies = [
+        {
+            "c":  row["company_name_clean"],
+            "y":  int(row["year"]),
+            "i":  int(row["issued"]),
+            "s":  row["sector_short"],   # None if untagged
+            "co": row["county_clean"],   # "" if unmatched from CRO
+        }
+        for _, row in qualifying.iterrows()
+    ]
+    print(f"  ALL_COMPANIES: {len(all_companies):,} records (issued≥5)")
+
+    # ── Fastest growers: 2019→2024 (expanded to top 200) ─────────────────────
+    # Sector and county added so JS can filter the growers list by either dimension.
+    # A lookup dict (company → county/sector) picks the most common value across
+    # years (mode) to handle the rare case of a company changing sector over time.
+    sector_lookup = (
+        df[df["sector_short"].notna()]
+        .groupby("company_name_clean")["sector_short"]
+        .agg(lambda x: x.mode()[0] if len(x) else None)
+    )
+    county_lookup = (
+        df[df["county_clean"] != ""]
+        .groupby("company_name_clean")["county_clean"]
+        .agg(lambda x: x.mode()[0] if len(x) else "")
+    )
+
     base   = df[df["year"] == 2019].set_index("company_name_clean")["issued"]
     latest = df[df["year"] == 2024].set_index("company_name_clean")["issued"]
     common = base.index.intersection(latest.index)
@@ -297,36 +340,78 @@ def load_company_data() -> dict:
                 "issued_2019": b,
                 "issued_2024": l,
                 "pct_change":  pct,
+                "sector":      sector_lookup.get(company),
+                "county":      county_lookup.get(company, ""),
             })
-    growers = sorted(growers, key=lambda x: x["pct_change"], reverse=True)[:20]
+    growers = sorted(growers, key=lambda x: x["pct_change"], reverse=True)[:200]
+    print(f"  top_growers:   {len(growers):,} companies (expanded to 200 for county/sector filtering)")
 
-    # ── New entrants: first year each company appears ─────────────────────────
-    # first_year[company] = the earliest year that company has a row in the data.
-    # Each entry is {company, sector} so the JS sector filter can apply directly.
+    # ── New entrants: ALL companies first appearing that year ──────────────────
+    # Storing ALL (not just top 20) ensures every sector/county combo has results.
+    # Companies are sorted by issued descending; JS slices to 20 after filtering.
     first_year = df.groupby("company_name_clean")["year"].min()
     new_entrants = {}
     for year, grp in df.groupby("year"):
-        # Companies whose very first row in any year is this year
         debutants = first_year[first_year == year].index
-        year_data = grp[grp["company_name_clean"].isin(debutants)]
+        year_data = grp[grp["company_name_clean"].isin(debutants)].copy()
         if not year_data.empty:
-            top_new = year_data.nlargest(20, "issued")[["company_name_clean", "sector"]]
+            year_data = year_data.sort_values("issued", ascending=False)
             new_entrants[str(year)] = [
                 {
                     "company": row["company_name_clean"],
-                    "sector": (
-                        re.sub(r"^[A-Z]\s*-\s*", "", str(row["sector"])).strip()
-                        if pd.notna(row["sector"]) else None
-                    ),
+                    "sector":  row["sector_short"],
+                    "county":  row["county_clean"],
+                    "issued":  int(row["issued"]),
                 }
-                for _, row in top_new.iterrows()
+                for _, row in year_data.iterrows()
             ]
+    total_entrants = sum(len(v) for v in new_entrants.values())
+    print(f"  new_entrants:  {total_entrants:,} total entries across all years")
 
     return {
-        "top_by_year":  top_by_year,
-        "top_growers":  growers,
-        "new_entrants": new_entrants,
+        "all_companies": all_companies,
+        "top_growers":   growers,
+        "new_entrants":  new_entrants,
     }
+
+
+def load_county_sector_data() -> dict:
+    """
+    Reads the county_sector_breakdown.csv produced by 03_analyze.py (if present)
+    and returns a nested dict:
+
+      county_sector : {county: {year_str: [{sector, issued}]}}
+
+    This is a derived dataset — DETE never publishes county × sector breakdowns.
+    It is computed by joining company county (from CRO) with company sector tags.
+
+    Returns {} gracefully if the file is absent (i.e. 03_analyze.py hasn't run
+    yet, or 06_enrich_company_counties.py hasn't enriched the county column).
+    """
+    csv_path = Path("output/tables") / "county_sector_breakdown.csv"
+    if not csv_path.exists():
+        print("  [INFO] county_sector_breakdown.csv not found — "
+              "county-level sector chart will fall back to national data.")
+        return {}
+
+    df = pd.read_csv(csv_path)
+    county_sector = {}
+    for county, c_grp in df.groupby("county"):
+        county_sector[county] = {}
+        for year, y_grp in c_grp.groupby("year"):
+            county_sector[county][str(year)] = [
+                {
+                    "sector": row["sector"],
+                    "issued": int(row["issued"]) if pd.notna(row["issued"]) else 0,
+                }
+                for _, row in y_grp.sort_values("issued", ascending=False).iterrows()
+            ]
+    n_counties = len(county_sector)
+    n_rows = sum(
+        len(v2) for v in county_sector.values() for v2 in v.values()
+    )
+    print(f"  COUNTY_SECTOR: {n_counties} counties, {n_rows:,} county×year×sector rows")
+    return county_sector
 
 
 # ── GeoJSON loading + county name injection ───────────────────────────────────
@@ -375,20 +460,22 @@ HTML_TEMPLATE = (Path(__file__).parent / "map_template.html").read_text(encoding
 
 def build_html(county_by_year: dict, county_growth: dict,
                sector_by_year: dict, company_data: dict,
-               geojson: dict, years: list) -> str:
+               county_sector: dict, geojson: dict, years: list) -> str:
     """Fill the HTML template with embedded JSON data blobs."""
     return HTML_TEMPLATE.replace(
-        "{COUNTY_BY_YEAR_JSON}", json.dumps(county_by_year)
+        "{COUNTY_BY_YEAR_JSON}",  json.dumps(county_by_year)
     ).replace(
-        "{COUNTY_GROWTH_JSON}",  json.dumps(county_growth)
+        "{COUNTY_GROWTH_JSON}",   json.dumps(county_growth)
     ).replace(
-        "{SECTOR_BY_YEAR_JSON}", json.dumps(sector_by_year)
+        "{SECTOR_BY_YEAR_JSON}",  json.dumps(sector_by_year)
     ).replace(
-        "{COMPANY_DATA_JSON}",   json.dumps(company_data)
+        "{COMPANY_DATA_JSON}",    json.dumps(company_data)
     ).replace(
-        "{GEOJSON_JSON}",        json.dumps(geojson)
+        "{COUNTY_SECTOR_JSON}",   json.dumps(county_sector)
     ).replace(
-        "{YEARS_JSON}",          json.dumps(years)
+        "{GEOJSON_JSON}",         json.dumps(geojson)
+    ).replace(
+        "{YEARS_JSON}",           json.dumps(years)
     )
 
 
@@ -413,10 +500,14 @@ if __name__ == "__main__":
     print("\n── Loading company data")
     company_data = load_company_data()
     if company_data:
-        print(f"  Company data: {len(company_data['top_by_year'])} years, "
-              f"{len(company_data['top_growers'])} fastest-growing employers")
+        n_all = len(company_data.get("all_companies", []))
+        n_grow = len(company_data.get("top_growers", []))
+        print(f"  Company data: {n_all:,} flat records, {n_grow} fastest-growers")
     else:
         print("  Company data: not available — employer panel will be hidden")
+
+    print("\n── Loading county × sector breakdown")
+    county_sector = load_county_sector_data()
 
     # ── Load GeoJSON ──────────────────────────────────────────────────
     print(f"\n── Loading GeoJSON from {GEOJSON_PATH}")
@@ -425,12 +516,18 @@ if __name__ == "__main__":
     # ── Build and write HTML ──────────────────────────────────────────
     print(f"\n── Generating HTML")
     html = build_html(county_by_year, county_growth, sector_by_year,
-                      company_data, geojson, years)
+                      company_data, county_sector, geojson, years)
 
+    # Write primary output (for deployment via AWS Amplify)
     OUTPUT_PATH.write_text(html, encoding="utf-8")
     size_kb = OUTPUT_PATH.stat().st_size / 1024
     print(f"  ✓ Written → {OUTPUT_PATH}  ({size_kb:.0f} KB)")
+
+    # Write secondary output (local preview file)
+    OUTPUT_PATH_ALT.write_text(html, encoding="utf-8")
+    print(f"  ✓ Written → {OUTPUT_PATH_ALT}  (local preview copy)")
+
     print(f"\n  Open in your browser:")
-    print(f"    open \"{OUTPUT_PATH}\"          (macOS)")
-    print(f"    start \"{OUTPUT_PATH}\"         (Windows)")
+    print(f"    open \"{OUTPUT_PATH_ALT}\"   (macOS)")
+    print(f"    start \"{OUTPUT_PATH_ALT}\"  (Windows)")
     print("\n  Done. ✓")

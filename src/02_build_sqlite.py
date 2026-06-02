@@ -59,6 +59,47 @@ def load_table(conn: sqlite3.Connection, csv_path: Path, table_name: str) -> int
     return len(df)
 
 
+def load_company_permits_with_county(conn: sqlite3.Connection) -> int:
+    """
+    Load company_permits.csv and LEFT JOIN the county map (if present) so that
+    each company row gains a 'county' column derived from the CRO register.
+
+    Why LEFT JOIN?  We want to keep ALL company rows even when no CRO match was
+    found.  Unmatched companies get county = NULL.
+
+    The county map is produced by src/06_enrich_company_counties.py.  If it is
+    absent we load company_permits as-is (backwards-compatible with the old flow).
+    """
+    company_csv = CLEANED_DIR / "company_permits.csv"
+    county_map_csv = CLEANED_DIR / "company_county_map.csv"
+
+    df = pd.read_csv(company_csv)
+
+    if county_map_csv.exists():
+        # Load only the columns we need from the map file
+        county_map = pd.read_csv(
+            county_map_csv,
+            usecols=["company_name_clean", "county"],
+        )
+        # Replace empty-string counties with NaN so SQL stores them as NULL
+        county_map["county"] = county_map["county"].replace("", pd.NA)
+
+        # LEFT JOIN: every company row is kept; unmatched rows get county=NaN
+        df = df.merge(county_map, on="company_name_clean", how="left")
+        matched = df["county"].notna().sum()
+        pct = 100 * matched / len(df) if len(df) else 0
+        print(f"    County map joined: {matched:,}/{len(df):,} rows have a county "
+              f"({pct:.1f}%)")
+    else:
+        # No county map yet — add county column as NULL so the schema is consistent
+        df["county"] = pd.NA
+        print("    [INFO] company_county_map.csv not found — county column set to NULL.")
+        print("           Run src/06_enrich_company_counties.py to enrich company data.")
+
+    df.to_sql("company_permits", conn, if_exists="replace", index=False)
+    return len(df)
+
+
 def add_indexes(conn: sqlite3.Connection) -> None:
     """
     Create indexes on the columns we filter and group by most often.
@@ -86,10 +127,13 @@ def add_indexes(conn: sqlite3.Connection) -> None:
         "CREATE INDEX IF NOT EXISTS idx_visa_year   ON visa_decisions(year)",
         "CREATE INDEX IF NOT EXISTS idx_visa_nat    ON visa_decisions(nationality)",
 
-        # company_permits — filtered by year; company name and sector used for filtering
+        # company_permits — filtered by year, county, sector, company name
         "CREATE INDEX IF NOT EXISTS idx_company_year   ON company_permits(year)",
         "CREATE INDEX IF NOT EXISTS idx_company_name   ON company_permits(company_name_clean)",
         "CREATE INDEX IF NOT EXISTS idx_company_sector ON company_permits(sector)",
+        "CREATE INDEX IF NOT EXISTS idx_company_county ON company_permits(county)",
+        # Composite index for the most common combined filter: year + county + sector
+        "CREATE INDEX IF NOT EXISTS idx_company_yr_co_sec ON company_permits(year, county, sector)",
     ]
     for sql in statements:
         conn.execute(sql)
@@ -218,18 +262,24 @@ if __name__ == "__main__":
     # ── Load all four tables ──────────────────────────────────────────────────
     # Each tuple is (csv filename, target table name in SQLite).
     # We loop so that adding a new dataset only requires one new line here.
+    # Load the four standard tables
     tables = [
         ("county_permits.csv",      "county_permits"),
         ("sector_permits.csv",      "sector_permits"),
         ("nationality_permits.csv", "nationality_permits"),
         ("visa_decisions.csv",      "visa_decisions"),
-        ("company_permits.csv",     "company_permits"),
     ]
 
     for fname, tname in tables:
         path = CLEANED_DIR / fname
         n = load_table(conn, path, tname)
         print(f"  ✓ Loaded {n:>6,} rows  →  table '{tname}'")
+
+    # company_permits gets special treatment: we LEFT JOIN the CRO county map
+    # so each company row gains a 'county' column (NULL if no CRO match found).
+    print(f"\n  Loading company_permits with county enrichment...")
+    n = load_company_permits_with_county(conn)
+    print(f"  ✓ Loaded {n:>6,} rows  →  table 'company_permits'")
 
     conn.commit()   # commit = permanently save the writes to the file
 

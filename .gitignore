@@ -56,6 +56,10 @@ Thumbs.db
 *.log
 *.tmp
 *.bak
+*.bak2
 *.old
 tmp/
 temp/
+
+# --- Local context / session notes (not for repo) ---
+CONTEXT.md

@@ -11,6 +11,16 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@15.8.1/dist/nouislider.min.css" />
 
 <style>
+  /* ── Fluid type scale ── */
+  :root {
+    --t-2xs: clamp(0.62rem, 0.52rem + 0.35vw, 0.78rem);
+    --t-xs:  clamp(0.72rem, 0.60rem + 0.42vw, 0.88rem);
+    --t-sm:  clamp(0.80rem, 0.68rem + 0.50vw, 0.98rem);
+    --t-md:  clamp(0.90rem, 0.76rem + 0.58vw, 1.10rem);
+    --t-lg:  clamp(1.10rem, 0.90rem + 0.85vw, 1.40rem);
+    --t-xl:  clamp(1.60rem, 1.00rem + 2.50vw, 2.60rem);
+  }
+
   /* ── Reset & base ── */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'Segoe UI', Arial, sans-serif; background: #f4f6f8;
@@ -22,43 +32,45 @@
     display: flex; align-items: center; justify-content: space-between;
     flex-shrink: 0;
   }
-  #header h1 { font-size: 1.1rem; font-weight: 600; letter-spacing: 0.02em; }
-  #header span { font-size: 0.78rem; opacity: 0.85; }
+  #header h1 { font-size: var(--t-md); font-weight: 600; letter-spacing: 0.02em; }
+  #header span { font-size: var(--t-xs); opacity: 0.85; }
 
   /* ── Main layout ── */
   #main { display: flex; flex: 1; overflow: hidden; }
 
-  /* ── Sidebar ── */
+  /* ── Sidebar — 50/50 proportional split with the map ── */
   #sidebar {
-    width: 330px; min-width: 310px; background: #fff;
+    flex: 1;               /* sidebar : map = 1 : 1  →  50% : 50% */
+    min-width: 320px;      /* never collapse below this on small windows */
+    background: #fff;
     border-right: 1px solid #dde2ea; overflow-y: auto;
-    display: flex; flex-direction: column; padding: 14px; gap: 14px;
-    flex-shrink: 0;
+    display: flex; flex-direction: column;
+    padding: clamp(10px, 1.2vw, 18px); gap: clamp(10px, 1.2vw, 18px);
   }
-  .sidebar-section { border: 1px solid #e8ecf0; border-radius: 8px; padding: 10px 12px; }
+  .sidebar-section { border: 1px solid #e8ecf0; border-radius: 8px; padding: clamp(8px, 1vw, 14px) clamp(10px, 1.2vw, 16px); }
   .sidebar-section h3 {
-    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    font-size: var(--t-xs); font-weight: 700; text-transform: uppercase;
     letter-spacing: 0.06em; color: #169B62; margin-bottom: 8px;
   }
 
   /* Year display */
   #year-display {
-    font-size: 2.4rem; font-weight: 700; color: #169B62;
+    font-size: var(--t-xl); font-weight: 700; color: #169B62;
     text-align: center; line-height: 1;
   }
-  #year-subtitle { font-size: 0.72rem; color: #888; text-align: center; margin-top: 3px; }
+  #year-subtitle { font-size: var(--t-xs); color: #888; text-align: center; margin-top: 3px; }
 
   /* National total */
   #national-total {
-    font-size: 1.05rem; font-weight: 600; text-align: center;
+    font-size: var(--t-md); font-weight: 600; text-align: center;
     color: #333; margin-top: 4px;
   }
-  #national-label { font-size: 0.68rem; color: #999; text-align: center; }
+  #national-label { font-size: var(--t-xs); color: #999; text-align: center; }
 
   /* Top counties / sector table — 4 columns: # | Name | Permits | Growth */
-  #county-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; table-layout: fixed; }
+  #county-table { width: 100%; border-collapse: collapse; font-size: var(--t-sm); table-layout: fixed; }
   #county-table th {
-    text-align: left; color: #888; font-weight: 600; font-size: 0.68rem;
+    text-align: left; color: #888; font-weight: 600; font-size: var(--t-xs);
     text-transform: uppercase; padding: 3px 4px; border-bottom: 1px solid #eee;
     white-space: nowrap; overflow: hidden;
   }
@@ -70,7 +82,7 @@
   /* col 4 — growth */
   #county-table th:nth-child(4), #county-table td:nth-child(4) { width: 78px; text-align: right; }
   #county-table td {
-    padding: 4px 4px; border-bottom: 1px solid #f0f0f0;
+    padding: 5px 6px; border-bottom: 1px solid #f0f0f0;
     overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
   }
   #county-table tr:last-child td { border-bottom: none; }
@@ -80,25 +92,42 @@
   /* Sector filter */
   #sector-select {
     width: 100%; padding: 5px 7px; border: 1px solid #d0d6de;
-    border-radius: 5px; font-size: 0.78rem; color: #333;
+    border-radius: 5px; font-size: var(--t-sm); color: #333;
     background: #fff; cursor: pointer;
   }
   #sector-select:focus { outline: 2px solid #169B62; }
 
-  /* Sector chart */
-  #sector-chart-container { position: relative; height: 200px; }
+  /* Sector chart — scales with viewport height to fill the wider panel */
+  #sector-chart-container { position: relative; height: clamp(220px, 28vh, 380px); }
 
   /* ── Map area ── */
-  #map-wrap { flex: 1; display: flex; flex-direction: column; overflow: hidden;
+  #map-wrap { flex: 1;    /* 50% of viewport */
+              display: flex; flex-direction: column; overflow: hidden;
               position: relative; }   /* needed so badge can be absolute */
   #map { flex: 1; }
+
+  /* ── County reset button ── */
+  #county-reset-btn {
+    display: none; width: 100%; padding: 5px 10px;
+    background: #edfaf3; border: 1px solid #169B62; border-radius: 5px;
+    font-size: var(--t-xs); font-weight: 600; color: #169B62;
+    cursor: pointer; text-align: left;
+  }
+  #county-reset-btn:hover { background: #d4f0e3; }
+
+  /* County badge on each employer row */
+  .emp-county {
+    font-size: var(--t-2xs); color: #fff; background: #169B62;
+    border-radius: 3px; padding: 1px 4px; margin-left: 4px;
+    white-space: nowrap; flex-shrink: 0;
+  }
 
   /* Sector mode badge — floats over the map */
   #sector-map-badge {
     display: none; position: absolute; top: 10px; left: 50%; z-index: 1000;
     transform: translateX(-50%);
     background: rgba(22,155,98,0.92); color: #fff;
-    padding: 5px 14px; border-radius: 20px; font-size: 0.72rem; font-weight: 600;
+    padding: 5px 14px; border-radius: 20px; font-size: var(--t-xs); font-weight: 600;
     pointer-events: none; white-space: nowrap;
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   }
@@ -109,13 +138,13 @@
     padding: 12px 28px 14px; flex-shrink: 0;
   }
   #slider-label {
-    font-size: 0.72rem; font-weight: 600; color: #555;
+    font-size: var(--t-xs); font-weight: 600; color: #555;
     margin-bottom: 10px; text-align: center;
   }
   #year-slider { margin: 0 6px; }
   #slider-ticks {
     display: flex; justify-content: space-between;
-    font-size: 0.65rem; color: #aaa; margin-top: 8px;
+    font-size: var(--t-2xs); color: #aaa; margin-top: 8px;
     padding: 0 2px;
   }
 
@@ -134,13 +163,13 @@
   /* Tooltip bubbles above each handle */
   .noUi-tooltip {
     background: #169B62; color: #fff; border: none;
-    font-size: 0.7rem; font-weight: 700; padding: 2px 6px;
+    font-size: var(--t-2xs); font-weight: 700; padding: 2px 6px;
     border-radius: 4px; bottom: 26px;
   }
 
   /* ── Leaflet popup ── */
-  .leaflet-popup-content { font-size: 0.82rem; line-height: 1.6; min-width: 170px; }
-  .popup-county { font-size: 1rem; font-weight: 700; color: #169B62;
+  .leaflet-popup-content { font-size: var(--t-sm); line-height: 1.6; min-width: 170px; }
+  .popup-county { font-size: var(--t-lg); font-weight: 700; color: #169B62;
                   margin-bottom: 4px; border-bottom: 1px solid #eee; padding-bottom: 3px; }
   .popup-row { display: flex; justify-content: space-between; gap: 12px; }
   .popup-label { color: #888; }
@@ -149,7 +178,7 @@
   /* ── Legend ── */
   .info.legend {
     background: rgba(255,255,255,0.92); padding: 8px 12px;
-    border-radius: 6px; font-size: 0.72rem; line-height: 1.5;
+    border-radius: 6px; font-size: var(--t-xs); line-height: 1.5;
     box-shadow: 0 1px 5px rgba(0,0,0,0.15);
   }
   .legend-title { font-weight: 700; margin-bottom: 4px; color: #333; }
@@ -158,7 +187,7 @@
 
   /* ── No data note ── */
   #no-sector-note {
-    font-size: 0.7rem; color: #aaa; text-align: center;
+    font-size: var(--t-xs); color: #aaa; text-align: center;
     padding: 8px 0; display: none;
   }
 
@@ -166,28 +195,74 @@
   #employer-tabs { display: flex; gap: 4px; margin-bottom: 8px; }
   .emp-tab {
     flex: 1; padding: 4px 0; border: 1px solid #d0d6de; border-radius: 5px;
-    background: #fff; font-size: 0.68rem; font-weight: 600; color: #555;
+    background: #fff; font-size: var(--t-xs); font-weight: 600; color: #555;
     cursor: pointer; text-align: center; transition: all 0.15s;
   }
   .emp-tab.active { background: #169B62; color: #fff; border-color: #169B62; }
   .emp-tab:hover:not(.active) { border-color: #169B62; color: #169B62; }
   #employer-search {
     width: 100%; padding: 5px 7px; border: 1px solid #d0d6de;
-    border-radius: 5px; font-size: 0.78rem; color: #333;
+    border-radius: 5px; font-size: var(--t-sm); color: #333;
     background: #fff; margin-bottom: 6px;
   }
   #employer-search:focus { outline: 2px solid #169B62; border-color: #169B62; }
-  #employer-list { max-height: 200px; overflow-y: auto; }
+  #employer-list { max-height: clamp(160px, 20vh, 260px); overflow-y: auto; }
   .emp-row {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 4px 2px; border-bottom: 1px solid #f0f0f0; font-size: 0.75rem;
+    padding: 4px 2px; border-bottom: 1px solid #f0f0f0; font-size: var(--t-sm);
   }
   .emp-row:last-child { border-bottom: none; }
   .emp-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
               flex: 1; margin-right: 6px; }
   .emp-val  { font-weight: 600; color: #333; white-space: nowrap; }
-  .emp-sub  { font-size: 0.65rem; color: #aaa; font-weight: 400; }
-  #employer-empty { font-size: 0.72rem; color: #aaa; text-align: center; padding: 12px 0; display: none; }
+  .emp-sub  { font-size: var(--t-2xs); color: #aaa; font-weight: 400; }
+  #employer-empty { font-size: var(--t-xs); color: #aaa; text-align: center; padding: 12px 0; display: none; }
+  #employer-disclaimer {
+    font-size: var(--t-2xs); color: #bbb; text-align: center;
+    padding: 8px 4px 2px; line-height: 1.4;
+    border-top: 1px solid #f0f0f0; margin-top: 6px;
+  }
+
+  /* ── Mobile: tablet (≤768px) — stack sidebar above map ── */
+  @media (max-width: 768px) {
+    #main { flex-direction: column; }
+
+    #sidebar {
+      flex: none;
+      width: 100%;
+      min-width: 0;
+      max-height: 55vh;
+      border-right: none;
+      border-bottom: 1px solid #dde2ea;
+    }
+
+    #map-wrap { flex: none; width: 100%; min-height: 40vh; }
+    #map { min-height: 40vh; }
+
+    #sector-chart-container { height: clamp(150px, 20vh, 260px) !important; }
+
+    #slider-bar { padding: 10px 16px 12px; }
+
+    .emp-tab { padding: 7px 0; }
+
+    #header { padding: 8px 14px; }
+    #header span { display: none; }
+  }
+
+  /* ── Mobile: phones (≤480px) ── */
+  @media (max-width: 480px) {
+    #sidebar { max-height: 58vh; }
+
+    /* Growth column hidden to prevent overflow on narrow screens */
+    #county-table th:nth-child(4),
+    #county-table td:nth-child(4) { display: none; }
+
+    /* Larger touch targets for slider handles */
+    .noUi-handle {
+      width: 22px !important; height: 22px !important;
+      top: -9px !important; right: -11px !important;
+    }
+  }
 </style>
 </head>
 <body>
@@ -207,7 +282,7 @@
     <!-- Year range + national total -->
     <div class="sidebar-section">
       <h3>Selected Range</h3>
-      <div id="year-display" style="font-size:1.4rem;">2015 → 2024</div>
+      <div id="year-display">2015 → 2024</div>
       <div id="year-subtitle">Map shows the "to" year. Growth is from → to.</div>
       <div id="national-total">—</div>
       <div id="national-label">permits issued in selected "to" year</div>
@@ -229,7 +304,7 @@
     <!-- Sector filter + chart -->
     <div class="sidebar-section">
       <h3>Sector Breakdown</h3>
-      <p style="font-size:0.68rem;color:#888;margin-bottom:6px;">
+      <p style="font-size:var(--t-xs);color:#888;margin-bottom:6px;">
         💡 IT &amp; tech companies fall under <em>Information &amp; Communication</em>.
         Sector data is national-level (2020 onwards).
       </p>
@@ -239,14 +314,16 @@
       <div id="no-sector-note" style="display:none;font-size:0.7rem;color:#aaa;text-align:center;padding:8px 0;">
         No data for this sector in the selected year
       </div>
-      <div id="sector-chart-container" style="margin-top:10px;position:relative;height:200px;">
+      <div id="sector-chart-container" style="margin-top:10px;">
         <canvas id="sector-chart"></canvas>
       </div>
     </div>
 
     <!-- Employer intelligence panel (hidden when company data is absent) -->
     <div class="sidebar-section" id="employer-section" style="display:none;">
-      <h3>Top Employers</h3>
+      <h3 id="employer-panel-title">Top Employers</h3>
+      <!-- County reset: visible when a county is active -->
+      <button id="county-reset-btn" onclick="resetCounty()">← All Ireland</button>
 
       <div id="employer-controls">
         <div id="employer-tabs">
@@ -257,6 +334,7 @@
         <input type="text" id="employer-search" placeholder="Search employer…">
         <div id="employer-list"></div>
         <div id="employer-empty">No results</div>
+        <p id="employer-disclaimer">Each tab shows up to 20 companies. Sector tags are based on keyword matching and may not reflect each company's primary activity.</p>
       </div>
     </div>
 
@@ -294,8 +372,12 @@
 //
 //  COUNTY_BY_YEAR  — {year: {county: {issued, refused, pct_share}}}
 //  COUNTY_GROWTH   — {county: {issued_2015, issued_latest, pct_change}}
-//  SECTOR_BY_YEAR  — {year: [{sector_short, sector_full, issued}]}
-//  COMPANY_DATA    — {top_by_year, top_growers, new_entrants}  (empty {} if absent)
+//  SECTOR_BY_YEAR  — {year: [{sector_short, sector_full, issued}]}  (national, 2020+)
+//  COMPANY_DATA    — {all_companies, top_growers, new_entrants}  (empty {} if absent)
+//                     all_companies: flat [{c,y,i,s,co}] — all records with issued≥5
+//                     top_growers:   [{company,issued_2019,issued_2024,pct_change,sector,county}]
+//                     new_entrants:  {year: [{company,sector,county,issued}]}
+//  COUNTY_SECTOR   — {county: {year: [{sector,issued}]}}  (derived — novel!)
 //  GEOJSON         — the county boundary shapes (GeoJSON format)
 //  YEARS           — sorted list of years, e.g. ["2015","2016",...,"2025"]
 // ═══════════════════════════════════════════════════════════════════════
@@ -303,8 +385,15 @@ const COUNTY_BY_YEAR  = {COUNTY_BY_YEAR_JSON};
 const COUNTY_GROWTH   = {COUNTY_GROWTH_JSON};
 const SECTOR_BY_YEAR  = {SECTOR_BY_YEAR_JSON};
 const COMPANY_DATA    = {COMPANY_DATA_JSON};
+const COUNTY_SECTOR   = {COUNTY_SECTOR_JSON};
 const GEOJSON         = {GEOJSON_JSON};
 const YEARS           = {YEARS_JSON};
+
+// ── Active filter state ────────────────────────────────────────────────────
+// These two variables (alongside currentFromYear / currentToYear) drive every
+// filtered view in the sidebar.  Changing either one triggers a full re-render
+// of the employer panel, sector chart, and county table.
+let activeCounty = null;   // null = All Ireland; set by clicking a county on the map
 
 // ═══════════════════════════════════════════════════════════════════════
 //  COLOUR SCALE
@@ -381,7 +470,10 @@ function onEachFeature(feature, layer) {
       geojsonLayer.resetStyle(e.target);
     },
     click(e) {
+      const county = feature.properties.canonical_county;
       showPopup(feature, e.latlng);
+      // Select this county — filters employer panel + sector chart
+      selectCounty(county);
     },
   });
 }
@@ -493,6 +585,58 @@ function updateTooltip(feature) {
   `;
 }
 
+// ── County selection — sets activeCounty and re-renders all dependent panels ──
+function selectCounty(countyName) {
+  activeCounty = countyName;
+
+  // Show the "← All Ireland" reset button inside the employer section
+  document.getElementById('county-reset-btn').style.display = 'block';
+
+  // Update employer panel heading
+  updateEmployerPanelTitle();
+
+  // Re-render the three employer tabs with the county filter applied
+  updateEmployerPanel(currentFromYear, currentToYear);
+
+  // Switch the sector chart to county-level data (if available)
+  updateSectorChart(currentToYear);
+
+  // Update the sector breakdown note to reflect county source
+  updateSectorNote();
+}
+
+function resetCounty() {
+  activeCounty = null;
+  document.getElementById('county-reset-btn').style.display = 'none';
+  updateEmployerPanelTitle();
+  updateEmployerPanel(currentFromYear, currentToYear);
+  updateSectorChart(currentToYear);
+  updateSectorNote();
+}
+
+function updateEmployerPanelTitle() {
+  const sector = document.getElementById('sector-select').value;
+  let title = 'Top Employers';
+  const parts = [];
+  if (activeCounty) parts.push(activeCounty);
+  if (sector !== 'all') parts.push(sector);
+  if (parts.length) title += ' — ' + parts.join(' · ');
+  const el = document.getElementById('employer-panel-title');
+  if (el) el.textContent = title;
+}
+
+function updateSectorNote() {
+  // Update the sector breakdown sub-heading to explain data source
+  const el = document.querySelector('#employer-section .sidebar-section > p,  #sector-section p');
+  // Update the sector section info text dynamically if activeCounty is set
+  const sectorInfoEl = document.querySelector('.sidebar-section p[data-sector-note]');
+  if (sectorInfoEl) {
+    sectorInfoEl.innerHTML = activeCounty
+      ? `📍 Showing <strong>${activeCounty}</strong> sector breakdown — derived from employer records (CRO-matched companies only).`
+      : `💡 IT &amp; tech companies fall under <em>Information &amp; Communication</em>. Sector data is national-level (2020 onwards).`;
+  }
+}
+
 // ── Click popup ────────────────────────────────────────────────────────
 function showPopup(feature, latlng) {
   const county   = feature.properties.canonical_county;
@@ -592,159 +736,172 @@ legend.addTo(map);
 
 // ═══════════════════════════════════════════════════════════════════════
 //  EMPLOYER PANEL  (three tabs: Top 20 / Fastest Growing / New Entrants)
+//
+//  All three tabs now respect two active filters simultaneously:
+//    • activeCounty  (set by clicking a county on the map; null = All Ireland)
+//    • activeSector  (set by the sector dropdown;  "all" = no sector filter)
+//
+//  Data source is the flat ALL_COMPANIES array (company_data.all_companies)
+//  which contains ALL company-year records with issued≥5.  Filtering is done
+//  client-side, so even small sectors and rural counties always show results
+//  if the data exists — no false blanks from pre-computed top-N truncation.
 // ═══════════════════════════════════════════════════════════════════════
 
 // Which tab is currently active in the employer panel.
 let currentEmployerTab = 'top';   // 'top' | 'growers' | 'entrants'
 
+// Helper: render a "no results" message consistently across all tabs
+function _empNoResults(msg) {
+  document.getElementById('employer-list').innerHTML =
+    `<div style="text-align:center;padding:14px 8px;font-size:0.72rem;color:#aaa;">${msg}</div>`;
+  document.getElementById('employer-empty').style.display = 'none';
+}
+
 function updateEmployerPanel(fromYear, toYear) {
   // Guard: panel is hidden when COMPANY_DATA is empty (CSV absent at build time).
-  if (!COMPANY_DATA || !COMPANY_DATA.top_by_year) return;
+  if (!COMPANY_DATA || !COMPANY_DATA.all_companies) return;
 
-  const query = (document.getElementById('employer-search').value || '').toLowerCase();
-  const list  = document.getElementById('employer-list');
-  const empty = document.getElementById('employer-empty');
+  const searchQ  = (document.getElementById('employer-search').value || '').toLowerCase();
+  const sector   = document.getElementById('sector-select').value;
+  const list     = document.getElementById('employer-list');
+  const empty    = document.getElementById('employer-empty');
+  const allData  = COMPANY_DATA.all_companies;  // flat [{c,y,i,s,co}]
   let rows = [];
 
+  // ── Shared filter helpers ────────────────────────────────────────────
+  // Apply county + sector filters to a record from all_companies
+  function matchesCo(r)  { return !activeCounty   || r.co === activeCounty; }
+  function matchesSec(r) { return sector === 'all' || r.s  === sector; }
+
+  // ── TAB: Top 20 ──────────────────────────────────────────────────────
   if (currentEmployerTab === 'top') {
-    // Aggregate permits across every year in the selected range, then rank.
-    // top_by_year stores the top 50 per year so coverage is broad.
-    // If fromYear === toYear we're looking at a single year's snapshot.
-    const rangeYears = YEARS.filter(y => y >= fromYear && y <= toYear);
+    // Aggregate permits issued across the selected year range, filtered by
+    // county and sector.  Using all_companies (not top_by_year) ensures
+    // every sector and every county combination has results if data exists.
+    const rangeYears = new Set(YEARS.filter(y => y >= fromYear && y <= toYear));
     const totals = {};
-    for (const yr of rangeYears) {
-      for (const r of (COMPANY_DATA.top_by_year[yr] || [])) {
-        totals[r.company] = (totals[r.company] || 0) + r.issued;
-      }
+
+    for (const r of allData) {
+      if (!rangeYears.has(String(r.y))) continue;
+      if (!matchesCo(r) || !matchesSec(r))  continue;
+      if (!totals[r.c]) totals[r.c] = { issued: 0, sector: r.s, county: r.co };
+      totals[r.c].issued += r.i;
     }
 
-    // Build sorted candidate list
-    let candidates = Object.entries(totals)
-      .map(([company, issued]) => ({ company, issued }))
-      .sort((a, b) => b.issued - a.issued);
-
-    // Sector filtering — when a sector is selected, show only companies tagged
-    // with that sector.  Each top_by_year entry carries a 'sector' field (the
-    // sector_short string, i.e. the NACE name with its letter prefix stripped).
-    const selectedSector = document.getElementById('sector-select').value;
-    if (selectedSector !== 'all') {
-      const taggedSet = new Set();
-      for (const yr of rangeYears) {
-        for (const r of (COMPANY_DATA.top_by_year[yr] || [])) {
-          if (r.sector === selectedSector) taggedSet.add(r.company);
-        }
-      }
-      candidates = candidates.filter(r => taggedSet.has(r.company));
-
-      if (candidates.length === 0) {
-        list.innerHTML = `
-          <div style="text-align:center;padding:14px 8px;font-size:0.72rem;color:#aaa;">
-            No employers found for this sector in the selected range.
-          </div>`;
-        empty.style.display = 'none';
-        return;
-      }
-    }
-
-    rows = candidates
+    const candidates = Object.entries(totals)
+      .map(([company, d]) => ({ company, ...d }))
+      .sort((a, b) => b.issued - a.issued)
       .slice(0, 20)
-      .filter(r => r.company.toLowerCase().includes(query))
-      .map((r, i) => `
-        <div class="emp-row">
-          <span class="emp-name" title="${r.company}">${i+1}. ${r.company}</span>
-          <span class="emp-val">${r.issued.toLocaleString()}</span>
-        </div>`);
+      .filter(r => r.company.toLowerCase().includes(searchQ));
 
-  } else if (currentEmployerTab === 'growers') {
-    // Compute growth dynamically for the selected fromYear → toYear range.
-    // Companies must appear in both years' top-50 lists to be compared.
-    if (fromYear === toYear) {
-      // Growth is meaningless over a single year — prompt the user to widen the range.
-      list.innerHTML = `
-        <div style="text-align:center;padding:14px 8px;font-size:0.72rem;color:#aaa;">
-          Drag the left slider handle to select a range and see growth
-        </div>`;
-      empty.style.display = 'none';
+    if (candidates.length === 0) {
+      _empNoResults('No employers found for this filter combination.');
       return;
     }
-    // Build lookup maps for fromYear and toYear
-    const fromMap = {};
-    for (const r of (COMPANY_DATA.top_by_year[fromYear] || [])) fromMap[r.company] = r.issued;
-    const toMap = {};
-    for (const r of (COMPANY_DATA.top_by_year[toYear]   || [])) toMap[r.company]   = r.issued;
 
-    // Only rank companies present in both years (need a baseline to compute growth)
-    const growers = [];
-    for (const [company, fromIssued] of Object.entries(fromMap)) {
-      if (toMap[company] !== undefined && fromIssued > 0) {
-        const pct = +((toMap[company] - fromIssued) / fromIssued * 100).toFixed(1);
-        growers.push({ company, fromIssued, toIssued: toMap[company], pct_change: pct });
-      }
+    rows = candidates.map((r, i) => {
+      const countyBadge = r.county
+        ? `<span class="emp-county">${r.county}</span>` : '';
+      return `
+        <div class="emp-row">
+          <span class="emp-name" title="${r.company}">${i+1}. ${r.company}${countyBadge}</span>
+          <span class="emp-val">${r.issued.toLocaleString()}</span>
+        </div>`;
+    });
+
+  // ── TAB: Fastest Growing ─────────────────────────────────────────────
+  } else if (currentEmployerTab === 'growers') {
+    if (fromYear === toYear) {
+      _empNoResults('Drag the left slider handle to select a range and see growth.');
+      return;
     }
-    growers.sort((a, b) => b.pct_change - a.pct_change);
 
-    // Sector filtering — collect tagged companies from both boundary years
-    const growSector = document.getElementById('sector-select').value;
-    let growCandidates = growers;
-    if (growSector !== 'all') {
-      const taggedSet = new Set();
-      for (const yr of [fromYear, toYear]) {
-        for (const r of (COMPANY_DATA.top_by_year[yr] || [])) {
-          if (r.sector === growSector) taggedSet.add(r.company);
+    // top_growers is pre-computed (2019→2024) and expanded to 200 entries.
+    // It now carries sector and county fields for filtering.
+    // If the slider range matches 2019→2024 we use it directly.
+    // Otherwise we recompute growth from all_companies for the exact range.
+    let growCandidates;
+
+    if (fromYear === '2019' && toYear === '2024') {
+      // Use pre-computed list (faster)
+      growCandidates = COMPANY_DATA.top_growers || [];
+      if (activeCounty) growCandidates = growCandidates.filter(r => r.county === activeCounty);
+      if (sector !== 'all') growCandidates = growCandidates.filter(r => r.sector === sector);
+    } else {
+      // Recompute growth from flat all_companies for this exact year range
+      const fromMap = {}, toMap = {}, sectorMap = {}, countyMap = {};
+      for (const r of allData) {
+        const yr = String(r.y);
+        if (!matchesCo(r) || !matchesSec(r)) continue;
+        if (yr === fromYear) { fromMap[r.c] = (fromMap[r.c] || 0) + r.i; }
+        if (yr === toYear)   { toMap[r.c]   = (toMap[r.c]   || 0) + r.i; }
+        if (r.s && !sectorMap[r.c]) sectorMap[r.c] = r.s;
+        if (r.co && !countyMap[r.c]) countyMap[r.c] = r.co;
+      }
+      growCandidates = [];
+      for (const [company, fromIssued] of Object.entries(fromMap)) {
+        if (toMap[company] !== undefined && fromIssued > 0) {
+          const pct = +((toMap[company] - fromIssued) / fromIssued * 100).toFixed(1);
+          growCandidates.push({
+            company, issued_2019: fromIssued, issued_2024: toMap[company],
+            pct_change: pct,
+            sector: sectorMap[company] || null,
+            county: countyMap[company] || '',
+          });
         }
       }
-      growCandidates = growers.filter(r => taggedSet.has(r.company));
-      if (growCandidates.length === 0) {
-        list.innerHTML = `
-          <div style="text-align:center;padding:14px 8px;font-size:0.72rem;color:#aaa;">
-            No employers found for this sector in the selected range.
-          </div>`;
-        empty.style.display = 'none';
-        return;
-      }
+      growCandidates.sort((a, b) => b.pct_change - a.pct_change);
     }
 
-    rows = growCandidates.slice(0, 20)
-      .filter(r => r.company.toLowerCase().includes(query))
+    if (growCandidates.length === 0) {
+      _empNoResults('No growers found for this filter combination.');
+      return;
+    }
+
+    rows = growCandidates
+      .slice(0, 20)
+      .filter(r => r.company.toLowerCase().includes(searchQ))
       .map((r, i) => {
         const sign = r.pct_change >= 0 ? '+' : '';
         const cls  = r.pct_change >= 0 ? 'growth-pos' : 'growth-neg';
+        const countyBadge = r.county
+          ? `<span class="emp-county">${r.county}</span>` : '';
         return `
           <div class="emp-row">
-            <span class="emp-name" title="${r.company}">${i+1}. ${r.company}</span>
+            <span class="emp-name" title="${r.company}">${i+1}. ${r.company}${countyBadge}</span>
             <span class="emp-val">
               <span class="${cls}">${sign}${r.pct_change}%</span>
-              <span class="emp-sub"> (${r.fromIssued}→${r.toIssued})</span>
+              <span class="emp-sub"> (${r.issued_2019}→${r.issued_2024})</span>
             </span>
           </div>`;
       });
 
+  // ── TAB: New Entrants ────────────────────────────────────────────────
   } else {
-    // New Entrants: companies first appearing in the "to" year specifically.
-    // Range-responsive doesn't make sense here — over a wide range almost
-    // every company would qualify. Pinning to toYear keeps the question sharp:
-    // "who just showed up this year?"
-    // Each entry is {company, sector} so sector filtering works directly.
-    const entSector = document.getElementById('sector-select').value;
-    let entrantPool = COMPANY_DATA.new_entrants[toYear] || [];
-    if (entSector !== 'all') {
-      entrantPool = entrantPool.filter(r => r.sector === entSector);
-      if (entrantPool.length === 0) {
-        list.innerHTML = `
-          <div style="text-align:center;padding:14px 8px;font-size:0.72rem;color:#aaa;">
-            No new entrants found for this sector in ${toYear}.
-          </div>`;
-        empty.style.display = 'none';
-        return;
-      }
+    // new_entrants now stores ALL entrants per year (not just top 20).
+    // Sector and county fields allow correct filtering.
+    // Pinned to toYear: "who first appeared this year?"
+    let pool = COMPANY_DATA.new_entrants[toYear] || [];
+    if (activeCounty)    pool = pool.filter(r => r.county === activeCounty);
+    if (sector !== 'all') pool = pool.filter(r => r.sector === sector);
+    pool = pool.slice(0, 20);  // show top 20 after filtering
+
+    if (pool.length === 0) {
+      _empNoResults(`No new entrants found for this filter combination in ${toYear}.`);
+      return;
     }
-    rows = entrantPool
-      .filter(r => r.company.toLowerCase().includes(query))
-      .map((r, i) => `
-        <div class="emp-row">
-          <span class="emp-name" title="${r.company}">${i+1}. ${r.company}</span>
-          <span class="emp-val emp-sub">new ${toYear}</span>
-        </div>`);
+
+    rows = pool
+      .filter(r => r.company.toLowerCase().includes(searchQ))
+      .map((r, i) => {
+        const countyBadge = r.county
+          ? `<span class="emp-county">${r.county}</span>` : '';
+        return `
+          <div class="emp-row">
+            <span class="emp-name" title="${r.company}">${i+1}. ${r.company}${countyBadge}</span>
+            <span class="emp-val emp-sub">new ${toYear}</span>
+          </div>`;
+      });
   }
 
   if (rows.length === 0) {
@@ -801,44 +958,57 @@ function updateCountyTable(fromYear, toYear) {
     }).join('');
 
   } else {
-    // ── Sector breakdown mode ───────────────────────────────────────────
-    // Show all sectors ranked by issued for the "to" year, with the selected
-    // one highlighted.  County-level sector data is not available in the source
-    // data, so the map and county columns remain showing totals.
-    const yearData = SECTOR_BY_YEAR[toYear] || [];
-    const allIssued = yearData.reduce((s, r) => s + r.issued, 0);
+    // ── Sector breakdown mode ─────────────────────────────────────────────────
+    // When a county is active AND county-level sector data exists, show county
+    // breakdown.  Otherwise fall back to national SECTOR_BY_YEAR.
+    const countyData = activeCounty
+      ? ((COUNTY_SECTOR[activeCounty] || {})[toYear] || null)
+      : null;
+
+    let sectorRows, dataLabel;
+    if (countyData && countyData.length > 0) {
+      // County-derived breakdown: rows are {sector, issued}
+      sectorRows = countyData.map(r => ({
+        sector_short: r.sector,
+        sector_full:  r.sector,
+        issued:       r.issued,
+      }));
+      dataLabel = `Top sectors — ${activeCounty} (${toYear}, derived from employer data)`;
+    } else {
+      // National SECTOR_BY_YEAR fallback
+      sectorRows = SECTOR_BY_YEAR[toYear] || [];
+      dataLabel  = `sector data available from 2020 onwards`;
+    }
+
+    const allIssued = sectorRows.reduce((s, r) => s + r.issued, 0);
     document.getElementById('national-total').textContent =
       allIssued > 0 ? allIssued.toLocaleString() : '—';
     document.getElementById('national-label').textContent =
       allIssued > 0
         ? `total permits across all sectors (${toYear})`
-        : `sector data available from 2020 onwards`;
+        : dataLabel;
 
-    // Determine the effective from-year for sector growth (falls back to 2020
-    // if the slider from-handle is set before sector data begins).
-    const sectorYears     = Object.keys(SECTOR_BY_YEAR).sort();
-    const effectiveFrom   = SECTOR_BY_YEAR[fromYear] ? fromYear : sectorYears[0];
-    const hasSectorRange  = effectiveFrom && effectiveFrom !== toYear && SECTOR_BY_YEAR[toYear];
-    // Use "fromYear→toYear" as the column header — compact, no line break needed
-    const growthColHeader = hasSectorRange
-      ? `${effectiveFrom}→${toYear}` : 'Growth';
+    const sectorYears    = Object.keys(SECTOR_BY_YEAR).sort();
+    const effectiveFrom  = SECTOR_BY_YEAR[fromYear] ? fromYear : sectorYears[0];
+    const hasSectorRange = effectiveFrom && effectiveFrom !== toYear && SECTOR_BY_YEAR[toYear];
+    const growthColHeader = hasSectorRange ? `${effectiveFrom}→${toYear}` : 'Growth';
 
-    // 4 columns: # | Sector | Permits | Growth  (Share removed for table width)
     document.querySelector('#county-table thead tr').innerHTML =
       `<th>#</th><th>Sector</th><th>${toYear}</th>
        <th id="growth-col-header">${growthColHeader}</th>`;
 
-    if (yearData.length === 0) {
+    if (sectorRows.length === 0) {
       document.getElementById('county-table-body').innerHTML =
         `<tr><td colspan="4" style="color:#aaa;font-size:0.72rem;padding:8px 4px;">
-          Sector data available from 2020 onwards
+          ${dataLabel}
         </td></tr>`;
       return;
     }
 
-    document.getElementById('county-table-body').innerHTML = yearData
+    document.getElementById('county-table-body').innerHTML = sectorRows
       .slice(0, 10)
       .map((row, i) => {
+        // Growth column: use national SECTOR_BY_YEAR for trend (county trend not computed here)
         const sg       = getSectorGrowth(row.sector_short, fromYear, toYear);
         const growthTd = sg ? growthBadge(sg.pct)
           : `<span style="color:#bbb">—</span>`;
@@ -881,6 +1051,20 @@ function populateSectorDropdown() {
   });
 }
 
+// Returns a pixel font size that mirrors the CSS clamp() type scale,
+// so Chart.js labels stay proportional to the rest of the UI.
+function chartFs(step) {
+  const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+  const vw  = window.innerWidth / 100;
+  const scales = {
+    '2xs': [0.62 * rem, 0.52 * rem + 0.35 * vw, 0.78 * rem],
+    'xs':  [0.72 * rem, 0.60 * rem + 0.42 * vw, 0.88 * rem],
+    'sm':  [0.80 * rem, 0.68 * rem + 0.50 * vw, 0.98 * rem],
+  };
+  const [min, pref, max] = scales[step];
+  return Math.round(Math.min(Math.max(pref, min), max));
+}
+
 // Destroy and recreate the Chart.js instance whenever the chart type or
 // axis orientation needs to change (all-sectors bar vs single-sector trend).
 function rebuildChart(config) {
@@ -894,18 +1078,36 @@ function updateSectorChart(toYear) {
   const canvas = document.getElementById('sector-chart');
   const sector = document.getElementById('sector-select').value;
 
-  if (sector === 'all') {
-    // ── All-sectors mode: horizontal bar chart of top 10 for toYear ──
-    const yearData = SECTOR_BY_YEAR[toYear];
-    if (!yearData || yearData.length === 0) {
-      note.style.display = 'block'; canvas.style.display = 'none'; return;
-    }
-    note.style.display = 'none'; canvas.style.display = 'block';
+  // ── When a county is active, use the derived COUNTY_SECTOR data ──────────
+  // COUNTY_SECTOR[county][year] = [{sector, issued}] sorted desc.
+  // This is a novel derived breakdown — DETE doesn't publish county × sector.
+  // If COUNTY_SECTOR has no entry for this county/year, fall back to national.
+  const countyYearData = activeCounty
+    ? ((COUNTY_SECTOR[activeCounty] || {})[toYear] || null)
+    : null;
 
-    const top10  = yearData.slice(0, 10);           // already sorted desc by Python
-    const labels = top10.map(r => r.sector_short);
-    const values = top10.map(r => r.issued);
-    const colors = top10.map((_, i) => SECTOR_COLORS[i % SECTOR_COLORS.length]);
+  if (sector === 'all') {
+    // ── All-sectors mode: horizontal bar of top 10 for toYear ────────────────
+    // Use county data if available, otherwise use national SECTOR_BY_YEAR.
+    let chartData;
+    let chartTitle;
+    if (countyYearData && countyYearData.length > 0) {
+      // County-level derived data: field names are {sector, issued} (no sector_full/short split)
+      chartData  = countyYearData.slice(0, 10);
+      chartTitle = `Top sectors — ${activeCounty} (${toYear}, derived)`;
+    } else {
+      const yearData = SECTOR_BY_YEAR[toYear];
+      if (!yearData || yearData.length === 0) {
+        note.style.display = 'block'; canvas.style.display = 'none'; return;
+      }
+      chartData  = yearData.slice(0, 10).map(r => ({ sector: r.sector_short, issued: r.issued }));
+      chartTitle = `Top 10 sectors — ${toYear} (national)`;
+    }
+
+    note.style.display = 'none'; canvas.style.display = 'block';
+    const labels = chartData.map(r => r.sector);
+    const values = chartData.map(r => r.issued);
+    const colors = chartData.map((_, i) => SECTOR_COLORS[i % SECTOR_COLORS.length]);
 
     rebuildChart({
       type: 'bar',
@@ -916,25 +1118,40 @@ function updateSectorChart(toYear) {
         plugins: {
           legend: { display: false },
           tooltip: { callbacks: { label: ctx => ` ${ctx.raw.toLocaleString()} permits` } },
-          title: { display: true, text: `Top 10 sectors — ${toYear}`,
-                   font: { size: 10 }, color: '#555' },
+          title: { display: true, text: chartTitle, font: { size: chartFs('xs') }, color: '#555' },
         },
         scales: {
-          x: { ticks: { font: { size: 9 } }, grid: { color: '#f0f0f0' } },
-          y: { ticks: { font: { size: 9 } } },
+          x: { ticks: { font: { size: chartFs('2xs') } }, grid: { color: '#f0f0f0' } },
+          y: { ticks: { font: { size: chartFs('xs') } } },
         },
       },
     });
 
   } else {
-    // ── Single-sector mode: trend line across all available years ──
-    // Build a sorted list of (year, issued) for the selected sector.
-    const trendData = Object.entries(SECTOR_BY_YEAR)
-      .map(([yr, sectors]) => {
-        const found = sectors.find(s => s.sector_short === sector);
-        return { year: yr, issued: found ? found.issued : 0 };
-      })
-      .sort((a, b) => a.year.localeCompare(b.year));
+    // ── Single-sector trend line across all available years ────────────────────
+    // When a county is active, build the trend from COUNTY_SECTOR (if available).
+    // Otherwise use the national SECTOR_BY_YEAR.
+    let trendData;
+    let isCountyDerived = false;
+
+    if (activeCounty && COUNTY_SECTOR[activeCounty]) {
+      // County-derived trend: iterate over every year in COUNTY_SECTOR[county]
+      trendData = Object.entries(COUNTY_SECTOR[activeCounty])
+        .map(([yr, rows]) => {
+          const found = rows.find(r => r.sector === sector);
+          return { year: yr, issued: found ? found.issued : 0 };
+        })
+        .sort((a, b) => a.year.localeCompare(b.year));
+      isCountyDerived = true;
+    } else {
+      // National SECTOR_BY_YEAR trend
+      trendData = Object.entries(SECTOR_BY_YEAR)
+        .map(([yr, sectors]) => {
+          const found = sectors.find(s => s.sector_short === sector);
+          return { year: yr, issued: found ? found.issued : 0 };
+        })
+        .sort((a, b) => a.year.localeCompare(b.year));
+    }
 
     const hasAnyData = trendData.some(d => d.issued > 0);
     if (!hasAnyData) {
@@ -942,21 +1159,18 @@ function updateSectorChart(toYear) {
     }
     note.style.display = 'none'; canvas.style.display = 'block';
 
-    // Highlight the from and to year bars distinctly
     const bgColors = trendData.map(d => {
-      if (d.year === toYear)   return '#0d6b44';   // darkest = "to" year
-      if (d.year === currentFromYear) return '#63e5ad'; // lighter = "from" year
+      if (d.year === toYear)          return '#0d6b44';
+      if (d.year === currentFromYear) return '#63e5ad';
       return '#169B62';
     });
 
-    // Build chart title: sector name + national growth for selected range.
-    // Uses effectiveFrom from getSectorGrowth so pre-2020 slider positions
-    // still show a meaningful growth figure (e.g. "2020→2024").
     const sg = getSectorGrowth(sector, currentFromYear, toYear);
     const growthLabel = sg
       ? ` · ${sg.pct >= 0 ? '+' : ''}${sg.pct}% (${sg.effectiveFrom}→${toYear})`
       : '';
-    const chartTitle = `${sector}${growthLabel}`;
+    const sourceLabel = isCountyDerived ? ` [${activeCounty}]` : '';
+    const chartTitle = `${sector}${sourceLabel}${growthLabel}`;
 
     rebuildChart({
       type: 'bar',
@@ -973,15 +1187,13 @@ function updateSectorChart(toYear) {
           legend: { display: false },
           tooltip: { callbacks: { label: ctx => ` ${ctx.raw.toLocaleString()} permits` } },
           title: {
-            display: true,
-            text: chartTitle,
-            font: { size: 10 }, color: '#333',
-            padding: { bottom: 6 },
+            display: true, text: chartTitle,
+            font: { size: chartFs('xs') }, color: '#333', padding: { bottom: 6 },
           },
         },
         scales: {
-          x: { ticks: { font: { size: 9 } } },
-          y: { ticks: { font: { size: 9 } }, grid: { color: '#f0f0f0' } },
+          x: { ticks: { font: { size: chartFs('2xs') } } },
+          y: { ticks: { font: { size: chartFs('xs') } }, grid: { color: '#f0f0f0' } },
         },
       },
     });
@@ -1061,17 +1273,16 @@ function setupRangeSlider() {
 
     updateSectorChart(currentToYear);
     updateCountyTable(currentFromYear, currentToYear);
+    updateEmployerPanelTitle();   // keeps header in sync with new sector
 
-    // Employer panel now supports sector filtering — re-render it.
-    // The Top 20 tab will filter to companies tagged with the selected sector.
-    if (COMPANY_DATA && COMPANY_DATA.top_by_year) {
+    if (COMPANY_DATA && COMPANY_DATA.all_companies) {
       updateEmployerPanel(currentFromYear, currentToYear);
     }
   });
 
   // ── Employer panel ──────────────────────────────────────────────────────
   // Only wire up the panel if company data was included at build time.
-  if (COMPANY_DATA && COMPANY_DATA.top_by_year) {
+  if (COMPANY_DATA && COMPANY_DATA.all_companies) {
     document.getElementById('employer-section').style.display = 'block';
     updateEmployerPanel(currentFromYear, currentToYear);
 
