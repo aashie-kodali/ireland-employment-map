@@ -22,7 +22,7 @@ A few things that surprised me in the data:
 
 **COVID barely registered.** Permits in 2019, 2020, and 2021 were virtually identical, within 1% of each other. The real shock came in 2022, when national totals more than doubled in a single year, going from around 16,000 to nearly 40,000. Whatever the pandemic froze, it unfroze all at once.
 
-**Agriculture more than doubled from 2023 to 2024**, rebounding strongly after an unusual dip the year before. The sector had been growing steadily since 2015, collapsed in 2023 for reasons that are not obvious from the data alone, then came back sharply.
+**Agriculture has been the most volatile sector in the dataset.** It dropped 50% in 2021, spiked to over 4,300 permits in 2022, collapsed back to 1,385 in 2023, then more than doubled again to 3,625 in 2024. The swings are steep in both directions, and the underlying causes are not obvious from the data alone. Note that sector data is only available from 2020 onward, so trends before that year cannot be compared.
 
 **Meath and Monaghan stand out** as counties with meaningful absolute growth that rarely make the headlines. Meath went from 72 permits in 2015 to over 1,500 in 2024. Monaghan went from 20 to over 500 in the same period. Neither is a tech hub, which makes the growth more interesting.
 
