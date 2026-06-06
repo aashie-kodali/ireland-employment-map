@@ -241,7 +241,7 @@
 
     #sector-chart-container { height: clamp(150px, 20vh, 260px) !important; }
 
-    #slider-bar { padding: 10px 16px 12px; }
+    #slider-bar { order: -1; padding: 12px 20px 14px; border-top: none; border-bottom: 1px solid #dde2ea; }
 
     .emp-tab { padding: 7px 0; }
 
@@ -1213,7 +1213,7 @@ function setupRangeSlider() {
   const el    = document.getElementById('year-slider');
   const ticks = document.getElementById('slider-ticks');
 
-  const defaultFromIdx = YEARS.includes('2019') ? YEARS.indexOf('2019') : 0;
+  const defaultFromIdx = YEARS.includes('2020') ? YEARS.indexOf('2020') : 0;
   const defaultToIdx   = YEARS.includes('2025') ? YEARS.indexOf('2025') : YEARS.length - 1;
 
   // Create the two-handle slider
