@@ -461,15 +461,26 @@ HTML_TEMPLATE = (Path(__file__).parent / "map_template.html").read_text(encoding
 
 # ── HTML generation ───────────────────────────────────────────────────────────
 
-def build_year_labels(years: list) -> dict:
-    """Map each year string to its display label; partial years get a suffix."""
-    return {y: f"{y} (Partial)" if int(y) in PARTIAL_YEARS else y for y in years}
+def build_year_labels(slider_years: list) -> dict:
+    """
+    Map each year string to its display label.
+    Slider years map to themselves; partial years get a "(Partial)" label
+    so the radio button JS can display the correct text.
+    """
+    labels = {y: y for y in slider_years}
+    for py in sorted(PARTIAL_YEARS):
+        labels[str(py)] = f"{py} (Partial)"
+    return labels
 
 
 def build_html(county_by_year: dict, county_growth: dict,
                sector_by_year: dict, company_data: dict,
                county_sector: dict, geojson: dict, years: list) -> str:
     """Fill the HTML template with embedded JSON data blobs."""
+    # Slider only shows full years; partial years appear as detached radio buttons.
+    slider_years  = [y for y in years if int(y) not in PARTIAL_YEARS]
+    partial_years = [str(y) for y in sorted(PARTIAL_YEARS)]
+
     return HTML_TEMPLATE.replace(
         "{COUNTY_BY_YEAR_JSON}",  json.dumps(county_by_year)
     ).replace(
@@ -483,9 +494,11 @@ def build_html(county_by_year: dict, county_growth: dict,
     ).replace(
         "{GEOJSON_JSON}",         json.dumps(geojson)
     ).replace(
-        "{YEARS_JSON}",           json.dumps(years)
+        "{YEARS_JSON}",           json.dumps(slider_years)
     ).replace(
-        "{YEAR_LABELS_JSON}",     json.dumps(build_year_labels(years))
+        "{YEAR_LABELS_JSON}",     json.dumps(build_year_labels(slider_years))
+    ).replace(
+        "{PARTIAL_YEARS_JSON}",   json.dumps(partial_years)
     )
 
 

@@ -149,6 +149,21 @@
   }
   #slider-ticks span { position: absolute; white-space: nowrap; }
 
+  /* Partial-year radio buttons (e.g. "2026 (Partial)") below the slider ticks */
+  #partial-year-row {
+    display: flex; align-items: center; gap: 8px; margin-top: 10px;
+  }
+  .partial-yr-btn {
+    font-size: var(--t-xs); padding: 3px 10px; border-radius: 12px;
+    border: 1.5px solid #169B62; background: #fff; color: #169B62;
+    cursor: pointer; white-space: nowrap; transition: background 0.15s, color 0.15s;
+  }
+  .partial-yr-btn.active { background: #169B62; color: #fff; }
+  #partial-year-disclaimer {
+    display: none; margin-top: 6px;
+    font-size: var(--t-2xs); color: #b85c00; font-style: italic;
+  }
+
   /* noUiSlider — Ireland green theme */
   .noUi-target { background: #e8ecf0; border: none; box-shadow: none; height: 6px; }
   .noUi-connect { background: #169B62; }
@@ -271,7 +286,7 @@
 <!-- Header -->
 <div id="header">
   <h1>🇮🇪 Ireland Work Permits — County Explorer</h1>
-  <span>Source: DETE work permit data 2015–2025</span>
+  <span>Source: DETE work permit data 2015–2026</span>
 </div>
 
 <!-- Main: sidebar + map -->
@@ -351,6 +366,10 @@
       <div id="slider-label">Drag handles to select a year range</div>
       <div id="year-slider"></div>
       <div id="slider-ticks"></div>
+      <div id="partial-year-row"></div>
+      <div id="partial-year-disclaimer">
+        &#9888; 2026 covers Jan–May only. Growth stats are unavailable for a fair comparison.
+      </div>
     </div>
   </div>
 
@@ -390,13 +409,16 @@ const COUNTY_SECTOR   = {COUNTY_SECTOR_JSON};
 const GEOJSON         = {GEOJSON_JSON};
 const YEARS           = {YEARS_JSON};
 const YEAR_LABELS     = {YEAR_LABELS_JSON};
+const PARTIAL_YEARS   = {PARTIAL_YEARS_JSON};
 function displayYear(y) { return YEAR_LABELS[y] || y; }
+function isPartialYear(yr) { return PARTIAL_YEARS.includes(String(yr)); }
 
 // ── Active filter state ────────────────────────────────────────────────────
 // These two variables (alongside currentFromYear / currentToYear) drive every
 // filtered view in the sidebar.  Changing either one triggers a full re-render
 // of the employer panel, sector chart, and county table.
-let activeCounty = null;   // null = All Ireland; set by clicking a county on the map
+let activeCounty      = null;   // null = All Ireland; set by clicking a county on the map
+let partialYearActive = false;  // true when a partial-year radio button is selected
 
 // ═══════════════════════════════════════════════════════════════════════
 //  COLOUR SCALE
@@ -572,11 +594,11 @@ function updateTooltip(feature) {
   const county = feature.properties.canonical_county;
   const data   = (COUNTY_BY_YEAR[currentToYear] || {})[county] || {};
   const growth = getGrowth(county, currentFromYear, currentToYear);
-  const growthStr = growth
-    ? `<span class="${growth.pct >= 0 ? 'growth-pos' : 'growth-neg'}">
+  const growthStr = (!growth || isPartialYear(currentToYear))
+    ? '—'
+    : `<span class="${growth.pct >= 0 ? 'growth-pos' : 'growth-neg'}">
         ${growth.pct >= 0 ? '+' : ''}${growth.pct}%</span>
-       (${currentFromYear}→${currentToYear})`
-    : '—';
+       (${currentFromYear}→${currentToYear})`;
   infoBox._div.innerHTML = `
     <div class="popup-county">${county}</div>
     <div class="popup-row"><span class="popup-label">Permits (${currentToYear})</span>
@@ -648,8 +670,8 @@ function showPopup(feature, latlng) {
   const sameYear = currentFromYear === currentToYear;
   const sector   = document.getElementById('sector-select').value;
 
-  // County growth rows
-  const countyGrowthHtml = growth && !sameYear ? `
+  // County growth rows — suppressed for partial years (no monthly county data)
+  const countyGrowthHtml = growth && !sameYear && !isPartialYear(currentToYear) ? `
     <div class="popup-row">
       <span class="popup-label">Permits in ${currentFromYear}</span>
       <span class="popup-val">${growth.fromIssued.toLocaleString()}</span>
@@ -663,9 +685,9 @@ function showPopup(feature, latlng) {
       <span class="popup-val">${growthBadge(growth.pct)}</span>
     </div>` : '';
 
-  // National sector growth block — shown when a sector is selected
+  // National sector growth block — shown when a sector is selected (not for partial years)
   let sectorHtml = '';
-  if (sector !== 'all') {
+  if (sector !== 'all' && !isPartialYear(currentToYear)) {
     const sg = getSectorGrowth(sector, currentFromYear, currentToYear);
     const toRow = (SECTOR_BY_YEAR[currentToYear] || []).find(s => s.sector_short === sector);
     sectorHtml = `
@@ -684,7 +706,7 @@ function showPopup(feature, latlng) {
           <span class="popup-val">${growthBadge(sg.pct)}</span>
         </div>
         <div class="popup-row">
-          <span class="popup-label">${currentFromYear} → ${currentToYear}</span>
+          <span class="popup-label">${sg.effectiveFrom} → ${currentToYear}</span>
           <span class="popup-val">
             ${sg.fromIssued.toLocaleString()} → ${sg.toIssued.toLocaleString()}
           </span>
@@ -814,6 +836,10 @@ function updateEmployerPanel(fromYear, toYear) {
 
   // ── TAB: Fastest Growing ─────────────────────────────────────────────
   } else if (currentEmployerTab === 'growers') {
+    if (isPartialYear(toYear)) {
+      _empNoResults('Growth data unavailable — 2026 covers Jan–May only and cannot be fairly compared against a full year.');
+      return;
+    }
     if (fromYear === toYear) {
       _empNoResults('Drag the left slider handle to select a range and see growth.');
       return;
@@ -940,14 +966,15 @@ function updateCountyTable(fromYear, toYear) {
     document.getElementById('national-label').textContent =
       `permits issued nationally (${toYear})`;
 
-    // Column headers for county mode — "Growth" label omitted to keep header compact
+    // Column headers for county mode — growth suppressed for partial years
+    const showGrowth = !sameYear && !isPartialYear(toYear);
     document.querySelector('#county-table thead tr').innerHTML =
       `<th>#</th><th>County</th><th>${toYear}</th>
-       <th id="growth-col-header">${sameYear ? 'Share' : `${fromYear}→${toYear}`}</th>`;
+       <th id="growth-col-header">${showGrowth ? `${fromYear}→${toYear}` : 'Share'}</th>`;
 
     document.getElementById('county-table-body').innerHTML = sorted.map((row, i) => {
       let lastCell;
-      if (sameYear) {
+      if (!showGrowth) {
         lastCell = `${row.pct_share}%`;
       } else {
         const growth = getGrowth(row.county, fromYear, toYear);
@@ -993,7 +1020,8 @@ function updateCountyTable(fromYear, toYear) {
 
     const sectorYears    = Object.keys(SECTOR_BY_YEAR).sort();
     const effectiveFrom  = SECTOR_BY_YEAR[fromYear] ? fromYear : sectorYears[0];
-    const hasSectorRange = effectiveFrom && effectiveFrom !== toYear && SECTOR_BY_YEAR[toYear];
+    const hasSectorRange = effectiveFrom && effectiveFrom !== toYear && SECTOR_BY_YEAR[toYear]
+                           && !isPartialYear(toYear);
     const growthColHeader = hasSectorRange ? `${effectiveFrom}→${toYear}` : 'Growth';
 
     document.querySelector('#county-table thead tr').innerHTML =
@@ -1012,7 +1040,7 @@ function updateCountyTable(fromYear, toYear) {
       .slice(0, 10)
       .map((row, i) => {
         // Growth column: use national SECTOR_BY_YEAR for trend (county trend not computed here)
-        const sg       = getSectorGrowth(row.sector_short, fromYear, toYear);
+        const sg       = hasSectorRange ? getSectorGrowth(row.sector_short, fromYear, toYear) : null;
         const growthTd = sg ? growthBadge(sg.pct)
           : `<span style="color:#bbb">—</span>`;
         const isMatch  = row.sector_short === sector;
@@ -1163,12 +1191,12 @@ function updateSectorChart(toYear) {
     note.style.display = 'none'; canvas.style.display = 'block';
 
     const bgColors = trendData.map(d => {
-      if (d.year === toYear)          return '#0d6b44';
-      if (d.year === currentFromYear) return '#63e5ad';
+      if (d.year === toYear) return '#0d6b44';
+      if (!isPartialYear(toYear) && d.year === currentFromYear) return '#63e5ad';
       return '#169B62';
     });
 
-    const sg = getSectorGrowth(sector, currentFromYear, toYear);
+    const sg = isPartialYear(toYear) ? null : getSectorGrowth(sector, currentFromYear, toYear);
     const growthLabel = sg
       ? ` · ${sg.pct >= 0 ? '+' : ''}${sg.pct}% (${sg.effectiveFrom}→${toYear})`
       : '';
@@ -1241,6 +1269,13 @@ function setupRangeSlider() {
 
   // Called on every handle move — update everything in the UI
   el.noUiSlider.on('update', (values) => {
+    // Moving the slider deactivates any partial-year radio button
+    if (partialYearActive) {
+      partialYearActive = false;
+      document.querySelectorAll('.partial-yr-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('partial-year-disclaimer').style.display = 'none';
+    }
+
     const fromYear = YEARS[Math.round(values[0])];
     const toYear   = YEARS[Math.round(values[1])];
 
@@ -1261,12 +1296,42 @@ function setupRangeSlider() {
 }
 
 // ═══════════════════════════════════════════════════════════════════════
+//  PARTIAL YEAR RADIO BUTTONS
+// ═══════════════════════════════════════════════════════════════════════
+function buildPartialYearButtons() {
+  const row = document.getElementById('partial-year-row');
+  PARTIAL_YEARS.forEach(yr => {
+    const btn = document.createElement('button');
+    btn.className = 'partial-yr-btn';
+    btn.textContent = YEAR_LABELS[yr] || `${yr} (Partial)`;
+    btn.dataset.year = yr;
+    btn.addEventListener('click', () => activatePartialYear(yr));
+    row.appendChild(btn);
+  });
+}
+
+function activatePartialYear(yr) {
+  partialYearActive = true;
+  currentToYear = yr;
+  document.querySelectorAll('.partial-yr-btn')
+    .forEach(b => b.classList.toggle('active', b.dataset.year === yr));
+  document.getElementById('partial-year-disclaimer').style.display = 'block';
+  refreshGeojsonColors(yr);
+  updateCountyTable(currentFromYear, yr);
+  updateSectorChart(yr);
+  updateEmployerPanel(currentFromYear, yr);
+  if (activeCounty) updateSectorNote();
+  document.getElementById('year-display').textContent = YEAR_LABELS[yr] || yr;
+}
+
+// ═══════════════════════════════════════════════════════════════════════
 //  INITIALISE
 // ═══════════════════════════════════════════════════════════════════════
 (function init() {
   buildGeojsonLayer(currentToYear);
   setupRangeSlider();
   populateSectorDropdown();
+  buildPartialYearButtons();
   updateCountyTable(currentFromYear, currentToYear);
   updateSectorChart(currentToYear);
 
