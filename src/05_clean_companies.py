@@ -1,7 +1,7 @@
 """
 src/05_clean_companies.py
 =========================
-Parses 11 years of company-level work permit files from data/raw/ and produces:
+Parses 12 years of company-level work permit files from data/raw/ and produces:
 
   data/cleaned/company_permits.csv   — one row per (year, company)
 
@@ -13,11 +13,11 @@ Columns:
   sector            — NACE sector (from data/raw/company_sector_map.csv, or null)
 
 Data sources:
-  DETE company permit files, 2015–2025.
+  DETE company permit files, 2015–2026.
   File naming changed over time:
     2015:      companies-issued-with-permits-2015.xlsx
     2016–2019: Companies Permits YYYY.xlsx
-    2020–2025: Permits Issued to Companies YYYY.xlsx
+    2020–2026: Permits Issued to Companies YYYY.xlsx
 
 FOUR DISTINCT EXCEL LAYOUTS:
 
@@ -48,6 +48,11 @@ FOUR DISTINCT EXCEL LAYOUTS:
   NEW-SHIFTED (2025):
     Same 1-row header as 2024, but Grand Total column is col 13 (not col 1).
     Detect by scanning header row for a cell containing 'grand'.
+
+  NEW-PARTIAL (2026):
+    1-row header: Employer Name | Permits Issued Jan … May | Permits Issued Grand Total
+    Same 'grand' scan as 2025 picks up 'Permits Issued Grand Total' in the last col.
+    Jan–May only (partial year data).
 
 Run from project root:
   Terminal : python src/05_clean_companies.py
@@ -92,6 +97,7 @@ KNOWN_TOTALS = {
     2023: 30_981,
     2024: 39_390,
     2025: 31_044,
+    2026: 15_535,   # Jan–May only (partial year)
 }
 
 # Acceptable tolerance (absolute permits) per year for the verification check.
@@ -225,7 +231,7 @@ def parse_company_2020_2023(path: Path, year: int) -> pd.DataFrame:
     data = data[data["company_name_raw"].notna()].copy()
     data["company_name_raw"] = data["company_name_raw"].astype(str).str.strip()
     data = data[~data["company_name_raw"].str.contains(
-        r"Grand Total|^nan$", case=False, regex=True, na=False
+        r"Grand Total|^Total$|^nan$", case=False, regex=True, na=False
     )]
 
     data["issued"] = pd.to_numeric(data["issued"], errors="coerce")
@@ -248,7 +254,7 @@ def parse_company_2024(path: Path, year: int) -> pd.DataFrame:
     data = data[data["company_name_raw"].notna()].copy()
     data["company_name_raw"] = data["company_name_raw"].astype(str).str.strip()
     data = data[~data["company_name_raw"].str.contains(
-        r"Grand Total|^nan$", case=False, regex=True, na=False
+        r"Grand Total|^Total$|^nan$", case=False, regex=True, na=False
     )]
 
     data["issued"] = pd.to_numeric(data["issued"], errors="coerce")
@@ -279,7 +285,7 @@ def parse_company_2025(path: Path, year: int) -> pd.DataFrame:
     data = data[data["company_name_raw"].notna()].copy()
     data["company_name_raw"] = data["company_name_raw"].astype(str).str.strip()
     data = data[~data["company_name_raw"].str.contains(
-        r"Grand Total|^nan$", case=False, regex=True, na=False
+        r"Grand Total|^Total$|^nan$", case=False, regex=True, na=False
     )]
 
     data["issued"] = pd.to_numeric(data["issued"], errors="coerce")
@@ -350,6 +356,16 @@ def build_company_permits() -> pd.DataFrame:
         frames.append(parse_company_2025(p, 2025))
     else:
         print(f"  [MISSING]      {fname_2025}")
+
+    # ---- Partial-year format (2026, Jan–May only) ----
+    # Same 'grand' detection as 2025: 'Permits Issued Grand Total' contains 'grand'.
+    fname_2026 = "Permits Issued to Companies 2026.xlsx"
+    p = RAW_DIR / fname_2026
+    if p.exists():
+        print(f"  [company-new-partial] {fname_2026}  →  year=2026")
+        frames.append(parse_company_2025(p, 2026))
+    else:
+        print(f"  [MISSING]      {fname_2026}")
 
     if not frames:
         raise RuntimeError(
@@ -432,7 +448,7 @@ if __name__ == "__main__":
         print(f"  Sector tagged    : 0  (no company_sector_map.csv found — "
               f"run scripts/research_company_sectors.py first)")
 
-    print(f"\n  Top 10 employers overall (2020–2025):")
+    print(f"\n  Top 10 employers overall (2020–2026):")
     top = (
         df[df["year"] >= 2020]
         .groupby("company_name_clean")["issued"]

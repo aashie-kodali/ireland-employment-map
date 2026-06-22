@@ -143,10 +143,11 @@
   }
   #year-slider { margin: 0 6px; }
   #slider-ticks {
-    display: flex; justify-content: space-between;
-    font-size: var(--t-2xs); color: #aaa; margin-top: 8px;
-    padding: 0 2px;
+    position: relative; height: 1.2em;
+    font-size: var(--t-2xs); color: #aaa;
+    margin: 8px 6px 0;
   }
+  #slider-ticks span { position: absolute; white-space: nowrap; }
 
   /* noUiSlider — Ireland green theme */
   .noUi-target { background: #e8ecf0; border: none; box-shadow: none; height: 6px; }
@@ -388,6 +389,8 @@ const COMPANY_DATA    = {COMPANY_DATA_JSON};
 const COUNTY_SECTOR   = {COUNTY_SECTOR_JSON};
 const GEOJSON         = {GEOJSON_JSON};
 const YEARS           = {YEARS_JSON};
+const YEAR_LABELS     = {YEAR_LABELS_JSON};
+function displayYear(y) { return YEAR_LABELS[y] || y; }
 
 // ── Active filter state ────────────────────────────────────────────────────
 // These two variables (alongside currentFromYear / currentToYear) drive every
@@ -1223,13 +1226,18 @@ function setupRangeSlider() {
     step:    1,
     range:   { min: 0, max: YEARS.length - 1 },
     tooltips: [
-      { to: v => YEARS[Math.round(v)] },   // left handle tooltip → year label
-      { to: v => YEARS[Math.round(v)] },   // right handle tooltip → year label
+      { to: v => displayYear(YEARS[Math.round(v)]) },   // left handle tooltip → year label
+      { to: v => displayYear(YEARS[Math.round(v)]) },   // right handle tooltip → year label
     ],
   });
 
   // Render tick labels under the track
-  ticks.innerHTML = YEARS.map(y => `<span>${y}</span>`).join('');
+  const n = YEARS.length;
+  ticks.innerHTML = YEARS.map((y, i) => {
+    const pct = n === 1 ? 50 : (i / (n - 1)) * 100;
+    const transform = i === 0 ? 'none' : i === n - 1 ? 'translateX(-100%)' : 'translateX(-50%)';
+    return `<span style="left:${pct}%;transform:${transform}">${displayYear(y)}</span>`;
+  }).join('');
 
   // Called on every handle move — update everything in the UI
   el.noUiSlider.on('update', (values) => {
@@ -1242,7 +1250,7 @@ function setupRangeSlider() {
 
     // Sidebar year display
     document.getElementById('year-display').textContent =
-      fromYear === toYear ? fromYear : `${fromYear} → ${toYear}`;
+      fromYear === toYear ? displayYear(fromYear) : `${displayYear(fromYear)} → ${displayYear(toYear)}`;
 
     // Update all dependent views
     refreshGeojsonColors(toYear);       // map colours based on the "to" year

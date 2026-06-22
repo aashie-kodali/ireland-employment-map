@@ -11,7 +11,7 @@ tidy, year-stacked CSVs in data/cleaned/:
 
 Data sources:
   • Ireland Dept. of Enterprise, Trade and Employment (DETE) work permit
-    statistics, 2015–2025.
+    statistics, 2015–2026.
   • Irish Immigration Service Delivery (ISD) visa decisions by year and
     nationality, 2017–2026.
 
@@ -27,7 +27,8 @@ KEY ASSUMPTIONS:
   • 2026 visa data is partial and is retained but flagged in the column name.
 
 LIMITATIONS:
-  • 2025 county file has no 'Withdrawn' column → filled with NaN.
+  • 2025 and 2026 county files have no 'Withdrawn' column → filled with NaN.
+  • 2026 files cover Jan–May only (partial year).
   • Northern Ireland counties (Antrim, Armagh, Fermanagh, etc.) appear in
     some years — they are kept in the CSV but lie outside the Republic of
     Ireland, so they won't appear on ROI choropleth maps.
@@ -251,8 +252,8 @@ def build_county_permits() -> pd.DataFrame:
         else:
             print(f"  [MISSING]    {fname}")
 
-    # ---- New format (2020–2025) ----
-    for yr in range(2020, 2026):
+    # ---- New format (2020–2026) ----
+    for yr in range(2020, 2027):
         fname = f"County Permits {yr}.xlsx"
         p = RAW_DIR / fname
         if p.exists():
@@ -441,7 +442,7 @@ SECTOR_NAME_NORMALISE = {
 }
 
 # Rows with these sector values are stray header/summary rows — drop them.
-SECTOR_DROP_VALUES = {"Economic Sector", "Grand Total"}
+SECTOR_DROP_VALUES = {"Economic Sector", "Grand Total", "Total"}
 
 
 def normalise_sector_names(df: pd.DataFrame) -> pd.DataFrame:
@@ -493,7 +494,7 @@ def build_sector_permits() -> pd.DataFrame:
         else:
             print(f"  [MISSING]    {fname}")
 
-    for yr in range(2020, 2026):
+    for yr in range(2020, 2027):
         fname = f"Permits by Sector {yr}.xlsx"
         p = RAW_DIR / fname
         if p.exists():
@@ -640,7 +641,7 @@ def build_nationality_permits() -> pd.DataFrame:
         else:
             print(f"  [MISSING]         {fname}")
 
-    for yr in range(2020, 2026):
+    for yr in range(2020, 2027):
         fname = f"Permits by Nationality {yr}.xlsx"
         p = RAW_DIR / fname
         if p.exists():

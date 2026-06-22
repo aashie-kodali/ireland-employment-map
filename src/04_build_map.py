@@ -49,6 +49,9 @@ GEO_DIR     = Path("data/geo")
 # Secondary output: output/map/ireland_employment_map.html — local preview copy.
 PUBLIC_DIR  = Path("public")
 OUTPUT_DIR  = Path("output/map")
+
+# Years where data is incomplete (partial year release) — used to label the slider.
+PARTIAL_YEARS = {2026}
 PUBLIC_DIR.mkdir(parents=True, exist_ok=True)
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -458,6 +461,11 @@ HTML_TEMPLATE = (Path(__file__).parent / "map_template.html").read_text(encoding
 
 # ── HTML generation ───────────────────────────────────────────────────────────
 
+def build_year_labels(years: list) -> dict:
+    """Map each year string to its display label; partial years get a suffix."""
+    return {y: f"{y} (Partial)" if int(y) in PARTIAL_YEARS else y for y in years}
+
+
 def build_html(county_by_year: dict, county_growth: dict,
                sector_by_year: dict, company_data: dict,
                county_sector: dict, geojson: dict, years: list) -> str:
@@ -476,6 +484,8 @@ def build_html(county_by_year: dict, county_growth: dict,
         "{GEOJSON_JSON}",         json.dumps(geojson)
     ).replace(
         "{YEARS_JSON}",           json.dumps(years)
+    ).replace(
+        "{YEAR_LABELS_JSON}",     json.dumps(build_year_labels(years))
     )
 
 
