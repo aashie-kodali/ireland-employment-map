@@ -352,10 +352,24 @@ def load_company_data() -> dict:
     # ── New entrants: ALL companies first appearing that year ──────────────────
     # Storing ALL (not just top 20) ensures every sector/county combo has results.
     # Companies are sorted by issued descending; JS slices to 20 after filtering.
-    first_year = df.groupby("company_name_clean")["year"].min()
+    #
+    # Use normalised names to compute first-year so that legal-suffix aliases
+    # (e.g. "Redwood UC" vs "Redwood Unlimited Company", "&" vs "and") don't
+    # make a returning company look like a new entrant.
+    def _norm(name):
+        n = str(name).lower().strip()
+        n = n.replace("&", "and")
+        n = re.sub(r"unlimited company", "", n)
+        n = re.sub(r"\b(limited|ltd|plc|dac|uc|ulc|clg|teoranta|co|unlimited)\b\.?", "", n)
+        return re.sub(r"\s+", " ", n).strip()
+
+    df["_norm"] = df["company_name_clean"].apply(_norm)
+    first_year_by_norm = df.groupby("_norm")["year"].min()
+    df["_first_year"] = df["_norm"].map(first_year_by_norm)
+
     new_entrants = {}
     for year, grp in df.groupby("year"):
-        debutants = first_year[first_year == year].index
+        debutants = grp[grp["_first_year"] == year]["company_name_clean"].unique()
         year_data = grp[grp["company_name_clean"].isin(debutants)].copy()
         if not year_data.empty:
             year_data = year_data.sort_values("issued", ascending=False)

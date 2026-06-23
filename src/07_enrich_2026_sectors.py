@@ -176,9 +176,13 @@ def extra_normalize(name: str) -> str:
     Lowercase + strip legal suffixes for dedup/CRO matching.
     More aggressive than clean_company_name() — used only for matching,
     never as an output key (we always keep the original cleaned name as the key).
+    Also normalises "&" → "and" and "Unlimited Company" → "" so that
+    UC ↔ Unlimited Company variants resolve to the same normalised form.
     """
     n = str(name).lower().strip()
-    n = re.sub(r"\b(limited|ltd|plc|dac|uc|ulc|clg|teoranta|co)\b\.?", "", n)
+    n = n.replace("&", "and")
+    n = re.sub(r"unlimited company", "", n)
+    n = re.sub(r"\b(limited|ltd|plc|dac|uc|ulc|clg|teoranta|co|unlimited)\b\.?", "", n)
     n = re.sub(r"\s+", " ", n).strip()
     return n
 

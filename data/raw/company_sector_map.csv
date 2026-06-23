@@ -20695,10 +20695,10 @@ Caring Hands Limited,5,Q - Health & Social Work Activities,2026_dedup
 Carroll Dairy Farms Limited,1,"C - Manufacture of Food, Drink & Tobacco",2026_dedup
 Castlebridge Manor Private Clinic Limited,33,Q - Health & Social Work Activities,2026_dedup
 Castlefield Breeding Farm Ltd,1,C - All Other Manufacturing,2026_dedup
-Castleknock Foods Ltd,1,L - Real Estate Activities,2026_dedup
-Catherine Mcauley House,2,K - Financial & Insurance Activities,2026_dedup
+Castleknock Foods Ltd,1,,2026_correction_removed
+Catherine Mcauley House,2,Q - Health & Social Work Activities,2026_correction
 Celtic Dynamics Engineering Limited,1,"M - Professional, Scientific & Technical Activities",2026_dedup
-Cheeverstown House,1,L - Real Estate Activities,2026_dedup
+Cheeverstown House,1,Q - Health & Social Work Activities,2026_correction
 Computershare Investor Services (Ireland) Ltd,1,N - Administrative & Support Service Activities,2026_dedup
 Conack Construction Unlimited,3,F - Construction,2026_dedup
 Connelly Partners Integrated Europe Limited,1,"M - Professional, Scientific & Technical Activities",2026_dedup
@@ -20724,7 +20724,7 @@ Elliott Building and Civil Engineering Limited,7,F - Construction,2026_dedup
 Enterprise Registry Solutions Limited,1,K - Financial & Insurance Activities,2026_dedup
 Erova Energy Limited,1,D - Electricity & Gas & Air Conditioning Supply,2026_dedup
 Esker Property Holdings Limited,3,I - Accommodation & Food Services Activities,2026_dedup
-FLI Precast Solutions Limited,10,"M - Professional, Scientific & Technical Activities",2026_dedup
+FLI Precast Solutions Limited,10,C - All Other Manufacturing,2026_correction
 Failte Energy Solutions Limited,2,"M - Professional, Scientific & Technical Activities",2026_dedup
 Faneside Transport Limited,1,H - Transport & Storage,2026_dedup
 Fenlon's Pharma Kiltown Limited,1,"M - Professional, Scientific & Technical Activities",2026_dedup
@@ -20746,7 +20746,7 @@ Hyde Park Pig Farm Limited,1,C - All Other Manufacturing,2026_dedup
 ICM Computer Systems Limited,1,J - Information & Communication Activities,2026_dedup
 ISS Ireland Limited,1,Q - Health & Social Work Activities,2026_dedup
 Ingredient Solutions Ltd,1,G - Wholesale & Retail Trade,2026_dedup
-JJ Kavanagh & Sons Limited,4,K - Financial & Insurance Activities,2026_dedup
+JJ Kavanagh & Sons Limited,4,H - Transport & Storage,2026_correction
 JPS Restaurant Services Limited,1,I - Accommodation & Food Services Activities,2026_dedup
 JSL Group Limited,1,G - Wholesale & Retail Trade,2026_dedup
 Jansi Limited,2,I - Accommodation & Food Services Activities,2026_dedup
@@ -20755,7 +20755,7 @@ John Kelvin Formwork & Steel Fixing Limited,1,F - Construction,2026_dedup
 K.T.F. Housing Limited,9,C - All Other Manufacturing,2026_dedup
 KOERBER PHARMA SOFTWARE GMBH,2,C - Manufacture of Chemicals & Pharmaceuticals,2026_dedup
 KSK Enterprises Limited,1,N - Administrative & Support Service Activities,2026_dedup
-Kilduff Care Co. Limited,3,J - Information & Communication Activities,2026_dedup
+Kilduff Care Co. Limited,3,Q - Health & Social Work Activities,2026_correction
 Kilminchy Catering Limited,1,I - Accommodation & Food Services Activities,2026_dedup
 King and Moffatt Ireland Limited,25,F - Construction,2026_dedup
 Koryu Limited,3,I - Accommodation & Food Services Activities,2026_dedup
@@ -20763,7 +20763,7 @@ Lister Machine Tools Limited,1,G - Wholesale & Retail Trade,2026_dedup
 MPC Civil Engineering Limited,1,F - Construction,2026_dedup
 MacTivate Limited,1,"M - Professional, Scientific & Technical Activities",2026_dedup
 Mainline Power Limited,8,"M - Professional, Scientific & Technical Activities",2026_dedup
-Mannok Cement Limited,3,K - Financial & Insurance Activities,2026_dedup
+Mannok Cement Limited,3,C - All Other Manufacturing,2026_correction
 Marble & Granite Supplies Ltd,1,G - Wholesale & Retail Trade,2026_dedup
 Maritime Tourism Limited,1,H - Transport & Storage,2026_dedup
 Mastertech Group Ltd,1,"M - Professional, Scientific & Technical Activities",2026_dedup
@@ -20783,7 +20783,7 @@ Millbrae Lodge Nursing Home Limited,4,Q - Health & Social Work Activities,2026_d
 Munich Re Automation Solutions Ltd,1,"M - Professional, Scientific & Technical Activities",2026_dedup
 Murray Design and Engineering Limited,2,C - All Other Manufacturing,2026_dedup
 Noel Lawler Green Energy Solutions Limited,2,"M - Professional, Scientific & Technical Activities",2026_dedup
-NorDan Vinduer,2,K - Financial & Insurance Activities,2026_dedup
+NorDan Vinduer,2,C - All Other Manufacturing,2026_correction
 Nua Healthcare Services Limited,89,Q - Health & Social Work Activities,2026_dedup
 O'Kelly Feed Mills Limited,1,C - All Other Manufacturing,2026_dedup
 O'Neill O'Malley Limited,1,Q - Health & Social Work Activities,2026_dedup
@@ -20794,7 +20794,7 @@ Orona Midwestern Lifts Ltd,2,G - Wholesale & Retail Trade,2026_dedup
 Oscar Painters Limited,1,F - Construction,2026_dedup
 P & G Callaghan Windows Limited,15,F - Construction,2026_dedup
 PU LIN LIMITED,2,I - Accommodation & Food Services Activities,2026_dedup
-People Pro HR Limited,8,J - Information & Communication Activities,2026_dedup
+People Pro HR Limited,8,N - Administrative & Support Service Activities,2026_correction
 Plus 55 Barber Shop Ltd,2,S - Other Service Activities,2026_dedup
 Prestwick Aircraft Maintenance IRE Limited,2,C - All Other Manufacturing,2026_dedup
 Professional Mechanical Solutions Limited,1,G - Wholesale & Retail Trade,2026_dedup
@@ -20833,7 +20833,7 @@ Tango and Sons Haulage Limited,3,H - Transport & Storage,2026_dedup
 Temenos Systems Ireland Limited,1,G - Wholesale & Retail Trade,2026_dedup
 Tempside Limited,5,N - Administrative & Support Service Activities,2026_dedup
 The Brindley Manor Federation Of Nursing Homes Limited,6,Q - Health & Social Work Activities,2026_dedup
-The Cartoon Saloon Limited,2,J - Information & Communication Activities,2026_dedup
+The Cartoon Saloon Limited,2,"R - Arts, Entertainment and Recreation",2026_correction
 The Village Nursing Home Limited,5,Q - Health & Social Work Activities,2026_dedup
 The West Cork Hotel Ltd,1,I - Accommodation & Food Services Activities,2026_dedup
 Timoney Dynamic Solutions Limited,1,J - Information & Communication Activities,2026_dedup
@@ -20911,7 +20911,7 @@ Sparantus Limited,7,Q - Health & Social Work Activities,2026_dedup
 Udemy Ireland Limited,2,J - Information & Communication Activities,2026_dedup
 360 REMOVALS & CLEANING LIMITED,1,H - Transport & Storage,2026_cro
 4AG Robotics (Ireland) Limited,3,C - All Other Manufacturing,2026_cro
-A.I. Vending Solutions Ltd,1,H - Transport & Storage,2026_cro
+A.I. Vending Solutions Ltd,1,,2026_correction_removed
 AA Accounting and Finance Services Limited,1,"M - Professional, Scientific & Technical Activities",2026_cro
 AGT Food Service Limited,2,I - Accommodation & Food Services Activities,2026_cro
 AIGAME LIMITED,1,J - Information & Communication Activities,2026_cro
@@ -20921,7 +20921,7 @@ AUGUSTA LIFE SCIENCES RESEARCH CENTER LIMITED,1,C - All Other Manufacturing,2026
 AZCON LIMITED,1,F - Construction,2026_cro
 Abbey Blue Media Limited,1,J - Information & Communication Activities,2026_cro
 Academy Administration Resources Limited,1,O - Public Administration & Defence,2026_cro
-Accel Capital Partners (Ireland) Limited,2,"M - Professional, Scientific & Technical Activities",2026_cro
+Accel Capital Partners (Ireland) Limited,2,K - Financial & Insurance Activities,2026_correction
 Aces Cleaning Limited,1,N - Administrative & Support Service Activities,2026_cro
 Adam's Green Retail Limited,1,G - Wholesale & Retail Trade,2026_cro
 Advanced Peadiatric Hearing Solutions,1,Q - Health & Social Work Activities,2026_cro
@@ -21049,7 +21049,7 @@ Connie's Takeaway Limited,1,I - Accommodation & Food Services Activities,2026_cr
 Connor Leonard Labour Solutions,2,"M - Professional, Scientific & Technical Activities",2026_cro
 Cork Energy Consultancy Limited,1,N - Administrative & Support Service Activities,2026_cro
 Cork Study Connect Limited,1,P - Education,2026_cro
-Corked Season 2 Designated Activity Company,2,J - Information & Communication Activities,2026_cro
+Corked Season 2 Designated Activity Company,2,"R - Arts, Entertainment and Recreation",2026_correction
 Corrib View Construction Ltd,1,F - Construction,2026_cro
 Coru Care Limited,1,Q - Health & Social Work Activities,2026_cro
 Cosier Bars Ltd,1,I - Accommodation & Food Services Activities,2026_cro
@@ -21071,7 +21071,7 @@ DMD United Enterprises Limited,1,G - Wholesale & Retail Trade,2026_cro
 DPPS International Construction Limited,1,F - Construction,2026_cro
 Dalmazio Limited,1,Q - Health & Social Work Activities,2026_cro
 Dan Coleman Construction Limited,1,F - Construction,2026_cro
-Danone Infant Nutrition Macroom Ltd,1,C - All Other Manufacturing,2026_cro
+Danone Infant Nutrition Macroom Ltd,1,"C - Manufacture of Food, Drink & Tobacco",2026_correction
 Darren McCartney Engineering Limited,2,C - All Other Manufacturing,2026_cro
 Datavant Limited,1,J - Information & Communication Activities,2026_cro
 Davidson pharmacy ltd,1,Q - Health & Social Work Activities,2026_cro
@@ -21163,7 +21163,7 @@ HEADFORD KEBAB LIMITED,2,I - Accommodation & Food Services Activities,2026_cro
 HOCHAK PING LIMITED,1,I - Accommodation & Food Services Activities,2026_cro
 Haq Family Restaurant Limited,1,I - Accommodation & Food Services Activities,2026_cro
 Harbourstone International Limited,1,J - Information & Communication Activities,2026_cro
-Harklo Construction,1,L - Real Estate Activities,2026_cro
+Harklo Construction,1,F - Construction,2026_correction
 Harricater Gtd Limited,1,I - Accommodation & Food Services Activities,2026_cro
 Heathfield Dairy Farms Ballinruane Unlimited Company,1,"A - Agriculture, Forestry & Fishing",2026_cro
 Hegan Limited,1,F - Construction,2026_cro
@@ -21198,7 +21198,7 @@ Jobee Recruitment Limited,1,N - Administrative & Support Service Activities,2026
 K C L Kelly Construction Limited,2,F - Construction,2026_cro
 KB Sports Limited,1,"R - Arts, Entertainment and Recreation",2026_cro
 KCMG Engineering Ltd,1,F - Construction,2026_cro
-KKR Ireland Designated Activity Company,3,"M - Professional, Scientific & Technical Activities",2026_cro
+KKR Ireland Designated Activity Company,3,K - Financial & Insurance Activities,2026_correction
 KNKNS Sutton Limited,1,I - Accommodation & Food Services Activities,2026_cro
 KS3 Productions Designated Activity Company,1,J - Information & Communication Activities,2026_cro
 KT Manufacturing Ltd,2,C - All Other Manufacturing,2026_cro
@@ -21319,7 +21319,7 @@ OOMPH DATING LIMITED,1,J - Information & Communication Activities,2026_cro
 ORALE - AUTHENTIC MEXICAN FLAVOR LIMITED,1,I - Accommodation & Food Services Activities,2026_cro
 OSB Contractors Ltd,1,F - Construction,2026_cro
 Oak Underground Solutions Limited,1,F - Construction,2026_cro
-Oaksmoke Bakeries Limited,1,C - All Other Manufacturing,2026_cro
+Oaksmoke Bakeries Limited,1,"C - Manufacture of Food, Drink & Tobacco",2026_correction
 Oberland Limited,1,N - Administrative & Support Service Activities,2026_cro
 Oblixara Systems Limited,1,"M - Professional, Scientific & Technical Activities",2026_cro
 Offsite Building Solutions LTD.,1,F - Construction,2026_cro
@@ -21437,7 +21437,7 @@ Sparktel Limited,1,S - Other Service Activities,2026_cro
 Sphere Infotech Limited,2,J - Information & Communication Activities,2026_cro
 Spice Delight,1,I - Accommodation & Food Services Activities,2026_cro
 Spices & Flavours Limited,1,G - Wholesale & Retail Trade,2026_cro
-Springcare Independent Living Limited,5,K - Financial & Insurance Activities,2026_cro
+Springcare Independent Living Limited,5,Q - Health & Social Work Activities,2026_correction
 Spruce & Willow Limited,1,I - Accommodation & Food Services Activities,2026_cro
 Stax ICF Ltd,1,F - Construction,2026_cro
 Steve Jobs Recruitment limited,2,N - Administrative & Support Service Activities,2026_cro
@@ -21454,7 +21454,7 @@ TASTE OF GEORGIA LIMITED,2,G - Wholesale & Retail Trade,2026_cro
 TECHERA LIMITED,1,J - Information & Communication Activities,2026_cro
 THE TURMERIC TALE LTD,1,I - Accommodation & Food Services Activities,2026_cro
 THEATRE OF LIGHT LIMITED,1,"M - Professional, Scientific & Technical Activities",2026_cro
-Talbot Films Designated Activity Company,3,J - Information & Communication Activities,2026_cro
+Talbot Films Designated Activity Company,3,"R - Arts, Entertainment and Recreation",2026_correction
 Tasty Dynasty Chinese Takeaway Limited,1,I - Accommodation & Food Services Activities,2026_cro
 Taurleo Ltd,1,G - Wholesale & Retail Trade,2026_cro
 Taxcentral Limited,1,"M - Professional, Scientific & Technical Activities",2026_cro
@@ -21472,7 +21472,7 @@ The Big Nail Ltd,1,F - Construction,2026_cro
 The Black Wok (Blackrock) Limited,1,I - Accommodation & Food Services Activities,2026_cro
 The Elm Collection Limited,4,Q - Health & Social Work Activities,2026_cro
 The Food Spot Limited,1,I - Accommodation & Food Services Activities,2026_cro
-The Grafton Hospitality Unlimited Company,1,L - Real Estate Activities,2026_cro
+The Grafton Hospitality Unlimited Company,1,I - Accommodation & Food Services Activities,2026_correction
 The Grainsman Kitchen Limited,1,I - Accommodation & Food Services Activities,2026_cro
 The Holy Grail Bar & Restaurant Bunclody Limited,1,I - Accommodation & Food Services Activities,2026_cro
 The Lighthouse Centre Limited,1,K - Financial & Insurance Activities,2026_cro
@@ -21517,7 +21517,7 @@ Waggi Connected Pets,1,J - Information & Communication Activities,2026_cro
 WalkinGP Limited,1,Q - Health & Social Work Activities,2026_cro
 Watlow Ireland Limited,1,K - Financial & Insurance Activities,2026_cro
 Welliba Global Sales Limited,1,J - Information & Communication Activities,2026_cro
-West 53 Capital Limited,3,"M - Professional, Scientific & Technical Activities",2026_cro
+West 53 Capital Limited,3,K - Financial & Insurance Activities,2026_correction
 What's Exposed Limited,1,J - Information & Communication Activities,2026_cro
 William P. Browne Limited,4,"A - Agriculture, Forestry & Fishing",2026_cro
 Wok Grill Limited,1,I - Accommodation & Food Services Activities,2026_cro
