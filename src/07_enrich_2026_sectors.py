@@ -165,6 +165,11 @@ def nace_code_to_sector(nace_raw, company_name: str):
     section = NACE_DIVISION_MAP.get(division)
     if section is None:
         return None
+    # Division 78 = Employment Activities (staffing/placement agencies).
+    # Their permits are issued for workers placed in other sectors, so tagging
+    # the agency itself as N gives a misleading sector breakdown.
+    if division == 78:
+        return None
     if section == "C":
         return classify_manufacturing(company_name)
     return SECTION_TO_SECTOR.get(section)
