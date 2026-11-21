@@ -368,7 +368,7 @@
       <div id="slider-ticks"></div>
       <div id="partial-year-row"></div>
       <div id="partial-year-disclaimer">
-        &#9888; 2026 covers Jan–May only. Growth stats are unavailable for a fair comparison.
+        &#9888; 2026 covers Jan–Oct. Growth stats are unavailable for a fair comparison.
       </div>
     </div>
   </div>
@@ -837,7 +837,7 @@ function updateEmployerPanel(fromYear, toYear) {
   // ── TAB: Fastest Growing ─────────────────────────────────────────────
   } else if (currentEmployerTab === 'growers') {
     if (isPartialYear(toYear)) {
-      _empNoResults('Growth data unavailable — 2026 covers Jan–May only and cannot be fairly compared against a full year.');
+      _empNoResults('Growth data unavailable — 2026 covers Jan–Oct and cannot be fairly compared against a full year.');
       return;
     }
     if (fromYear === toYear) {

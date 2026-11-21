@@ -28,7 +28,7 @@ KEY ASSUMPTIONS:
 
 LIMITATIONS:
   • 2025 and 2026 county files have no 'Withdrawn' column → filled with NaN.
-  • 2026 files cover Jan–May only (partial year).
+  • 2026 files cover Jan–Oct (partial year).
   • Northern Ireland counties (Antrim, Armagh, Fermanagh, etc.) appear in
     some years — they are kept in the CSV but lie outside the Republic of
     Ireland, so they won't appear on ROI choropleth maps.

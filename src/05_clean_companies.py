@@ -50,9 +50,9 @@ FOUR DISTINCT EXCEL LAYOUTS:
     Detect by scanning header row for a cell containing 'grand'.
 
   NEW-PARTIAL (2026):
-    1-row header: Employer Name | Permits Issued Jan … May | Permits Issued Grand Total
+    1-row header: Employer Name | Permits Issued Jan … Oct | Permits Issued Grand Total
     Same 'grand' scan as 2025 picks up 'Permits Issued Grand Total' in the last col.
-    Jan–May only (partial year data).
+    Jan–Oct only (partial year data).
 
 Run from project root:
   Terminal : python src/05_clean_companies.py
@@ -97,7 +97,7 @@ KNOWN_TOTALS = {
     2023: 30_981,
     2024: 39_390,
     2025: 31_044,
-    2026: 15_535,   # Jan–May only (partial year)
+    2026: 33_362,   # Jan–Oct only (partial year)
 }
 
 # Acceptable tolerance (absolute permits) per year for the verification check.
@@ -357,7 +357,7 @@ def build_company_permits() -> pd.DataFrame:
     else:
         print(f"  [MISSING]      {fname_2025}")
 
-    # ---- Partial-year format (2026, Jan–May only) ----
+    # ---- Partial-year format (2026, Jan–Oct only) ----
     # Same 'grand' detection as 2025: 'Permits Issued Grand Total' contains 'grand'.
     fname_2026 = "Permits Issued to Companies 2026.xlsx"
     p = RAW_DIR / fname_2026
